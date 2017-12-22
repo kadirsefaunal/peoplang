@@ -1,0 +1,23 @@
+### CodeIgniter ###
+/user_guide
+
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+### JS ###
+/public/js/bootstrap.min.js
+/public/js/jquery.min.js
+/public/js/popper.js
+
+### CSS ###
+/public/css/bootstrap.min.css
+/public/css/font-awesome.min.css
+
+### Fonts ###
+/public/fonts
