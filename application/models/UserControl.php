@@ -24,4 +24,10 @@ class UserControl extends CI_Model
 		$user = $this->db->get_where('User', array('userName' => $userForm["userName"]));
 		return $user->first_row();
 	}
+
+	public function getUserByID($userID)
+	{
+		$user = $this->db->get_where('User', array('ID' => $userID));
+		return $user->first_row();
+	}
 }
