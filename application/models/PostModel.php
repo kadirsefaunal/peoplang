@@ -13,4 +13,10 @@ class PostModel extends CI_Model
     {
         $this->db->insert('Post', $newPost);
     }
+
+    public function getPosts()
+    {
+        $query = $this->db->get('Post');
+        return $query->result();
+    }
 }

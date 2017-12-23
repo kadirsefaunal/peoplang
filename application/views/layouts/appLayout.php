@@ -75,7 +75,11 @@
             $data["WebSites"] = $WebSites;
             $data["AboutMe"]  = $AboutMe;
             $this->load->view($content, $data);    
-        } else {
+        } else if($content == "app/index"){
+            $data["posts"] = $posts;
+            $this->load->view($content, $data);
+        }
+        else {
             $this->load->view($content);
         }
     ?>

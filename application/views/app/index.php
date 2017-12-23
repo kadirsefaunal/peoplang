@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+        
             <?php $this->load->view('app/partialOnlineUsers'); ?>
             <br />
             <?php $this->load->view('app/partialVisitors'); ?>

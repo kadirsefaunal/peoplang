@@ -13,7 +13,9 @@ class App extends CI_Controller {
 	public function index()
 	{
 		$data['content'] = "app/index";
+		$data["posts"] = $this->PostModel->getPosts();
 		$this->load->view('layouts/appLayout', $data);
+
     }
 
 	public function savePost()
@@ -40,5 +42,11 @@ class App extends CI_Controller {
 		//echo json_encode($newPost);
 		//$result = $this->PostControl->postAdd($newPost);
 
+	}
+
+	public function getPosts()
+	{
+		$data["posts"] = $this->PostModel->getPosts();
+		$this->load->view("partialPosts", $data);
 	}
 }

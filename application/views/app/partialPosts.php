@@ -1,5 +1,17 @@
 <div class="col-12 row-block">
     <ul id="sortable">
+    <?php
+
+        foreach($posts as $row){
+            echo $row->content;
+            echo $row->date;
+
+    ?>
+    <br>
+    <?php
+    }
+    ?>
+
         <li>
             <div class="media">
                 <div class="media-left align-self-center">
