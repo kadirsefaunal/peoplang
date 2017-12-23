@@ -11,7 +11,6 @@ class PostModel extends CI_Model
     
     public function insertPost($newPost)
     {
-        //$user = $this->UserControl->getUserByID($userID);
         $this->db->insert('Post', $newPost);
     }
 }

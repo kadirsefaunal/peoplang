@@ -1,18 +1,16 @@
 $(document).ready(function () {
-    /*$(".saveContact").click(function (result) {  
-        var contact = {
-            facebook : $('#facebook').val(),
-            twitter  : $('#twitter').val(),
-            instagram: $('#instagram').val(),
-            skype    : $('#skype').val(),
-            other    : $('#webSites').val()
+    
+    $("#postSend").click(function(){
+        
+        var post = {
+            content: $('#userPost').val()
         };
+        console.log(post);
 
-        $.post("settings/saveContact", { contact: contact }, function (result) {  
+        $.post('app/savePost', { post: post }, function (result) {
             console.log(result);
-            if (result == "True") {
-                window.location.reload(true);
-            }
+            
         });
-    });*/
+    });
+    
 });
