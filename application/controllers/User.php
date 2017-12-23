@@ -71,10 +71,14 @@ class User extends CI_Controller {
                 echo "Parola hatalı!";
             }
         }
-
-        //echo json_encode($result);
-
-        //echo json_encode($userForm);
     }
 
+    public function logout()
+    {
+        if (get_cookie("User") != null) {
+            delete_cookie("User");
+        }
+
+        redirect("landing", "refresh");
+    }
 }
