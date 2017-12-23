@@ -11,7 +11,11 @@ class Settings extends CI_Controller {
     
 	public function index()
 	{
-		$data['content'] = "settings/index";
+		$userID = get_cookie("User");
+
+		$data['WebSites'] = $this->SettingsModel->getWebSites($userID);
+		$data['content']  = "settings/index";
+		
 		$this->load->view('layouts/appLayout', $data);
     }
 

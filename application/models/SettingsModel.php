@@ -22,4 +22,14 @@ class SettingsModel extends CI_Model
         }
     }
 
+    public function getWebSites($userID)
+    {
+        $user = $this->UserControl->getUserByID($userID);
+        if ($user->webSitesID != null) {
+            $result = $this->db->get_where("WebSites", array('ID' => $user->webSitesID));
+            return $result->first_row();
+        } else {
+            return null;
+        }
+    }
 }

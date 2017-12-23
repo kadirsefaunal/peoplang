@@ -22,7 +22,7 @@
         </div>
 
         <div class="tab-pane" id="contact" role="tabpanel">
-            <?php $this->load->view('settings/partialContact'); ?>
+            <?php $this->load->view('settings/partialContact', $WebSites); ?>
         </div>
 
     </div>

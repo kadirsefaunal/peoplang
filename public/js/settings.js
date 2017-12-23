@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    /*$(".saveContact").click(function (result) {  
+    $(".saveContact").click(function (result) {  
         var contact = {
             facebook : $('#facebook').val(),
             twitter  : $('#twitter').val(),
@@ -14,5 +14,5 @@ $(document).ready(function () {
                 window.location.reload(true);
             }
         });
-    });*/
+    });
 });
