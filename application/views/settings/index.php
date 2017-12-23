@@ -18,7 +18,7 @@
         </div>
 
         <div class="tab-pane" id="about" role="tabpanel">
-            <?php $this->load->view('settings/partialAbout'); ?>
+            <?php $this->load->view('settings/partialAbout', $AboutMe); ?>
         </div>
 
         <div class="tab-pane" id="contact" role="tabpanel">

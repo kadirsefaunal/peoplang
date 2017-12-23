@@ -32,4 +32,29 @@ class SettingsModel extends CI_Model
             return null;
         }
     }
+
+    public function insertAboutMe($userID, $aboutMe)
+    {
+        $user = $this->UserControl->getUserByID($userID);
+        if ($user->aboutMeID == null) {
+            $this->db->insert("AboutMe", $aboutMe);
+            $aboutMeID = $this->db->insert_id();
+
+            $user->aboutMeID = $aboutMeID;
+            $this->db->update("User", $user, array('ID' => $user->ID));
+        } else {
+            $this->db->update("AboutMe", $aboutMe, array('ID' => $user->aboutMeID));
+        }
+    }
+
+    public function getAboutMe($userID)
+    {
+        $user = $this->UserControl->getUserByID($userID);
+        if ($user->aboutMeID != null) {
+            $result = $this->db->get_where("AboutMe", array('ID' => $user->aboutMeID));
+            return $result->first_row();
+        } else {
+            return null;
+        }
+    }
 }

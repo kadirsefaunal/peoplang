@@ -14,6 +14,7 @@ class Settings extends CI_Controller {
 		$userID = get_cookie("User");
 
 		$data['WebSites'] = $this->SettingsModel->getWebSites($userID);
+		$data['AboutMe']  = $this->SettingsModel->getAboutMe($userID);
 		$data['content']  = "settings/index";
 		
 		$this->load->view('layouts/appLayout', $data);
@@ -31,5 +32,19 @@ class Settings extends CI_Controller {
 		$this->SettingsModel->insertContact($userID, $contact);
 
 		echo "True";
+	}
+
+	public function saveAboutMe()
+	{
+		if ($this->input->post("aboutme") == null) {
+			echo "boş";
+		}
+
+		$aboutMe = $this->input->post("aboutme");
+		$userID  = get_cookie("User");
+
+		$this->SettingsModel->insertAboutMe($userID, $aboutMe);
+
+		//echo "True";
 	}
 }

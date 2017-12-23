@@ -73,6 +73,7 @@
     <?php 
         if ($content == "settings/index") {
             $data["WebSites"] = $WebSites;
+            $data["AboutMe"]  = $AboutMe;
             $this->load->view($content, $data);    
         } else {
             $this->load->view($content);
