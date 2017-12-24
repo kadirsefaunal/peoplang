@@ -5,7 +5,6 @@ class Landing extends CI_Controller {
 	
 	public function index()
 	{
-		$data = array("content" => "Landing/index");
-		$this->load->view('layouts/index', $data);
+		$this->load->view('landing/index');
 	}
 }
