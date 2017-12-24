@@ -1,47 +1,48 @@
-<div class="form-row justify-content-center">
-    <div class="form-group row col-md-12">
-        <label for="mail" class="col-md-3 align-self-center ">Mail</label>
-        <div class="input-group col-md-9">
-            <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
-            <input type="email" class="form-control" id="mail">
+<div class="row mt-3">
+    <div class="col-md-6">
+        <div class="md-form">
+            <i class="fa fa-facebook prefix" aria-hidden="true"></i>
+            <input type="text" id="facebook" class="form-control" value="<?php if ($WebSites != null) { echo $WebSites->facebook; } ?>">
+            <label for="facebook">Facebook</label>
         </div>
     </div>
-    <div class="form-group row col-md-12">
-        <label for="facebook" class="col-md-3 align-self-center ">Facebook</label>
-        <div class="input-group col-md-9">
-            <div class="input-group-addon"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-            <input type="text" class="form-control" id="facebook" value="<?php if ($WebSites != null) { echo $WebSites->facebook; } ?>">
+
+    <div class="col-md-6">
+        <div class="md-form">
+            <i class="fa fa-twitter prefix" aria-hidden="true"></i>
+            <input type="text" id="twitter" class="form-control" value="<?php if ($WebSites != null) { echo $WebSites->twitter; } ?>">
+            <label for="twitter">Twitter</label>
         </div>
     </div>
-    <div class="form-group row col-md-12">
-        <label for="twitter" class="col-md-3 align-self-center ">Twitter</label>
-        <div class="input-group col-md-9">
-            <div class="input-group-addon"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-            <input type="text" class="form-control" id="twitter" value="<?php if ($WebSites != null) { echo $WebSites->twitter; } ?>">
+</div>
+<div class="row mt-3">
+    <div class="col-md-6">
+        <div class="md-form">
+            <i class="fa fa-instagram prefix" aria-hidden="true"></i>
+            <input type="text" id="instagram" class="form-control" value="<?php if ($WebSites != null) { echo $WebSites->instagram; } ?>">
+            <label for="instagram">Instagram</label>
         </div>
     </div>
-    <div class="form-group row col-md-12">
-        <label for="instagram" class="col-md-3 align-self-center ">Instagram</label>
-        <div class="input-group col-md-9">
-            <div class="input-group-addon"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-            <input type="text" class="form-control" id="instagram" value="<?php if ($WebSites != null) { echo $WebSites->instagram; } ?>">
+
+    <div class="col-md-6">
+        <div class="md-form">
+            <i class="fa fa-skype prefix" aria-hidden="true"></i>
+            <input type="text" id="skype" class="form-control" value="<?php if ($WebSites != null) { echo $WebSites->skype; } ?>">
+            <label for="skype">Skype</label>
         </div>
     </div>
-    <div class="form-group row col-md-12">
-        <label for="skype" class="col-md-3 align-self-center ">Skype</label>
-        <div class="input-group col-md-9">
-            <div class="input-group-addon"><i class="fa fa-skype" aria-hidden="true"></i></div>
-            <input type="text" class="form-control" id="skype" value="<?php if ($WebSites != null) { echo $WebSites->skype; } ?>">
+</div>
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="md-form">
+            <i class="fa fa-at prefix" aria-hidden="true"></i>
+            <textarea type="text" id="webSites" class="md-textarea" rows="2"><?php if ($WebSites != null) { echo $WebSites->other; } ?></textarea>
+            <label for="webSites">Other Web Sites</label>
         </div>
     </div>
-    <div class="form-group row col-md-12">
-        <label for="webSites" class="col-md-3 align-self-center ">Other Web Sites</label>
-        <div class="input-group col-md-9">
-            <div class="input-group-addon"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i></div>
-            <textarea class="form-control" id="webSites" rows="2"><?php if ($WebSites != null) { echo $WebSites->other; } ?></textarea>
-        </div>
-    </div>
-    <div class="form-group row col-md-4">
-        <button class="saveContact">Save</button>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary float-right saveContact">Save</button>
     </div>
 </div>

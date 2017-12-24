@@ -1,185 +1,173 @@
-<form>
-    <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="150" height="150" alt="..." class="rounded-circle mx-auto d-block">
-    <div class="form-row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="form-group row">
-                            <label for="inputName" class="col-sm-3 col-form-label">Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputName" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputBirthday" class="col-sm-3 col-form-label">Birthday</label>
-                            <div class="col-sm-3">
-                                <select class="form-control" id="dayBirthday">
-                                    <option>10</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="form-control" id="monthBirthday">
-                                    <option>01</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="form-control" id="yearBirthday">
-                                    <option>1994</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="gender" class="col-sm-3 col-form-label">Gender</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="gender">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
 
+            <div class="col-md-6 mt-3">
+                <div class="card card-body">
+                    <h4 class="card-title text-center">Profile</h4>
+                    <div class="text-center">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid rounded-circle img-responsive z-depth-1"
+                            alt="Responsive image" height="250px" width="250px">
+                    </div>
+                    <div class="md-form form-sm mt-5">
+                        <input type="text" id="form1" class="form-control">
+                        <label for="form1" class="">Example label</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
+                        <label for="date-picker-example">Birthday</label>
+                    </div>
+                    <div class="md-form form-sm">
+                        <select class="mdb-select">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Example label</label>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-body">
+                            <h4 class="card-title">Change Password</h4>
+                            <div class="md-form form-sm mt-3">
+                                <input type="text" id="form4" class="form-control">
+                                <label for="form4" class="">Example label</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="md-form form-sm">
+                                        <input type="text" id="form5" class="form-control">
+                                        <label for="form5" class="">Example label</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="md-form form-sm">
+                                        <input type="text" id="form6" class="form-control">
+                                        <label for="form6" class="">Example label</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="btn-floating float-right">
+                                        <i class="fa fa-save" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card card-body mt-3">
+                            <h4 class="card-title">Mail & Location</h4>
+                            <div class="md-form form-sm mt-3">
+                                <input type="text" id="form3" class="form-control">
+                                <label for="form3" class="">Example label</label>
+                            </div>
+                            <div class="md-form form-sm">
+                                <select class="mdb-select">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                                <label>Example label</label>
+                            </div>
+                            <div class="md-form form-sm">
+                                <select class="mdb-select">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                                <label>Example label</label>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="form-group row">
-                            <label for="country" class="col-sm-3 col-form-label">Country</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="country">
-                                    <option>Turkey</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
 
-                        </div>
-                        <div class="form-group row">
-                            <label for="region" class="col-sm-3 col-form-label">Region</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="region">
-                                    <option>Bursa</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
+    </div>
+</div>
 
-                        </div>
-                        <div class="form-group row">
-                            <label for="city" class="col-sm-3 col-form-label">City</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="city">
-                                    <option>Kestel</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-
-                        </div>
+<div class="row mt-3">
+    <div class="col-md-6 mb-3">
+        <div class="card card-body">
+            <h4 class="card-title">Languages you can speak</h4>
+            <div class="row mt-3">
+                <div class="col-md-5">
+                    <div class="md-form form-sm">
+                        <select class="mdb-select">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Example label</label>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-12 ">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="language" class="col-sm-3 col-form-label">Language</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="language">
-                                        <option>French</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="level" class="col-sm-3 col-form-label">Level</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="level">
-                                        <option>Advanced</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-primary btn-sm float-right">Small button</button>
-                        </div>
+                <div class="col-md-5">
+                    <div class="md-form form-sm">
+                        <select class="mdb-select">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Example label</label>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-12 ">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="language" class="col-sm-3 col-form-label">Language</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="language">
-                                        <option>French</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
-                                <label for="level" class="col-sm-3 col-form-label">Level</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="level">
-                                        <option>Advanced</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-primary btn-sm float-right">Small button</button>
-                        </div>
-                    </div>
+                <div class="col-md-2">
+                    <a class="btn-floating float-right">
+                        <i class="fa fa-save" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</form>
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h4 class="card-title">Languages you want to learn</h4>
+            <div class="row mt-3">
+                <div class="col-md-5">
+                    <div class="md-form form-sm">
+                        <select class="mdb-select">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Example label</label>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="md-form form-sm">
+                        <select class="mdb-select">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Example label</label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn-floating float-right">
+                        <i class="fa fa-save" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.Panel 1-->
+<div class="row mt-3">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary float-right">Primary</button>
+    </div>
+</div>
