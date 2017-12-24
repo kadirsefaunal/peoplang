@@ -47,4 +47,18 @@ class Settings extends CI_Controller {
 
 		//echo "True";
 	}
+
+	public function changePassword()
+	{
+		if ($this->input->post("password") == null) {
+			echo "boş";
+		}
+
+
+		$userID = get_cookie("User");
+		$password = $this->input->post("password");
+
+		echo json_encode($this->SettingsModel->changePwd($userID, $password));
+
+	}
 }

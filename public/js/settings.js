@@ -39,4 +39,22 @@ $(document).ready(function () {
         });
         
     });
+
+    $(".changePwd").click(function (result) {  
+        var password = {
+            newPassword         : $('#newPassword').val(),
+            newPasswordConfirm  : $('#newPasswordConfirm').val(),
+            oldPassword         : $('#oldPassword').val()
+        };
+
+        if (password.newPassword == password.newPasswordConfirm) {
+            $.post("settings/changePassword", {password: password}, function (result) {  
+                console.log(result);
+                
+            });
+        } else {
+            console.log("parolalar uyuşmuyor!");
+            
+        }
+    });
 });

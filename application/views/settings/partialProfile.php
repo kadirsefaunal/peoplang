@@ -36,24 +36,24 @@
                         <div class="card card-body">
                             <h4 class="card-title">Change Password</h4>
                             <div class="md-form form-sm mt-3">
-                                <input type="text" id="form4" class="form-control">
-                                <label for="form4" class="">Example label</label>
+                                <input type="password" id="oldPassword" class="form-control">
+                                <label for="oldPassword" class="">Old Password</label>
                             </div>
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="md-form form-sm">
-                                        <input type="text" id="form5" class="form-control">
-                                        <label for="form5" class="">Example label</label>
+                                        <input type="password" id="newPassword" class="form-control">
+                                        <label for="newPassword" class="">New Password</label>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="md-form form-sm">
-                                        <input type="text" id="form6" class="form-control">
-                                        <label for="form6" class="">Example label</label>
+                                        <input type="password" id="newPasswordConfirm" class="form-control">
+                                        <label for="newPasswordConfirm" class="">Confirm New Password</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <a class="btn-floating float-right">
+                                    <a class="btn-floating float-right changePwd">
                                         <i class="fa fa-save" aria-hidden="true"></i>
                                     </a>
                                 </div>

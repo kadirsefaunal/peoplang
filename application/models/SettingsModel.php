@@ -57,4 +57,16 @@ class SettingsModel extends CI_Model
             return null;
         }
     }
+
+    public function changePwd($userID, $password)
+    {
+        $user= $this->UserControl->getUserByID($userID);
+        if ($user->password == $password["oldPassword"]) {
+            $user->password = $password["newPassword"];
+            $this->db->update("User", $user, array("ID" => $user->ID));
+            return "Başarılı!";
+        } else {
+            return "Eski Parola Hatalı!";
+        }
+    }
 }
