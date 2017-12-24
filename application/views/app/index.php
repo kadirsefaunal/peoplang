@@ -5,13 +5,13 @@
                     <div class="col-md-12">
                         <!--First column-->
                         <div class="md-form">
-                            <textarea type="text" id="form76" class="md-textarea" length="280"></textarea>
-                            <label for="form76">What's new?</label>
+                            <textarea type="text" id="userPost" class="md-textarea" length="280"></textarea>
+                            <label for="userPost">What's new?</label>
                         </div>
 
 
                         <div class="text-center">
-                            <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Share</button>
+                            <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a" id="postSend">Share</button>
                         </div>
 
                     </div>
