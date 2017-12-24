@@ -30,4 +30,10 @@ class UserControl extends CI_Model
 		$user = $this->db->get_where('User', array('ID' => $userID));
 		return $user->first_row();
 	}
+
+	public function getUserInformation($userInformationID)
+	{
+		$userInformation = $this->db->get_where("UserInformation", array("ID" => $userInformationID));
+		return $userInformation->first_row();
+	}
 }

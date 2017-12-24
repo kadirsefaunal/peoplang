@@ -6,6 +6,7 @@ class PostModel extends CI_Model
         parent::__construct();
 
         $this->load->model("UserControl");
+        $this->load->model("FriendsModel");
     }
 
     
@@ -14,9 +15,76 @@ class PostModel extends CI_Model
         $this->db->insert('Post', $newPost);
     }
 
-    public function getPosts()
+    public function getAllPosts($userID)
     {
-        $query = $this->db->get('Post');
-        return $query->result();
+        // $posts = $this->getPosts($userID);
+
+        // $friends = $this->FriendsModel->getFriends($userID);
+        // foreach ($friends as $friend) {
+        //     $user = $this->UserControl->getUserByID($friend->friendID);
+        //     //echo $user->ID . $user->userName;
+        //     $posts = array_merge($posts, $this->getPosts($friend->friendID));   
+        // }
+
+        // usort($posts, $this->build_sorter('date'));
+
+        // foreach ($posts as $p) {
+        //     echo json_encode($p)."<br>";
+        // }
+
+
+        $postList = array();
+        
+        $posts = $this->getPosts($userID);
+        $user = $this->UserControl->getUserByID($userID);
+        $userInformation = $this->UserControl->getUserInformation($user->userInformationID);
+
+        foreach ($posts as $p) {
+            $newPost = array(
+                "userID"    => $user->ID,
+                "userName"  => $user->userName,
+                "name"      => $userInformation->name,
+                "postID"    => $p["ID"],
+                "content"   => $p["content"],
+                "date"      => $p["date"]
+            );
+            array_push($postList, $newPost);
+        }
+
+        $friends = $this->FriendsModel->getFriends($userID);
+        foreach ($friends as $friend) {
+            $user = $this->UserControl->getUserByID($friend->friendID);
+            //echo $user->ID . $user->userName;
+            $posts = $this->getPosts($friend->friendID);
+            foreach ($posts as $p) {
+                $newPost = array(
+                    "userID"    => $user->ID,
+                    "userName"  => $user->userName,
+                    "name"      => $userInformation->name,
+                    "postID"    => $p["ID"],
+                    "content"   => $p["content"],
+                    "date"      => $p["date"]
+                );
+                array_push($postList, $newPost);
+            }
+        }
+
+        usort($postList, $this->build_sorter('date'));
+        foreach ($postList as $p) {
+            echo json_encode($p) . "<br>";
+        }
+
+    }
+
+    public function getPosts($userID)
+    {
+        $posts = $this->db->get_where("Post", array("userID" => $userID));
+        return $posts->result_array();
+    }
+
+    public function build_sorter($key) {
+        return function ($a, $b) use ($key) {
+            return strnatcmp($b[$key], $a[$key]);
+        };
     }
 }

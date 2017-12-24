@@ -12,10 +12,11 @@ class App extends CI_Controller {
     
 	public function index()
 	{
-		$data['content'] = "app/index";
-		$data["posts"] = $this->PostModel->getPosts();
-		$this->load->view('layouts/appLayout', $data);
+		$userID = get_cookie("User");
 
+		$data['content'] = "app/index";
+		$data["posts"] = $this->PostModel->getAllPosts($userID);
+		$this->load->view('layouts/appLayout', $data);
     }
 
 	public function savePost()
