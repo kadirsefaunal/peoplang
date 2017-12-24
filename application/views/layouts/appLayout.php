@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="<?php echo base_url("public/css/font-awesome.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("public/css/mdbootstrap.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("public/css/style.css"); ?>">
    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,58 +19,57 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+         <!--Navbar -->
+    <nav class="mb-4 navbar sticky-top navbar-expand-lg navbar-dark indigo">
+        <a class="navbar-brand" href="#">
+            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-3">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Translation Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Online</a>
+                </li>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Friends</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Translation Requests</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Online</a>
-                    </li>
-                </ul>
-                <div>
-                    <ul class="navbar-nav">
-                        <li class="nav-item" id="navbarNavDropdown">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-bell-o" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="25" height="25" alt="..." class="rounded-circle mx-auto d-block float-left"> kadir
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="settings" class="dropdown-item">Settings</a>
-                                <a href="user/logout" class="dropdown-item">Log Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
-
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">
+                        <i class="fa fa-envelope-o"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">
+                        <i class="fa fa-bell-o"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fa fa-user"></i> Kadir Mutlu </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item waves-effect waves-light" href="settings">Settings</a>
+                        <a class="dropdown-item waves-effect waves-light" href="user/logout">Log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--/.Navbar -->
     </div>
     
     <?php 

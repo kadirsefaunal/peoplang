@@ -1,24 +1,228 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-        
-            <?php $this->load->view('app/partialOnlineUsers'); ?>
-            <br />
-            <?php $this->load->view('app/partialVisitors'); ?>
-            <br />
-            <?php $this->load->view('app/partialOnlineFriends'); ?>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-12">
-                    <?php $this->load->view('app/partialPost'); ?>
-                    <div class="row">
-                        <section class="row-section">
-                            <?php $this->load->view('app/partialPosts'); ?>
-                        </section>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--First column-->
+                        <div class="md-form">
+                            <textarea type="text" id="form76" class="md-textarea" length="280"></textarea>
+                            <label for="form76">What's new?</label>
+                        </div>
+
+
+                        <div class="text-center">
+                            <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Share</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <section class="row-section">
+
+                                <div class="col-12 row-block">
+                                    <ul id="sortable">
+                                        <li>
+                                            <div class="media">
+                                                <div class="media-left align-self-center">
+                                                    <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/50.jpg">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4>Camila Terry</h4>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                                        veniam, quis nostrud exercitation</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <div class="media-left align-self-center">
+                                                    <img class="rounded-circle" src="https://randomuser.me/api/portraits/men/42.jpg">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4>Joel Williamson</h4>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                                        veniam, quis nostrud exercitation</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <div class="media-left align-self-center">
+                                                    <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/67.jpg">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4>Deann Payne</h4>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                                        veniam, quis nostrud exercitation</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                                <div class="media">
+                                                    <div class="media-left align-self-center">
+                                                        <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/67.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4>Deann Payne</h4>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                                            veniam, quis nostrud exercitation</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                    <div class="media">
+                                                        <div class="media-left align-self-center">
+                                                            <img class="rounded-circle" src="https://randomuser.me/api/portraits/women/67.jpg">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <h4>Deann Payne</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                                                veniam, quis nostrud exercitation</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                <div class="row">
+                                    <div class="col-md-4"><span class="badge badge-pill green align-middle mt-3">Online Users</span></div>
+                                    <div class="col-md-8">
+                                        <div class="md-form form-sm">
+                                                <select class="mdb-select">
+                                                        <option value="1">Language Select</option>
+                                                        <option value="2">Option 2</option>
+                                                        <option value="3">Option 3</option>
+                                                        <option value="4">Option 4</option>
+                                                        <option value="5">Option 5</option>
+                                                    </select>
+                                        </div>    
+                                    </div>
+                                </div>
+                                    
+                                
+                                </div>
+                                
+                                
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="https://randomuser.me/api/portraits/women/50.jpg" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">camilaterry<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="US.png"/><span class="app-city"> New York</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title"><span class="badge badge-pill red">Visitors</span></div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title"><span class="badge badge-pill indigo">Online Friends</span></div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
+                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>

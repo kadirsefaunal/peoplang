@@ -1,79 +1,45 @@
-.intro-2 {
-    background: url("http://mdbootstrap.com/img/Photos/Others/forest1.jpg")no-repeat center center;
-    background-size: cover;
+@import url('https://fonts.googleapis.com/css?family=Kumar+One');
+.row-section{float:left; width:100%;}
+.row-section h2{float:left; width:100%; color:#fff; margin-bottom:30px; font-size: 14px;}
+.row-section h2 span{font-family: 'Kumar One', cursive; display:block; font-size:45px; text-transform:none; margin-bottom:20px; margin-top:30px;}
+.row-section h2 a{color:#d2abce;}
+.row-section .row-block{background:#fff; padding:20px; margin-bottom:50px;}
+.row-section .row-block ul{margin:0; padding:0;}
+.row-section .row-block ul li{list-style:none; margin-bottom:20px;}
+.row-section .row-block ul li:last-child{margin-bottom:0;}
+.row-section .row-block ul li:hover{cursor:grabbing;}
+.row-section .row-block .media{border:1px solid #d5dbdd; padding:5px 20px; border-radius: 5px; box-shadow:0px 2px 1px rgba(0,0,0,0.04); background:#fff;}
+.row-section .media .media-left img{width:75px;}
+.row-section .media .media-body p{padding: 0 15px; font-size:14px;}
+.row-section .media .media-body h4 {color: #6b456a; font-size: 18px; font-weight: 600; margin-bottom: 0; padding-left: 14px; margin-top:12px;}
+.btn-default{background:#6B456A; color:#fff; border-radius:30px; border:none; font-size:16px;}
+
+
+
+
+
+.hm-gradient {
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+.darken-grey-text {
+    color: #2E2E2E;
 }
 
-.top-nav-collapse {
-    background-color: #3f51b5 !important;
+.navbar .dropdown-menu a:hover {
+    color: #616161 !important;
+}
+.darken-grey-text {
+    color: #2E2E2E;
 }
 
-.navbar:not(.top-nav-collapse) {
-    background: transparent !important;
+.app-username{
+    font-size: 12px;
+    color: #6B456A;
 }
 
-@media (max-width: 768px) {
-    .navbar:not(.top-nav-collapse) {
-        background: #3f51b5 !important;
-    }
+.app-age{
+    color: #616161;
 }
-
-.hm-gradient .full-bg-img {
-    background: -webkit-linear-gradient(98deg, rgba(22, 91, 231, 0.5), rgba(255, 32, 32, 0.5) 100%);
-    background: -webkit-gradient(linear, 98deg, from(rgba(22, 91, 231, 0.5)), to(rgba(255, 32, 32, 0.5)));
-    background: linear-gradient(to 98deg, rgba(22, 91, 231, 0.5), rgba(255, 32, 32, 0.5) 100%);
-}
-
-.card {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-.md-form .prefix {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-}
-
-/*
-.md-form label {
-    color: #ffffff;
-}
-*/
-
-h6 {
-    line-height: 1.7;
-}
-
-@media (max-width: 450px) and (max-height: 750px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 1400px;
-    }
-}
-
-@media (min-width: 451px) and (max-width: 767px) and (max-height: 1023px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 1200px;
-    }
-}
-
-@media (min-width: 800px) and (max-width: 1025px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 900px;
-    }
-}
-
-@media (min-width: 1026px) and (max-height: 800px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 100%;
-    }
+.app-city{
+    font-size: 12px;
 }

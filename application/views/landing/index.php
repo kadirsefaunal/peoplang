@@ -15,7 +15,7 @@
 
     <style>
         .intro-2 {
-            background: url("http://mdbootstrap.com/img/Photos/Others/forest1.jpg")no-repeat center center;
+            /*background: url("http://mdbootstrap.com/img/Photos/Others/forest1.jpg")no-repeat center center;*/
             background-size: cover;
         }
 
