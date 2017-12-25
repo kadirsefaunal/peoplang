@@ -36,4 +36,10 @@ class UserControl extends CI_Model
 		$userInformation = $this->db->get_where("UserInformation", array("ID" => $userInformationID));
 		return $userInformation->first_row();
 	}
+
+	public function getUserAvatar($userID)
+	{
+		$userAvatar = $this->db->get_where("Images", array("userID" => $userID, "avatar" => true));
+		return $userAvatar->first_row()->url; // Boşsa sabit avatar getir
+	}
 }

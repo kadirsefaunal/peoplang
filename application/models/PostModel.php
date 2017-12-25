@@ -35,44 +35,50 @@ class PostModel extends CI_Model
 
         $postList = array();
         
-        $posts = $this->getPosts($userID);
-        $user = $this->UserControl->getUserByID($userID);
-        $userInformation = $this->UserControl->getUserInformation($user->userInformationID);
+        $posts              = $this->getPosts($userID);
+        $user               = $this->UserControl->getUserByID($userID);
+        $userInformation    = $this->UserControl->getUserInformation($user->userInformationID);
+        $userAvatar         = $this->UserControl->getUserAvatar($userID);
 
         foreach ($posts as $p) {
             $newPost = array(
-                "userID"    => $user->ID,
-                "userName"  => $user->userName,
-                "name"      => $userInformation->name,
-                "postID"    => $p["ID"],
-                "content"   => $p["content"],
-                "date"      => $p["date"]
+                "userID"     => $user->ID,
+                "userName"   => $user->userName,
+                "name"       => $userInformation->name,
+                "userAvatar" => $userAvatar,
+                "postID"     => $p["ID"],
+                "content"    => $p["content"],
+                "date"       => $p["date"]
             );
             array_push($postList, $newPost);
         }
 
         $friends = $this->FriendsModel->getFriends($userID);
         foreach ($friends as $friend) {
-            $user = $this->UserControl->getUserByID($friend->friendID);
-            //echo $user->ID . $user->userName;
-            $posts = $this->getPosts($friend->friendID);
+            $user               = $this->UserControl->getUserByID($friend->friendID);
+            $userAvatar         = $this->UserControl->getUserAvatar($friend->friendID);
+            $userInformation    = $this->UserControl->getUserInformation($user->userInformationID);
+            $posts              = $this->getPosts($friend->friendID);
             foreach ($posts as $p) {
                 $newPost = array(
-                    "userID"    => $user->ID,
-                    "userName"  => $user->userName,
-                    "name"      => $userInformation->name,
-                    "postID"    => $p["ID"],
-                    "content"   => $p["content"],
-                    "date"      => $p["date"]
+                    "userID"     => $user->ID,
+                    "userName"   => $user->userName,
+                    "name"       => $userInformation->name,
+                    "userAvatar" => $userAvatar,
+                    "postID"     => $p["ID"],
+                    "content"    => $p["content"],
+                    "date"       => $p["date"]
                 );
                 array_push($postList, $newPost);
             }
         }
 
         usort($postList, $this->build_sorter('date'));
-        foreach ($postList as $p) {
-            echo json_encode($p) . "<br>";
-        }
+        return $postList;
+
+        // foreach ($postList as $p) {
+        //     echo json_encode($p) . "<br>";
+        // }
 
     }
 
