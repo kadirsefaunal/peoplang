@@ -25,9 +25,9 @@ class LanguageModel extends CI_Model
         return $this->db->delete("LanguageLevel", array("ID" => $langID));
     }
 
-    public function getLanguagesSpeaks($userID)
+    public function getLanguages($userID, $status)
     {
-        $result = $this->db->get_where("LanguageLevel", array("userID" => $userID, "learningOrSpeaking" => true));
+        $result = $this->db->get_where("LanguageLevel", array("userID" => $userID, "learningOrSpeaking" => $status));
         return $result->result_array();
     }
 }

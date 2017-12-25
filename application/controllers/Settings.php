@@ -64,11 +64,11 @@ class Settings extends CI_Controller {
 
 	public function addLangSpeaks()
 	{
-		if ($this->input->post("langSpeaks") == null) {
+		if ($this->input->post("lang") == null) {
 			echo "boş";
 		}
 
-		$languages = $this->input->post("langSpeaks");
+		$languages = $this->input->post("lang");
 		$userID	   = get_cookie("User");
 		$languages["userID"] = $userID;
 
@@ -78,12 +78,6 @@ class Settings extends CI_Controller {
 		} else {
 			echo json_encode($result);
 		}
-		
-		// if ($result == true) {
-		// 	echo json_encode("Success!");
-		// } else {
-		// 	echo json_encode("Error!");
-		// }
 	}
 
 	public function deletelanguage()
@@ -97,7 +91,7 @@ class Settings extends CI_Controller {
 		
 		$result = $this->LanguageModel->deleteLanguage($lid["lid"]);
 		if ($result == true) {
-			$languages = $this->LanguageModel->getLanguagesSpeaks($userID);
+			$languages = $this->LanguageModel->getLanguages($userID, $lid["status"]);
 			$langList = array();
 			foreach ($languages as $language) {
 				$newLang = array(
