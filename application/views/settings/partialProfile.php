@@ -68,22 +68,25 @@
                                 <label for="form3" class="">Example label</label>
                             </div>
                             <div class="md-form form-sm">
-                                <select class="mdb-select">
-                                    <option value="" disabled selected>Choose your option</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
+                                <select class="mdb-select" id="countries">
+                                    <option value="" disabled selected>Choose Country</option>
+                                    <?php 
+                                        if ($Countries != null) {
+                                            foreach ($Countries as $country) {
+                                            ?>
+                                                <option value="<?php echo $country["id"] ?>" data-icon="<?php echo base_url("public/img/flags/" . strtolower($country["sortname"]) . ".png") ?>"> <?php echo $country["name"] ?></option>
+                                            <?php
+                                            }
+                                        }
+                                    ?>
                                 </select>
-                                <label>Example label</label>
+                                <label>Country</label>
                             </div>
                             <div class="md-form form-sm">
-                                <select class="mdb-select">
-                                    <option value="" disabled selected>Choose your option</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
+                                <select class="mdb-select" id="states">
+                                    <option value="" disabled selected>Choose State</option>
                                 </select>
-                                <label>Example label</label>
+                                <label>States</label>
                             </div>
                         </div>
                     </div>

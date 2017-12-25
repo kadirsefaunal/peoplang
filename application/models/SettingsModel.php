@@ -69,4 +69,16 @@ class SettingsModel extends CI_Model
             return "Eski Parola Hatalı!";
         }
     }
+
+    public function getCountries()
+    {
+        $countries = $this->db->get("countries");
+        return $countries->result_array();
+    }
+
+    public function getStates($countryID)
+    {
+        $states = $this->db->get_where("states", array("country_id" => $countryID));
+        return $states->result_array();
+    }
 }

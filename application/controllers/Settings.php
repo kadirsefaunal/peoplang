@@ -14,9 +14,10 @@ class Settings extends CI_Controller {
 	{
 		$userID = get_cookie("User");
 
-		$data['WebSites'] = $this->SettingsModel->getWebSites($userID);
-		$data['AboutMe']  = $this->SettingsModel->getAboutMe($userID);
-		$data['content']  = "settings/index";
+		$data['WebSites']  = $this->SettingsModel->getWebSites($userID);
+		$data['AboutMe']   = $this->SettingsModel->getAboutMe($userID);
+		$data['Countries'] = $this->SettingsModel->getCountries();
+		$data['content']   = "settings/index";
 		
 		$this->load->view('layouts/appLayout', $data);
     }
@@ -108,5 +109,19 @@ class Settings extends CI_Controller {
 			echo json_encode("error");
 		}
 		
+	}
+
+	public function getstates()
+	{
+		if ($this->input->post("country") == null) {
+			echo "boş";
+		}
+
+		$country = $this->input->post("country");
+
+		$states = $this->SettingsModel->getStates($country["countryID"]);
+
+		echo json_encode($states);
+
 	}
 }

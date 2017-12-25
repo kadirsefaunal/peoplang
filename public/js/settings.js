@@ -148,4 +148,26 @@ $(document).ready(function () {
             });
         }
     });
+
+
+    $("#countries").change(function() {
+        var country = {
+            countryID: $("#countries option:selected").val()
+        };
+        
+        $.post("settings/getstates", {country: country}, function (result) {  
+            var obj = $.parseJSON(result);
+            $(".mdb-select").material_select("destroy");
+            $("#states").empty();
+            $("#states").append("<option value=\"\" disabled selected>Choose State</option>");
+            $.each(obj, function (i, item) {
+                $("#states").append("<option value=\"" + item.id + "\">" + item.name + "</option>");
+                //$("#states").append("<option value=\"1\">11111</option>");
+                console.log(item.name);
+                
+            });
+            $(".mdb-select").material_select();
+        });
+
+    });
 });
