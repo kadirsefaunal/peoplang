@@ -8,6 +8,7 @@ class Settings extends CI_Controller {
 
 		$this->load->model("SettingsModel");
 		$this->load->model("LanguageModel");
+		$this->load->model("UserControl");
 	}
     
 	public function index()
@@ -118,10 +119,39 @@ class Settings extends CI_Controller {
 		}
 
 		$country = $this->input->post("country");
-
 		$states = $this->SettingsModel->getStates($country["countryID"]);
 
 		echo json_encode($states);
+	}
 
+	public function saveProfile()
+	{
+		if ($this->input->post("profile") == null) {
+			echo "boş";
+		}
+
+		$userID  = get_cookie("User");
+		$profile = $this->input->post("profile");
+
+		$userInformation = array(
+			"name" 		=> $profile["name"],
+			"country" 	=> $profile["country"],
+			"city"		=> $profile["city"],
+			"birthDate" => $profile["birthDate"],
+			"gender" 	=> $profile["gender"] 
+		);
+
+		$langStatusSpeak = $this->LanguageModel->getLanguages($userID, true);
+		$langStatusLearn = $this->LanguageModel->getLanguages($userID, false);
+
+		if ($langStatusSpeak != null && $langStatusLearn != null) {
+			$this->SettingsModel->insertUserInformation($userID, $userInformation);
+			$this->UserControl->updateUserStatusMail($userID, $profile["mail"]);
+			echo "True";	
+		} else {
+			echo "Dilleri kontrol edin!";
+		}
+
+		
 	}
 }

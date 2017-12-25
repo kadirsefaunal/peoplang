@@ -81,4 +81,18 @@ class SettingsModel extends CI_Model
         $states = $this->db->get_where("states", array("country_id" => $countryID));
         return $states->result_array();
     }
+
+    public function insertUserInformation($userID, $userInformation)
+    {
+        $user = $this->UserControl->getUserByID($userID);
+        if ($user->userInformationID == null) {
+            $this->db->insert("UserInformation", $userInformation);
+            $userInformationID = $this->db->insert_id();
+
+            $user->userInformationID = $userInformationID;
+            $this->db->update('User', $user, array('ID' => $user->ID));
+        } else {
+            $this->db->update('UserInformation', $userInformation, array('ID' => $user->userInformationID));
+        }
+    }
 }

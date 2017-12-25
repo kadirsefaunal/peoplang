@@ -42,4 +42,12 @@ class UserControl extends CI_Model
 		$userAvatar = $this->db->get_where("Images", array("userID" => $userID, "avatar" => true));
 		return $userAvatar->first_row()->url; // Boşsa sabit avatar getir
 	}
+
+	public function updateUserStatusMail($userID, $mail)
+	{
+		$user = $this->getUserByID($userID);
+		$user->mail 		  = $mail;
+		$user->registerStatus = true;
+		$this->db->update("User", $user, array("ID" => $user->ID));
+	}
 }

@@ -168,6 +168,24 @@ $(document).ready(function () {
             });
             $(".mdb-select").material_select();
         });
+    });
 
+    $("#saveProfile").click(function () {  
+        var profile = {
+            name      : $("#profileName").val(),
+            birthDate : $("#date-picker").val(),
+            gender    : $("#gender option:selected").text(),
+            mail      : $("#profileMail").val(),
+            country   : $("#countries option:selected").text(),
+            city      : $("#states option:selected").text()
+        };
+
+        console.log(profile);
+
+        $.post("settings/saveProfile", {profile: profile}, function (result) {  
+            console.log(result);
+            
+        });
+        
     });
 });
