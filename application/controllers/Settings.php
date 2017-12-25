@@ -6,7 +6,8 @@ class Settings extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 
-        $this->load->model("SettingsModel");
+		$this->load->model("SettingsModel");
+		$this->load->model("LanguageModel");
 	}
     
 	public function index()
@@ -59,6 +60,26 @@ class Settings extends CI_Controller {
 		$password = $this->input->post("password");
 
 		echo json_encode($this->SettingsModel->changePwd($userID, $password));
-
 	}
+
+	public function addLangSpeaks()
+	{
+		if ($this->input->post("langSpeaks") == null) {
+			echo "boş";
+		}
+
+		$languages = $this->input->post("langSpeaks");
+		$userID	   = get_cookie("User");
+		$languages["userID"] = $userID;
+
+		$result = $this->LanguageModel->saveLanguage($languages);
+
+		if ($result == true) {
+			echo json_encode("Success!");
+		} else {
+			echo json_encode("Error!");
+		}
+	}
+
+	
 }

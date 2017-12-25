@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".saveContact").click(function (result) {  
+    $(".saveContact").click(function () {  
         var contact = {
             facebook : $('#facebook').val(),
             twitter  : $('#twitter').val(),
@@ -16,7 +16,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".saveAboutMe").click(function (result) {  
+    $(".saveAboutMe").click(function () {  
         var aboutme = {
             aboutMe             : $('#aboutMe').val(),
             requests            : $('#request').val(),
@@ -40,7 +40,7 @@ $(document).ready(function () {
         
     });
 
-    $(".changePwd").click(function (result) {  
+    $(".changePwd").click(function () {  
         var password = {
             newPassword         : $('#newPassword').val(),
             newPasswordConfirm  : $('#newPasswordConfirm').val(),
@@ -56,5 +56,24 @@ $(document).ready(function () {
             console.log("parolalar uyuşmuyor!");
             
         }
+    });
+
+    $(".saveLangSpeaks").click(function () {  
+        var langSpeaks = {
+            language            : $("#langSpeak option:selected").text(),
+            level               : $("#langSpeakLevel option:selected").text(),
+            learningOrSpeaking  : true,
+            userID              : 0
+        };
+
+        console.log(langSpeaks);
+
+        if (langSpeaks.language != "Choose Language" && langSpeaks.level != "Choose Level") {
+            $.post("settings/addLangSpeaks", {langSpeaks: langSpeaks}, function (result) {  
+                console.log(result);
+                
+            });
+        }
+        
     });
 });

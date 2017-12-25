@@ -102,28 +102,28 @@
             <div class="row mt-3">
                 <div class="col-md-5">
                     <div class="md-form form-sm">
-                        <select class="mdb-select">
-                            <option value="" disabled selected>Choose your option</option>
+                        <select class="mdb-select" id="langSpeak">
+                            <option value="" disabled selected>Choose Language</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                         </select>
-                        <label>Example label</label>
+                        <label>Language</label>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="md-form form-sm">
-                        <select class="mdb-select">
-                            <option value="" disabled selected>Choose your option</option>
+                        <select class="mdb-select" id="langSpeakLevel">
+                            <option value="" disabled selected>Choose Level</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                         </select>
-                        <label>Example label</label>
+                        <label>Level</label>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn-floating float-right">
+                    <a class="btn-floating float-right saveLangSpeaks">
                         <i class="fa fa-save" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -137,12 +137,12 @@
                 <div class="col-md-5">
                     <div class="md-form form-sm">
                         <select class="mdb-select">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected>Choose Language</option>
                             <option value="1">Option 1</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                         </select>
-                        <label>Example label</label>
+                        <label>Language</label>
                     </div>
                 </div>
                 <div class="col-md-5">
