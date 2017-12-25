@@ -123,10 +123,13 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn-floating float-right saveLangSpeaks">
+                    <a class="btn-floating float-right btn-sm addLangSpeaks">
                         <i class="fa fa-save" aria-hidden="true"></i>
                     </a>
                 </div>
+            </div>
+            <div class="languagesSpeaks">
+
             </div>
         </div>
     </div>
@@ -171,3 +174,4 @@
         <button type="button" class="btn btn-primary float-right">Primary</button>
     </div>
 </div>
+

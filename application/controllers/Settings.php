@@ -73,13 +73,46 @@ class Settings extends CI_Controller {
 		$languages["userID"] = $userID;
 
 		$result = $this->LanguageModel->saveLanguage($languages);
-
-		if ($result == true) {
-			echo json_encode("Success!");
+		if ($result == 0) {
+			echo json_encode("Eklemek istediğiniz dil zaten mevcut!");
 		} else {
-			echo json_encode("Error!");
+			echo json_encode($result);
 		}
+		
+		// if ($result == true) {
+		// 	echo json_encode("Success!");
+		// } else {
+		// 	echo json_encode("Error!");
+		// }
 	}
 
-	
+	public function deletelanguage()
+	{
+		if ($this->input->post("langid") == null) {
+			echo "boş";
+		}
+
+		$userID = get_cookie("User");
+		$lid 	= $this->input->post("langid");
+		
+		$result = $this->LanguageModel->deleteLanguage($lid["lid"]);
+		if ($result == true) {
+			$languages = $this->LanguageModel->getLanguagesSpeaks($userID);
+			$langList = array();
+			foreach ($languages as $language) {
+				$newLang = array(
+					"ID" => $language["ID"],
+					"language" => $language["language"],
+					"level"		=> $language["level"],
+					"LorS"		=> $language["learningOrSpeaking"]
+				);
+				array_push($langList, $newLang);
+			}
+
+			echo json_encode($langList);
+		} else {
+			echo json_encode("error");
+		}
+		
+	}
 }
