@@ -77,6 +77,13 @@
             $data["WebSites"]  = $WebSites;
             $data["AboutMe"]   = $AboutMe;
             $data["Countries"] = $Countries;
+            $data["UserInfo"]  = $UserInfo;
+            if ($UserInfo != null) {
+                $data["States"]    = $States;
+            }
+            
+            $data["avatar"]    = $avatar;
+            $data["mail"]      = $mail;
             $this->load->view($content, $data);    
         } else if($content == "app/index"){
             $data["posts"] = $posts;

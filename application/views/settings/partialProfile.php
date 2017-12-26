@@ -6,22 +6,33 @@
                 <div class="card card-body">
                     <h4 class="card-title text-center">Profile</h4>
                     <div class="text-center">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid rounded-circle img-responsive z-depth-1"
+                        <img src="<?php echo $avatar ?>" class="img-fluid rounded-circle img-responsive z-depth-1"
                             alt="Responsive image" height="250px" width="250px">
                     </div>
                     <div class="md-form form-sm mt-5">
-                        <input type="text" id="profileName" class="form-control">
+                        <input type="text" id="profileName" class="form-control" value="<?php if ($UserInfo != null) { echo $UserInfo["name"]; } ?>">
                         <label for="profileName" class="">Name</label>
                     </div>
                     <div class="md-form form-sm">
-                        <input placeholder="Selected date" type="text" id="date-picker" class="form-control datepicker">
+                        <input placeholder="Selected date" type="text" id="date-picker" class="form-control datepicker" value="<?php if ($UserInfo != null) { echo $UserInfo["birthDay"]; } ?>">
                         <label for="date-picker">Birthday</label>
                     </div>
                     <div class="md-form form-sm">
                         <select class="mdb-select" id="gender">
-                            <option value="" disabled selected>Choose your gender</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
+                            <?php if ($UserInfo != null) { 
+                                if ($UserInfo["gender"] == "Male") { ?>
+                                    <option value="1" selected>Male</option>
+                                    <option value="2">Female</option>
+                                <?php } else {?>
+                                        <option value="1">Male</option>
+                                        <option value="2" selected>Female</option>
+                                <?php } ?> 
+                                
+                            <?php } else { ?>
+                                <option value="" disabled selected>Choose your gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            <?php } ?>
                         </select>
                         <label>Gender</label>
                     </div>
@@ -63,7 +74,7 @@
                         <div class="card card-body mt-3">
                             <h4 class="card-title">Mail & Location</h4>
                             <div class="md-form form-sm mt-3">
-                                <input type="text" id="profileMail" class="form-control">
+                                <input type="text" id="profileMail" class="form-control" value="<?php if ($mail != null) { echo $mail; } ?>">
                                 <label for="profileMail" class="">Mail</label>
                             </div>
                             <div class="md-form form-sm">
@@ -72,9 +83,12 @@
                                     <?php 
                                         if ($Countries != null) {
                                             foreach ($Countries as $country) {
-                                            ?>
-                                    <option value="<?php echo $country["id"] ?>" data-icon="<?php echo base_url("public/img/flags/" . strtolower($country["sortname"]) . ".png ") ?>"><?php echo $country["name"] ?></option>
+                                                if ($UserInfo != null && $UserInfo["country"] == $country["name"]) { ?>
+                                                    <option value="<?php echo $country["id"] ?>" data-icon="<?php echo base_url("public/img/flags/" . strtolower($country["sortname"]) . ".png ") ?>" selected><?php echo $country["name"] ?></option>
+                                                <?php } else { ?>
+                                                    <option value="<?php echo $country["id"] ?>" data-icon="<?php echo base_url("public/img/flags/" . strtolower($country["sortname"]) . ".png ") ?>"><?php echo $country["name"] ?></option>
                                     <?php
+                                                }
                                             }
                                         }
                                     ?>
@@ -83,7 +97,18 @@
                             </div>
                             <div class="md-form form-sm">
                                 <select class="mdb-select" id="states">
-                                    <option value="" disabled selected>Choose State</option>
+                                    <?php if ($States != null) {
+                                        foreach ($States as $state) { 
+                                            if ($UserInfo != null && $UserInfo["city"] == $state["name"]) { ?>
+                                                <option value="<?php echo $state["id"] ?>" selected><?php echo $state["name"] ?></option>
+                                                <?php
+                                            } else { ?>
+                                                <option value="<?php echo $state["id"] ?>"><?php echo $state["name"] ?></option>    
+                                    <?php
+                                            }
+                                            
+                                        }
+                                    } ?>
                                 </select>
                                 <label>States</label>
                             </div>

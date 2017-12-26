@@ -14,10 +14,19 @@ class Settings extends CI_Controller {
 	public function index()
 	{
 		$userID = get_cookie("User");
+		$user = $this->UserControl->getUserByID($userID);
+		$userInfo = $this->SettingsModel->getProfile($userID);
 
 		$data['WebSites']  = $this->SettingsModel->getWebSites($userID);
 		$data['AboutMe']   = $this->SettingsModel->getAboutMe($userID);
 		$data['Countries'] = $this->SettingsModel->getCountries();
+		$data['UserInfo']  = $userInfo;
+		$data['mail']	   = $user->mail;
+		$data['avatar']	   = $this->UserControl->getUserAvatar($userID);
+		if ($userInfo != null) {
+			$data['States']	   = $this->SettingsModel->getStatesByCName($userInfo["country"]);	
+		}
+		
 		$data['content']   = "settings/index";
 		
 		$this->load->view('layouts/appLayout', $data);

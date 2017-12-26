@@ -58,6 +58,24 @@ class SettingsModel extends CI_Model
         }
     }
 
+    public function getProfile($userID)
+    {
+        $user = $this->UserControl->getUserByID($userID);
+        if ($user->userInformationID != null) {
+            $userInformation = $this->UserControl->getUserInformation($user->userInformationID);
+            $userInfo = array(
+                "name"      => $userInformation->name,
+                "country"   => $userInformation->country,
+                "city"      => $userInformation->city,
+                "birthDay"  => $userInformation->birthDate,
+                "gender"    => $userInformation->gender
+            );
+            return $userInfo;
+        } else {
+            return null;
+        }
+    }
+
     public function changePwd($userID, $password)
     {
         $user= $this->UserControl->getUserByID($userID);
@@ -80,6 +98,14 @@ class SettingsModel extends CI_Model
     {
         $states = $this->db->get_where("states", array("country_id" => $countryID));
         return $states->result_array();
+    }
+
+    public function getStatesByCName($countryName)
+    {
+        $country = $this->db->get_where("countries", array("name" => $countryName));
+        $country = $country->first_row();
+        $states  = $this->getStates($country->id);
+        return $states;
     }
 
     public function insertUserInformation($userID, $userInformation)
