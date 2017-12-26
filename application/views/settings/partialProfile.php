@@ -311,7 +311,26 @@
                 </div>
             </div>
             <div class="languagesSpeaks">
-
+                <?php if ($speaks != null) {
+                    foreach ($speaks as $lang) { ?>
+                    <div class="row lang">
+                        <div class="col-md-5">
+                            <div class="md-form form-sm">
+                                <label> <?php echo $lang["language"]; ?> </label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="md-form form-sm">
+                                <label> <?php echo $lang["level"]; ?> </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn-floating float-right btn-sm" id="deleteLangSpeaks" langID="<?php echo $lang["ID"]; ?>">-</a>
+                        </div>
+                    </div>   
+                    <?php }
+                    
+                } ?>
             </div>
         </div>
     </div>
@@ -501,7 +520,26 @@
                 </div>
             </div>
             <div class="languagesLearn">
-
+            <?php if ($learn != null) {
+                    foreach ($learn as $lang) { ?>
+                    <div class="row lang">
+                        <div class="col-md-5">
+                            <div class="md-form form-sm">
+                                <label> <?php echo $lang["language"]; ?> </label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="md-form form-sm">
+                                <label> <?php echo $lang["level"]; ?> </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn-floating float-right btn-sm" id="deleteLangLearning" langID="<?php echo $lang["ID"]; ?>">-</a>
+                        </div>
+                    </div>   
+                    <?php }
+                    
+                } ?>
             </div>
         </div>
     </div>

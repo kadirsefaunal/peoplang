@@ -26,7 +26,8 @@ class Settings extends CI_Controller {
 		if ($userInfo != null) {
 			$data['States']	   = $this->SettingsModel->getStatesByCName($userInfo["country"]);	
 		}
-		
+		$data["speaks"]    = $this->LanguageModel->getLanguages($userID, true);
+		$data["learn"]	   = $this->LanguageModel->getLanguages($userID, false);
 		$data['content']   = "settings/index";
 		
 		$this->load->view('layouts/appLayout', $data);

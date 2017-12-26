@@ -81,9 +81,10 @@
             if ($UserInfo != null) {
                 $data["States"]    = $States;
             }
-            
-            $data["avatar"]    = $avatar;
-            $data["mail"]      = $mail;
+            $data["speaks"]     = $speaks;
+            $data["learn"]      = $learn;
+            $data["avatar"]     = $avatar;
+            $data["mail"]       = $mail;
             $this->load->view($content, $data);    
         } else if($content == "app/index"){
             $data["posts"] = $posts;
