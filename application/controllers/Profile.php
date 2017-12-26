@@ -22,7 +22,8 @@ class Profile extends CI_Controller {
 			"flag"	=> $this->SettingsModel->getFlagUrl($userInformation["country"]),
 			"userName" => $user->userName,
 			"speaks" => $this->LanguageModel->getLanguages($userID, true),
-			"learning" => $this->LanguageModel->getLanguages($userID, false)
+			"learning" => $this->LanguageModel->getLanguages($userID, false),
+			"webSites" => $this->SettingsModel->getWebSites($userID)
 		);
 
 		$data["user"] = $user;

@@ -74,6 +74,39 @@
                         } ?>
                         
                     </div>
+                    <?php if ($user != null && $user["webSites"] != null) { ?>
+                    <hr>
+                    <div class="row mr-3">
+                        <?php if ($user["webSites"]->facebook != null) { ?>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a href="<?php echo $user["webSites"]->facebook ?>" type="button" class="btn-floating btn-large btn-fb"><i class="fa fa-facebook"></i></a>
+                            </div>
+                        </div>
+                        <?php }?>
+                        <?php if ($user["webSites"]->twitter != null) { ?>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a href="<?php echo $user["webSites"]->twitter ?>" type="button" class="btn-floating btn-large btn-tw"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <?php }?>
+                        <?php if ($user["webSites"]->instagram != null) { ?>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a href="<?php echo $user["webSites"]->instagram ?>" type="button" class="btn-floating btn-large btn-ins"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <?php }?>
+                        <?php if ($user["webSites"]->skype != null) { ?>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a href="<?php echo $user["webSites"]->skype ?>" type="button" class="btn-floating btn-large btn-tw"><i class="fa fa-skype" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <?php }?>
+                    </div>
+                    <?php } ?>
                     <hr>
                     <div class="row mr-3">
                         <div class="col-md-3 mt-1">
