@@ -466,37 +466,60 @@
                 <div class="tab-content card mb-3">
                     <!--Panel 1-->
                     <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-                        <br/>
-                        <h5 class="card-title">About</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Request</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Language Exchange Request</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Hobbies And Interests</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <?php if ($user != null && $user["aboutme"] == null) { ?>
+                            <h3>There is nothing see in here!</h3>
+                        <?php } else { 
+                            if ($user["aboutme"]->aboutMe != null) { ?>
+                                <br/>
+                                <h5 class="card-title">About</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->aboutMe; ?></p>
+                            <?php } if ($user["aboutme"]->requests != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Request</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->requests; ?></p>
+                            <?php } if ($user["aboutme"]->languageExcRequests != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Language Exchange Request</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->languageExcRequests; ?></p>
+                            <?php } if ($user["aboutme"]->hobbiesInterests != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Hobbies And Interests</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->hobbiesInterests; ?></p>
+                            <?php } ?>
+                        
+                        <?php } if ($user["webSites"]->other) { ?>
+                            <hr>
+                            <h5 class="card-title">Other Websites</h5>
+                            <p class="card-text"><?php echo $user["webSites"]->other ?></p>
+                        <?php } ?>
                     </div>
                     <!--/.Panel 1-->
                     <!--Panel 2-->
                     <div class="tab-pane fade" id="panel2" role="tabpanel">
-                        <br/>
-                        <h5 class="card-title">Favorite Movies</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Favorite Music</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Favorite Tv Shows</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Favorite Books</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <hr>
-                        <h5 class="card-title">Quotes</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <?php if ($user != null && $user["aboutme"] == null) { ?>
+                            <h3>There is nothing see in here!</h3>
+                        <?php } else { 
+                            if ($user["aboutme"]->favMusics != null) { ?>
+                                <br/>
+                                <h5 class="card-title">Favorite Music</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->favMusics; ?></p>
+                            <?php } if ($user["aboutme"]->favMovies != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Favorite Movies</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->favMovies; ?></p>
+                            <?php } if ($user["aboutme"]->favTvShows != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Favorite Tv Shows</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->favTvShows; ?></p>
+                            <?php } if ($user["aboutme"]->favBooks != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Favorite Books</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->favBooks; ?></p>
+                            <?php } if ($user["aboutme"]->quotes != null) { ?>
+                                <hr>
+                                <h5 class="card-title">Quotes</h5>
+                                <p class="card-text"><?php echo $user["aboutme"]->quotes; ?></p>
+                            <?php } } ?>
                     </div>
                     <!--/.Panel 2-->
                     <!--Panel 3-->

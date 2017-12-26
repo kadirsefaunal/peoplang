@@ -25,7 +25,8 @@ class Profile extends CI_Controller {
 			"speaks" => $this->LanguageModel->getLanguages($userID, true),
 			"learning" => $this->LanguageModel->getLanguages($userID, false),
 			"webSites" => $this->SettingsModel->getWebSites($userID),
-			"friends" => $this->FriendsModel->getFriendsInformation($userID)
+			"friends" => $this->FriendsModel->getFriendsInformation($userID),
+			"aboutme" => $this->SettingsModel->getAboutMe($userID)
 		);
 
 		$data["user"] = $user;
