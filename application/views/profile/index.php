@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center mt-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid rounded-circle img-responsive z-depth-1"
+                                <img src="<?php if ($user != null) { echo $user["avatar"]; } ?>" class="img-fluid rounded-circle img-responsive z-depth-1"
                                     alt="Responsive image" height="150px" width="150px">
                             </div>
                         </div>
@@ -13,13 +13,26 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center mt-3">
-                                <i class="fa fa-mars" aria-hidden="true"></i>
-                                <a href="#">username</a>
-                                <span>| 23</span>
+                                <label><?php if ($user != null) { echo $user["userInformation"]["name"]; } ?></label>
                                 <br>
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Turkey | </span>
-                                <span>Istanbul</span>
+                                <?php if ($user != null && $user["userInformation"]["gender"] == "Male") { ?>
+                                    <i class="fa fa-mars" aria-hidden="true"></i>
+                                <?php } else { ?>
+                                    <i class="fa fa-venus" aria-hidden="true"></i>
+                                <?php } ?>
+                                
+                                <a href="#"><?php if ($user != null) { echo $user["userName"]; } ?></a>
+                                <span>| <?php if ($user != null) {  
+                                    $datetime1 = date_create($user["userInformation"]["birthDay"]);
+                                    $datetime2 = date_create(date("Y-m-d"));
+                                    $interval = date_diff($datetime1, $datetime2);
+                                    echo $interval->format('%Y');
+                                }
+                                ?></span>
+                                <br>
+                                <img src="<?php if ($user != null) { echo $user["flag"]; } ?>" width="28" height="20">
+                                <span><?php if ($user != null) { echo $user["userInformation"]["country"]; } ?> | </span>
+                                <span><?php if ($user != null) { echo $user["userInformation"]["city"]; } ?></span>
                             </div>
                         </div>
                     </div>
@@ -28,49 +41,38 @@
                         <div class="col-md-12 text-center">
                             <h6>Speaks</h6>
                         </div>
+                        <?php if ($user != null) { 
+                            foreach ($user["speaks"] as $lang) { ?>
+                                <div class="col-md-6">
+                                    <div class="text-center">
+                                        <span> <?php echo $lang["language"]; ?> | </span>
+                                        <span> <?php echo $lang["level"]; ?></span>
+                                        <!-- <img src="https://eu.ipstatic.net/images/lang_bars/4.png" class="proflLevel" width="13" height="10"> -->
+                                    </div>
+                                </div>
+                            <?php }
 
-                        <div class="col-md-6">
-                            <div class="text-center">
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Language </span>
-                                <img src="https://eu.ipstatic.net/images/lang_bars/4.png" class="proflLevel" width="13" height="10">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-center">
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Language </span>
-                                <img src="https://eu.ipstatic.net/images/lang_bars/4.png" class="proflLevel" width="13" height="10">
-                            </div>
-                        </div>
+                        } ?>
+                        
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h6>Learning</h6>
                         </div>
+                        <?php if ($user != null) { 
+                            foreach ($user["learning"] as $lang) { ?>
+                                <div class="col-md-6">
+                                    <div class="text-center">
+                                        <span> <?php echo $lang["language"]; ?> | </span>
+                                        <span> <?php echo $lang["level"]; ?></span>
+                                        <!-- <img src="https://eu.ipstatic.net/images/lang_bars/4.png" class="proflLevel" width="13" height="10"> -->
+                                    </div>
+                                </div>
+                            <?php }
 
-                        <div class="col-md-6">
-                            <div class="text-center">
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Language </span>
-                                <img src="https://eu.ipstatic.net/images/lang_bars/1.png" class="proflLevel" width="13" height="10">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-center">
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Language </span>
-                                <img src="https://eu.ipstatic.net/images/lang_bars/1.png" class="proflLevel" width="13" height="10">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-center">
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Language </span>
-                                <img src="https://eu.ipstatic.net/images/lang_bars/1.png" class="proflLevel" width="13" height="10">
-                            </div>
-                        </div>
+                        } ?>
+                        
                     </div>
                     <hr>
                     <div class="row mr-3">

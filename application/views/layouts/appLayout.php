@@ -89,6 +89,9 @@
         } else if($content == "app/index"){
             $data["posts"] = $posts;
             $this->load->view($content, $data);
+        } else if ($content == "profile/index") {
+            $data["user"] = $user;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);

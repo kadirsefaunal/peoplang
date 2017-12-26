@@ -121,4 +121,11 @@ class SettingsModel extends CI_Model
             $this->db->update('UserInformation', $userInformation, array('ID' => $user->userInformationID));
         }
     }
+
+    public function getFlagUrl($countryName)
+    {
+        $shortCountry = $this->db->get_where("countries", array("name" => $countryName));
+        $shortCountry = $shortCountry->first_row();
+        return base_url("public/img/flags/". $shortCountry->sortname . ".png");
+    }
 }
