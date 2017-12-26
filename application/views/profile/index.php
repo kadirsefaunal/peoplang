@@ -1,0 +1,603 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-3">
+                <div class="card card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center mt-3">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid rounded-circle img-responsive z-depth-1"
+                                    alt="Responsive image" height="150px" width="150px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center mt-3">
+                                <i class="fa fa-mars" aria-hidden="true"></i>
+                                <a href="#">username</a>
+                                <span>| 23</span>
+                                <br>
+                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
+                                <span>Turkey | </span>
+                                <span>Istanbul</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h6>Speaks</h6>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
+                                <span>Language </span>
+                                <img src="https://eu.ipstatic.net/images/lang_bars/4.png" class="proflLevel" width="13" height="10">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
+                                <span>Language </span>
+                                <img src="https://eu.ipstatic.net/images/lang_bars/4.png" class="proflLevel" width="13" height="10">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h6>Learning</h6>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
+                                <span>Language </span>
+                                <img src="https://eu.ipstatic.net/images/lang_bars/1.png" class="proflLevel" width="13" height="10">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
+                                <span>Language </span>
+                                <img src="https://eu.ipstatic.net/images/lang_bars/1.png" class="proflLevel" width="13" height="10">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
+                                <span>Language </span>
+                                <img src="https://eu.ipstatic.net/images/lang_bars/1.png" class="proflLevel" width="13" height="10">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mr-3">
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a class="btn-floating btn-lg success-color">
+                                    <i class="fa fa-user-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a class="btn-floating btn-lg primary-color-dark">
+                                    <i class="fa fa-envelope-o"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a class="btn-floating btn-lg amber">
+                                    <i class="fa fa-ban"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-1">
+                            <div class="text-center">
+                                <a class="btn-floating btn-lg red">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+
+
+                    <!--###################################################################################################### -->
+
+                    <div class="card card-body mt-3">
+                        <!--Section: Products v.5-->
+
+
+
+
+                        <!--Carousel Wrapper-->
+                        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+                            <!--Controls-->
+                            <div class="controls-top">
+                                <div class="row">
+                                    <div class="col-md-2 align-middle">
+                                        <a class="btn-floating primary-color align-middle" href="#multi-item-example" data-slide="prev">
+                                            <i class="fa fa-chevron-left"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+
+
+                                        <!--Slides-->
+                                        <div class="carousel-inner" role="listbox">
+
+                                            <!--First slide-->
+                                            <div class="carousel-item active">
+
+                                                <div class="col-md-4">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                                <div class="col-md-4 clearfix d-none d-md-block">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                                <div class="col-md-4 clearfix d-none d-md-block">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                            </div>
+                                            <!--First slide-->
+
+                                            <!--Second slide-->
+                                            <div class="carousel-item">
+
+                                                <div class="col-md-4">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                                <div class="col-md-4 clearfix d-none d-md-block">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                                <div class="col-md-4 clearfix d-none d-md-block">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(31).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                            </div>
+                                            <!--Second slide-->
+
+                                            <!--Third slide-->
+                                            <div class="carousel-item">
+
+                                                <div class="col-md-4">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(38).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                                <div class="col-md-4 clearfix d-none d-md-block">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/belt.jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                                <div class="col-md-4 clearfix d-none d-md-block">
+
+                                                    <!--Card-->
+                                                    <div class="card narrower">
+
+                                                        <!--Card image-->
+                                                        <div class="view overlay hm-white-slight">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(57).jpg" class="img-fluid" alt="">
+                                                            <a>
+                                                                <div class="mask"></div>
+                                                            </a>
+                                                        </div>
+                                                        <!--Card image-->
+
+
+
+                                                    </div>
+                                                    <!--Card-->
+
+                                                </div>
+
+                                            </div>
+                                            <!--Third slide-->
+
+                                        </div>
+                                        <!--Slides-->
+
+
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">
+                                            <i class="fa fa-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <!--Controls-->
+
+
+                        </div>
+                        <!--Carousel Wrapper-->
+
+
+                        <!--Section: Products v.5-->
+                    </div>
+                    <!-- ################################################################################################## -->
+                    <!-- <div class="card card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid img-responsive z-depth-1" alt="Responsive image"
+                                        height="50px" width="50px">
+                                </div>
+                                <div class="col text-center">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid img-responsive z-depth-1" alt="Responsive image"
+                                        height="50px" width="50px">
+                                </div>
+                                <div class="col text-center">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid img-responsive z-depth-1" alt="Responsive image"
+                                        height="50px" width="50px">
+                                </div>
+                                
+                                <div class="col text-center">
+                                        
+                                    <a class="btn-floating btn-sm">
+                                        <i class="fa fa-leaf"></i>
+                                    </a>
+                                            
+                                </div>
+                            </div>
+                        </div> -->
+
+
+
+                    <!-- ###################################################################################################### -->
+                </div>
+
+                <div class="row">
+                    <div class="card card-body mt-3">
+                        <div class="row">
+
+
+                            <div class="col-3">
+                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                <div class="text-center app-username">kdrmutluu
+                                    <span class="app-age"> 23</span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="TR.png" />
+                                    <span class="app-city"> Bursa</span>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <img src="https://randomuser.me/api/portraits/women/50.jpg" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                <div class="text-center app-username">camilaterry
+                                    <span class="app-age"> 23</span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="US.png" />
+                                    <span class="app-city"> New York</span>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                <div class="text-center app-username">kdrmutluu
+                                    <span class="app-age"> 23</span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="TR.png" />
+                                    <span class="app-city"> Bursa</span>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                <div class="text-center app-username">kdrmutluu
+                                    <span class="app-age"> 23</span>
+                                </div>
+                                <div class="text-center">
+                                    <img src="TR.png" />
+                                    <span class="app-city"> Bursa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified indigo mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">
+                            <i class="fa fa-user"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">
+                            <i class="fa fa-heart"></i> Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">
+                            <i class="fa fa-pencil"></i> Posts</a>
+                    </li>
+                </ul>
+                <!-- Tab panels -->
+                <div class="tab-content card mb-3">
+                    <!--Panel 1-->
+                    <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                        <br/>
+                        <h5 class="card-title">About</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Request</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Language Exchange Request</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Hobbies And Interests</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <!--/.Panel 1-->
+                    <!--Panel 2-->
+                    <div class="tab-pane fade" id="panel2" role="tabpanel">
+                        <br/>
+                        <h5 class="card-title">Favorite Movies</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Favorite Music</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Favorite Tv Shows</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Favorite Books</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <hr>
+                        <h5 class="card-title">Quotes</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <!--/.Panel 2-->
+                    <!--Panel 3-->
+                    <div class="tab-pane fade" id="panel3" role="tabpanel">
+                        <section class="row-section">
+                                        
+                            <div class="col-12 row-block">
+                                <ul id="sortable">
+                                    <li>
+                                            <div class="card news-card">
+
+                                                    <!--Heading-->
+                                                    <div class="pr-3 pl-3">
+                                                        <div class="content align-middle">
+                                                            <div class="right-side-meta">
+                                                                <a class="btn-floating btn-md red">
+                                                                    <i class="fa fa-times"></i>
+                                                                </a></div>
+                                                            <div class="pt-4"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half">Kadir Sefa Ünal</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pl-3 pr-3">
+                                                        <div class="social-meta">
+                                                            <p>Bugün çok güzel bir gün! Yalan söyledim.   </p>
+                                                        </div>
+                                                    </div>
+                                                    <!--Card content-->
+                            
+                                            </div>
+                                    </li>
+                                    <li>
+                                            <div class="card news-card">
+
+                                                    <!--Heading-->
+                                                    <div class="pr-3 pl-3">
+                                                        <div class="content align-middle">
+                                                            <div class="right-side-meta">
+                                                                <a class="btn-floating btn-md red">
+                                                                    <i class="fa fa-times"></i>
+                                                                </a></div>
+                                                            <div class="pt-4"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half">Kadir Sefa Ünal</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pl-3 pr-3">
+                                                        <div class="social-meta">
+                                                            <p>Bugün çok güzel bir gün! Yalan söyledim.   </p>
+                                                        </div>
+                                                    </div>
+                                                    <!--Card content-->
+                            
+                                            </div>
+                                    </li>
+                                    <li>
+                                            <div class="card news-card">
+
+                                                    <!--Heading-->
+                                                    <div class="pr-3 pl-3">
+                                                        <div class="content align-middle">
+                                                            <div class="right-side-meta">
+                                                                <a class="btn-floating btn-md red">
+                                                                    <i class="fa fa-times"></i>
+                                                                </a></div>
+                                                            <div class="pt-4"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half">Kadir Sefa Ünal</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pl-3 pr-3">
+                                                        <div class="social-meta">
+                                                            <p>Bugün çok güzel bir gün! Yalan söyledim.   </p>
+                                                        </div>
+                                                    </div>
+                                                    <!--Card content-->
+                            
+                                            </div>
+                                    </li>
+                                </ul>
+                    </div>
+                    </section>
+                    </div>
+                    <!--/.Panel 3-->
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
