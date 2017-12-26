@@ -8,6 +8,7 @@ class Profile extends CI_Controller {
 		$this->load->model("UserControl");
 		$this->load->model("SettingsModel");
 		$this->load->model("LanguageModel");
+		$this->load->model("FriendsModel");
     }
 
 	public function index()
@@ -23,7 +24,8 @@ class Profile extends CI_Controller {
 			"userName" => $user->userName,
 			"speaks" => $this->LanguageModel->getLanguages($userID, true),
 			"learning" => $this->LanguageModel->getLanguages($userID, false),
-			"webSites" => $this->SettingsModel->getWebSites($userID)
+			"webSites" => $this->SettingsModel->getWebSites($userID),
+			"friends" => $this->FriendsModel->getFriendsInformation($userID)
 		);
 
 		$data["user"] = $user;

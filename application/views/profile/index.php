@@ -410,84 +410,40 @@
                         <!--Section: Products v.5-->
                     </div>
                     <!-- ################################################################################################## -->
-                    <!-- <div class="card card-body">
-                            <div class="row">
-                                <div class="col text-center">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid img-responsive z-depth-1" alt="Responsive image"
-                                        height="50px" width="50px">
-                                </div>
-                                <div class="col text-center">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid img-responsive z-depth-1" alt="Responsive image"
-                                        height="50px" width="50px">
-                                </div>
-                                <div class="col text-center">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="img-fluid img-responsive z-depth-1" alt="Responsive image"
-                                        height="50px" width="50px">
-                                </div>
-                                
-                                <div class="col text-center">
-                                        
-                                    <a class="btn-floating btn-sm">
-                                        <i class="fa fa-leaf"></i>
-                                    </a>
-                                            
-                                </div>
-                            </div>
-                        </div> -->
-
-
-
-                    <!-- ###################################################################################################### -->
+                    
                 </div>
-
-                <div class="row">
+                <?php if ($user != null && $user["friends"] != null) { ?>
+                    
+                    <div class="row">
                     <div class="card card-body mt-3">
                         <div class="row">
-
-
-                            <div class="col-3">
-                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                <div class="text-center app-username">kdrmutluu
-                                    <span class="app-age"> 23</span>
+                            <?php foreach ($user["friends"] as $friend) { ?>
+                                <div class="col-3">
+                                    
+                                    <img src="<?php echo $friend["avatar"]; ?>" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                    
+                                    <div class="text-center app-username">
+                                    <?php if ($friend["gender"] == "Male") { ?>
+                                        <i class="fa fa-mars" aria-hidden="true"></i>
+                                    <?php } else { ?>
+                                        <i class="fa fa-venus" aria-hidden="true"></i>
+                                    <?php } ?>
+                                    <a href="#" userID="<?php echo $friend["userID"]; ?>"><?php echo $friend["userName"]; ?></a> | 
+                                        <span class="app-age"> <?php echo $friend["age"]; ?></span>
+                                    </div>
+                                    <div class="text-center">
+                                        <img src="<?php echo $friend["flag"]; ?>" width="28" height="20" />
+                                        <span class="app-city"> <?php echo $friend["location"]; ?></span>
+                                    </div>
                                 </div>
-                                <div class="text-center">
-                                    <img src="TR.png" />
-                                    <span class="app-city"> Bursa</span>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <img src="https://randomuser.me/api/portraits/women/50.jpg" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                <div class="text-center app-username">camilaterry
-                                    <span class="app-age"> 23</span>
-                                </div>
-                                <div class="text-center">
-                                    <img src="US.png" />
-                                    <span class="app-city"> New York</span>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                <div class="text-center app-username">kdrmutluu
-                                    <span class="app-age"> 23</span>
-                                </div>
-                                <div class="text-center">
-                                    <img src="TR.png" />
-                                    <span class="app-city"> Bursa</span>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                <div class="text-center app-username">kdrmutluu
-                                    <span class="app-age"> 23</span>
-                                </div>
-                                <div class="text-center">
-                                    <img src="TR.png" />
-                                    <span class="app-city"> Bursa</span>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
+
+
+                <?php } ?>
+                
 
 
 
