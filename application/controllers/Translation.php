@@ -5,14 +5,17 @@ class Translation extends CI_Controller {
 	
 	function __construct() {
         parent::__construct();
-
+        $this->load->model("UserControl");
+        $this->load->model("TranslationModel");
     }
 
 	public function index()
 	{
-        //$data["user"] = $user;
-		$data['content'] = "translationRequest/index";
-		$this->load->view('layouts/appLayout', $data);
+        $userID = get_cookie("User");
+        
+        $data['content'] = "translationRequest/index";
+        $data['requests'] = $this->TranslationModel->getTranslationRequests($userID);
+        $this->load->view('layouts/appLayout', $data);
     }
 
     public function addTranslationRequest()
@@ -22,16 +25,13 @@ class Translation extends CI_Controller {
         }
         
         $request = $this->input->post("request");
+
         $userID  = get_cookie("User");
-        $dt = time();
+        $request['date'] = time();
+        $request['userID'] = $userID;
 
-        $translationRequest = array(
-            "userID" 	 => $userID,
-			"content"    =>	$post["content"],
-			"date"		 =>	$dt	
-        )
-
-        $this->TranslationModel->insertRequest($translationRequest);
+        $this->TranslationModel->insertRequest($request);
 
     }
+
 }

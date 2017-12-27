@@ -93,7 +93,7 @@
             $data["user"] = $user;
             $this->load->view($content, $data);
         } else if ($content == "translation/index") {
-            $data["request"] = $request;
+            $data["requests"] = $requests;
             $this->load->view($content, $data);
         }
         else {
