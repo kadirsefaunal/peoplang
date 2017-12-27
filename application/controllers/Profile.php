@@ -35,4 +35,14 @@ class Profile extends CI_Controller {
 		$data['content'] = "profile/index";
 		$this->load->view('layouts/appLayout', $data);
 	}
+
+	public function deletePostByID()
+	{
+		$post = $this->input->post("post");
+		$userID = get_cookie("User");
+		if ($this->PostModel->deletePostByID($post["postID"]) == true) {
+			echo json_encode($this->PostModel->getUserPosts($userID));	
+		}
+		
+	}
 }

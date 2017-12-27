@@ -28,7 +28,7 @@
                                             <li>
                                                 <div class="media">
                                                     <div class="media-left align-self-center">
-                                                        <img class="rounded-circle" src="<?php echo base_url($post["userAvatar"]); ?>">
+                                                        <img class="rounded-circle" src="<?php echo $post["userAvatar"]; ?>">
                                                     </div>
                                                     <div class="media-body">
                                                         <h4><?php echo $post["name"]; ?></h4>

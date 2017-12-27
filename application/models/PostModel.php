@@ -55,10 +55,10 @@ class PostModel extends CI_Model
 
         $friends = $this->FriendsModel->getFriends($userID);
         foreach ($friends as $friend) {
-            $user               = $this->UserControl->getUserByID($friend->friendID);
-            $userAvatar         = $this->UserControl->getUserAvatar($friend->friendID);
+            $user               = $this->UserControl->getUserByID($friend["friendID"]);
+            $userAvatar         = $this->UserControl->getUserAvatar($friend["friendID"]);
             $userInformation    = $this->UserControl->getUserInformation($user->userInformationID);
-            $posts              = $this->getPosts($friend->friendID);
+            $posts              = $this->getPosts($friend["friendID"]);
             foreach ($posts as $p) {
                 $newPost = array(
                     "userID"     => $user->ID,
@@ -99,11 +99,17 @@ class PostModel extends CI_Model
         $posts = $this->getPosts($userID);
         $postList = array();
 
+        $user = $this->UserControl->getUserByID($userID);
+        $userInformation = $this->UserControl->getUserInformation($user->userInformationID);
+        $userAvatar = $this->UserControl->getUserAvatar($userID);
+
         foreach ($posts as $p) {
             $post = array(
-                "postid"  => $p["ID"],
-                "content" => $p["content"],
-                "date"    => $p["date"]
+                "postid"   => $p["ID"],
+                "content"  => $p["content"],
+                "date"     => $p["date"],
+                "userName" => $userInformation->name,
+                "avatar"   => $userAvatar
             );
 
             array_push($postList, $post);
@@ -111,5 +117,10 @@ class PostModel extends CI_Model
 
         usort($postList, $this->build_sorter('date'));
         return $postList;
+    }
+
+    public function deletePostByID($postID)
+    {
+        return $this->db->delete("Post", array("ID" => $postID));
     }
 }
