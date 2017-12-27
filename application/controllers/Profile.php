@@ -12,17 +12,23 @@ class Profile extends CI_Controller {
 		$this->load->model("PostModel");
     }
 
-	public function index()
+	public function index($userName = null)
 	{
-		$userID = get_cookie("User");
-		$userInformation = $this->SettingsModel->getProfile($userID);
-		$user = $this->UserControl->getUserByID($userID);
+		if ($userName == null) {
+			$userID = get_cookie("User");
+			$userInformation = $this->SettingsModel->getProfile($userID);
+			$u = $this->UserControl->getUserByID($userID);
+		} else {
+			$u = $this->UserControl->getUserByUserName($userName);
+			$userID = $u->ID;
+			$userInformation = $this->SettingsModel->getProfile($userID);
+		}
 
 		$user = array(
 			"avatar" 			=> $this->UserControl->getUserAvatar($userID),
 			"userInformation" 	=> $userInformation,
 			"flag"				=> $this->SettingsModel->getFlagUrl($userInformation["country"]),
-			"userName" 			=> $user->userName,
+			"userName" 			=> $u->userName,
 			"speaks" 			=> $this->LanguageModel->getLanguages($userID, true),
 			"learning" 			=> $this->LanguageModel->getLanguages($userID, false),
 			"webSites" 			=> $this->SettingsModel->getWebSites($userID),
@@ -45,5 +51,10 @@ class Profile extends CI_Controller {
 			echo json_encode($this->PostModel->getUserPosts($userID));	
 		}
 		
+	}
+
+	public function deneme($userName)
+	{
+		echo $userName;
 	}
 }

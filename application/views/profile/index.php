@@ -298,7 +298,7 @@
                                 <p class="card-text"><?php echo $user["aboutme"]->hobbiesInterests; ?></p>
                             <?php } ?>
                         
-                        <?php } if ($user["webSites"]->other) { ?>
+                        <?php } if ($user["webSites"] != null && $user["webSites"]->other != null) { ?>
                             <hr>
                             <h5 class="card-title">Other Websites</h5>
                             <p class="card-text"><?php echo $user["webSites"]->other ?></p>
@@ -378,17 +378,8 @@
                     <!--/.Panel 3-->
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>

@@ -64,12 +64,18 @@ class UserControl extends CI_Model
 
 		foreach ($userImagesList as $image) {
 			$img = array(
-				"url" => $image["url"]
+				"url" => base_url($image["url"])
 			);
 
 			array_push($imageList, $img);
 		}
 		
 		return $imageList;
+	}
+
+	public function getUserByUserName($userName)
+	{
+		$user = $this->db->get_where("User", array("userName" => $userName));
+		return $user->first_row();
 	}
 }
