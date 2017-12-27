@@ -6,6 +6,10 @@ class TranslationModel extends CI_Model
         parent::__construct();
 
         $this->load->model("UserControl");
-        $this->load->model("FriendsModel");
+    }
+
+    public function insertRequest($request)
+    {
+        $this->db->insert('TranslationRequests', $request);
     }
 }

@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="md-form form-sm">
-                    <select class="mdb-select" id="tranlateLang">
+                    <select class="mdb-select" id="translateLang">
                     <option value="" disabled selected>Translate</option>
                     <option value="AA">Afar</option>
                     <option value="AB">Abkhazian</option>

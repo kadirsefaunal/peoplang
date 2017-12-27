@@ -14,4 +14,24 @@ class Translation extends CI_Controller {
 		$data['content'] = "translationRequest/index";
 		$this->load->view('layouts/appLayout', $data);
     }
+
+    public function addTranslationRequest()
+    {
+        if ($this->input->post("request") == null) {
+            echo "boş";
+        }
+        
+        $request = $this->input->post("request");
+        $userID  = get_cookie("User");
+        $dt = time();
+
+        $translationRequest = array(
+            "userID" 	 => $userID,
+			"content"    =>	$post["content"],
+			"date"		 =>	$dt	
+        )
+
+        $this->TranslationModel->insertRequest($translationRequest);
+
+    }
 }
