@@ -531,7 +531,6 @@
                         <section class="row-section">
                                         
                             <div class="col-12 row-block">
-                                <div id="postList">
                                 <ul id="sortable">
                                     <?php foreach ($user["posts"] as $post) { ?>
                                         <li>
@@ -559,7 +558,6 @@
                                     <?php } ?>
                                     
                                 </ul>
-                                </div>
                             </div>
                         </section>
                         <?php } ?>
