@@ -5,7 +5,8 @@ class Translation extends CI_Controller {
 	
 	function __construct() {
         parent::__construct();
-
+        $this->load->model("UserControl");
+        $this->load->model("TranslationModel");
     }
 
 	public function index()
@@ -22,16 +23,12 @@ class Translation extends CI_Controller {
         }
         
         $request = $this->input->post("request");
+
         $userID  = get_cookie("User");
-        $dt = time();
+        $request['date'] = time();
+        $request['userID'] = $userID;
 
-        $translationRequest = array(
-            "userID" 	 => $userID,
-			"content"    =>	$post["content"],
-			"date"		 =>	$dt	
-        )
-
-        $this->TranslationModel->insertRequest($translationRequest);
+        $this->TranslationModel->insertRequest($request);
 
     }
 }

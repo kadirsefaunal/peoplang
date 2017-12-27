@@ -5,7 +5,9 @@ $(document).ready(function () {
             title : $('#title').val(),
             text : $('#content').val(),
             textLanguage : $('#textLang option:selected').text(),
-            languageToTranslation : $("#translateLang option:selected").text()
+            languageToTranslation : $("#translateLang option:selected").text(),
+            date: 0,
+            userID: 0
         }
         console.log(request);
 
