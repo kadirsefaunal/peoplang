@@ -78,4 +78,23 @@ class UserControl extends CI_Model
 		$user = $this->db->get_where("User", array("userName" => $userName));
 		return $user->first_row();
 	}
+
+	public function setViewer($userID, $viewerID)
+	{
+		$dt = time();
+		$viewDetail = array(
+			"userID" => $userID,
+			"viewer" => $viewerID,
+			"displayDate" => $dt
+		);
+
+		$control = $this->db->get_where("ViewedProfile", array("userID" => $userID, "viewer" => $viewerID));
+		$status = $control->first_row();
+
+		if ($status != null) {
+			$this->db->update("ViewedProfile", $viewDetail, array("ID" => $status->ID));
+		} else {
+			$this->db->insert("ViewedProfile", $viewDetail);
+		}
+	}
 }

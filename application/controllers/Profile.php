@@ -14,6 +14,12 @@ class Profile extends CI_Controller {
 
 	public function index($userName = null)
 	{
+		$userID = get_cookie("User");
+		$logUser = $this->UserControl->getUserByID($userID);
+		if ($userName == $logUser->userName) {
+			redirect("/profile");
+		}
+
 		if ($userName == null) {
 			$userID = get_cookie("User");
 			$userInformation = $this->SettingsModel->getProfile($userID);
@@ -22,6 +28,8 @@ class Profile extends CI_Controller {
 			$u = $this->UserControl->getUserByUserName($userName);
 			$userID = $u->ID;
 			$userInformation = $this->SettingsModel->getProfile($userID);
+			
+			$this->UserControl->setViewer($u->ID, get_cookie("User"));
 		}
 
 		$user = array(
