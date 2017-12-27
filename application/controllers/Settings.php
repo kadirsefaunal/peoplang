@@ -157,7 +157,7 @@ class Settings extends CI_Controller {
 		if ($langStatusSpeak != null && $langStatusLearn != null) {
 			$this->SettingsModel->insertUserInformation($userID, $userInformation);
 			$this->UserControl->updateUserStatusMail($userID, $profile["mail"]);
-			echo "True";	
+			echo "True";
 		} else {
 			echo "Dilleri kontrol edin!";
 		}

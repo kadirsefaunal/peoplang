@@ -92,13 +92,16 @@
         } else if ($content == "profile/index") {
             $data["user"] = $user;
             $this->load->view($content, $data);
+        } else if ($content == "translation/index") {
+            $data["request"] = $request;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);
         }
     ?>
 
-    <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>
+    
     <script type="text/javascript" src="<?php echo base_url("public/js/app.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("public/js/settings.js"); ?>"></script>
     <script>
