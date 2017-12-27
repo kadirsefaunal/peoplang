@@ -55,4 +55,21 @@ class UserControl extends CI_Model
 		$user->registerStatus = true;
 		$this->db->update("User", $user, array("ID" => $user->ID));
 	}
+
+	public function getImages($userID)
+	{
+		$userImages = $this->db->get_where("Images", array("userID" => $userID, "avatar" => false));
+		$userImagesList = $userImages->result_array();
+		$imageList = array();
+
+		foreach ($userImagesList as $image) {
+			$img = array(
+				"url" => $image["url"]
+			);
+
+			array_push($imageList, $img);
+		}
+		
+		return $imageList;
+	}
 }

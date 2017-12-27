@@ -142,17 +142,11 @@
                 </div>
             </div>
             <div class="col-md-8">
+                <?php if ($user != null && $user["images"] != null) { ?>
                 <div class="row">
-
-
                     <!--###################################################################################################### -->
-
                     <div class="card card-body mt-3">
                         <!--Section: Products v.5-->
-
-
-
-
                         <!--Carousel Wrapper-->
                         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
@@ -170,217 +164,47 @@
                                         <!--Slides-->
                                         <div class="carousel-inner" role="listbox">
 
-                                            <!--First slide-->
-                                            <div class="carousel-item active">
+                                            <?php 
+                                                $count = count($user["images"]);
+                                                $counter = 0;
 
-                                                <div class="col-md-4">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
+                                                foreach ($user["images"] as $image) {
+                                                    if ($counter == 0) { ?>
+                                                        <div class="carousel-item active">
+                                                    <?php } if ($counter == 3 || $counter == 6) { ?>
+                                                        <div class="carousel-item">
+                                                    <?php } ?> 
+                                                    
+                                                    <div class="col-md-4">
+                                                        <!--Card-->
+                                                        <div class="card narrower">
+                                                            <!--Card image-->
+                                                            <div class="view overlay hm-white-slight">
+                                                                <img src="<?php echo $image["url"]; ?>" class="img-fluid" alt="">
+                                                                <a><div class="mask"></div></a>
+                                                            </div>
+                                                            <!--Card image-->
                                                         </div>
-                                                        <!--Card image-->
-
-
-
+                                                        <!--Card-->
                                                     </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                                <div class="col-md-4 clearfix d-none d-md-block">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
+                                                    <?php
+                                                    if ($counter == ($count - 1)) {?>
                                                         </div>
-                                                        <!--Card image-->
-
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                                <div class="col-md-4 clearfix d-none d-md-block">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
+                                                    <?php break; }
+                                                    
+                                                    ?>
+                                                    <?php if ($counter == 2 || $counter == 5 || $counter == 8) { ?>
                                                         </div>
-                                                        <!--Card image-->
+                                                    <?php } 
 
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                            </div>
-                                            <!--First slide-->
-
-                                            <!--Second slide-->
-                                            <div class="carousel-item">
-
-                                                <div class="col-md-4">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
-                                                        </div>
-                                                        <!--Card image-->
-
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                                <div class="col-md-4 clearfix d-none d-md-block">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
-                                                        </div>
-                                                        <!--Card image-->
-
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                                <div class="col-md-4 clearfix d-none d-md-block">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(31).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
-                                                        </div>
-                                                        <!--Card image-->
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                            </div>
-                                            <!--Second slide-->
-
-                                            <!--Third slide-->
-                                            <div class="carousel-item">
-
-                                                <div class="col-md-4">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(38).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
-                                                        </div>
-                                                        <!--Card image-->
-
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                                <div class="col-md-4 clearfix d-none d-md-block">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/belt.jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
-                                                        </div>
-                                                        <!--Card image-->
-
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                                <div class="col-md-4 clearfix d-none d-md-block">
-
-                                                    <!--Card-->
-                                                    <div class="card narrower">
-
-                                                        <!--Card image-->
-                                                        <div class="view overlay hm-white-slight">
-                                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(57).jpg" class="img-fluid" alt="">
-                                                            <a>
-                                                                <div class="mask"></div>
-                                                            </a>
-                                                        </div>
-                                                        <!--Card image-->
-
-
-
-                                                    </div>
-                                                    <!--Card-->
-
-                                                </div>
-
-                                            </div>
-                                            <!--Third slide-->
+                                                    $counter++;  
+                                                    
+                                                }
+                                                
+                                            ?>
 
                                         </div>
                                         <!--Slides-->
-
-
-
                                     </div>
                                     <div class="col-md-2">
                                         <a class="btn-floating primary-color" href="#multi-item-example" data-slide="next">
@@ -388,30 +212,17 @@
                                         </a>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
                             </div>
                             <!--Controls-->
-
-
                         </div>
                         <!--Carousel Wrapper-->
-
-
                         <!--Section: Products v.5-->
                     </div>
                     <!-- ################################################################################################## -->
                     
                 </div>
+                <?php } ?>            
+
                 <?php if ($user != null && $user["friends"] != null) { ?>
                     
                     <div class="row">
@@ -531,6 +342,7 @@
                         <section class="row-section">
                                         
                             <div class="col-12 row-block">
+                                <div id="postList">
                                 <ul id="sortable">
                                     <?php foreach ($user["posts"] as $post) { ?>
                                         <li>
@@ -558,6 +370,7 @@
                                     <?php } ?>
                                     
                                 </ul>
+                                </div>
                             </div>
                         </section>
                         <?php } ?>

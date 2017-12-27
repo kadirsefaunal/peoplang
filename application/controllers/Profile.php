@@ -28,7 +28,8 @@ class Profile extends CI_Controller {
 			"webSites" 			=> $this->SettingsModel->getWebSites($userID),
 			"friends" 			=> $this->FriendsModel->getFriendsInformation($userID),
 			"aboutme" 			=> $this->SettingsModel->getAboutMe($userID),
-			"posts"				=> $this->PostModel->getUserPosts($userID)
+			"posts"				=> $this->PostModel->getUserPosts($userID),
+			"images"			=> $this->UserControl->getImages($userID)
 		);
 
 		$data["user"] = $user;
