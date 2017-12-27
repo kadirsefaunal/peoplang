@@ -524,79 +524,43 @@
                     <!--/.Panel 2-->
                     <!--Panel 3-->
                     <div class="tab-pane fade" id="panel3" role="tabpanel">
+                        <?php if ($user != null && $user["posts"] == null) { ?>
+                            <h3>There is nothing see in here!</h3>
+                        <?php } else { ?>
+
                         <section class="row-section">
                                         
                             <div class="col-12 row-block">
                                 <ul id="sortable">
-                                    <li>
+                                    <?php foreach ($user["posts"] as $post) { ?>
+                                        <li>
                                             <div class="card news-card">
 
-                                                    <!--Heading-->
-                                                    <div class="pr-3 pl-3">
-                                                        <div class="content align-middle">
-                                                            <div class="right-side-meta">
-                                                                <a class="btn-floating btn-md red">
-                                                                    <i class="fa fa-times"></i>
-                                                                </a></div>
-                                                            <div class="pt-4"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half">Kadir Sefa Ünal</div>
-                                                        </div>
+                                                <!--Heading-->
+                                                <div class="pr-3 pl-3">
+                                                    <div class="content align-middle">
+                                                        <div class="right-side-meta">
+                                                            <a postID="<?php if ($user != null) { echo $post["postid"]; } ?>" class="btn-floating btn-md red">
+                                                                <i class="fa fa-times"></i>
+                                                            </a></div>
+                                                        <div class="pt-4"><img src="<?php if ($user != null) { echo $user["avatar"]; } ?>" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half"><?php if ($user != null) { echo $user["userInformation"]["name"]; } ?></div>
                                                     </div>
-                                                    <div class="pl-3 pr-3">
-                                                        <div class="social-meta">
-                                                            <p>Bugün çok güzel bir gün! Yalan söyledim.   </p>
-                                                        </div>
+                                                </div>
+                                                <div class="pl-3 pr-3">
+                                                    <div class="social-meta">
+                                                        <p><?php if ($user != null) { echo $post["content"]; } ?></p>
                                                     </div>
-                                                    <!--Card content-->
+                                                </div>
+                                                <!--Card content-->
                             
                                             </div>
-                                    </li>
-                                    <li>
-                                            <div class="card news-card">
-
-                                                    <!--Heading-->
-                                                    <div class="pr-3 pl-3">
-                                                        <div class="content align-middle">
-                                                            <div class="right-side-meta">
-                                                                <a class="btn-floating btn-md red">
-                                                                    <i class="fa fa-times"></i>
-                                                                </a></div>
-                                                            <div class="pt-4"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half">Kadir Sefa Ünal</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pl-3 pr-3">
-                                                        <div class="social-meta">
-                                                            <p>Bugün çok güzel bir gün! Yalan söyledim.   </p>
-                                                        </div>
-                                                    </div>
-                                                    <!--Card content-->
-                            
-                                            </div>
-                                    </li>
-                                    <li>
-                                            <div class="card news-card">
-
-                                                    <!--Heading-->
-                                                    <div class="pr-3 pl-3">
-                                                        <div class="content align-middle">
-                                                            <div class="right-side-meta">
-                                                                <a class="btn-floating btn-md red">
-                                                                    <i class="fa fa-times"></i>
-                                                                </a></div>
-                                                            <div class="pt-4"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half">Kadir Sefa Ünal</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pl-3 pr-3">
-                                                        <div class="social-meta">
-                                                            <p>Bugün çok güzel bir gün! Yalan söyledim.   </p>
-                                                        </div>
-                                                    </div>
-                                                    <!--Card content-->
-                            
-                                            </div>
-                                    </li>
+                                        </li>
+                                    <?php } ?>
+                                    
                                 </ul>
-                    </div>
-                    </section>
+                            </div>
+                        </section>
+                        <?php } ?>
                     </div>
                     <!--/.Panel 3-->
                 </div>

@@ -9,6 +9,7 @@ class Profile extends CI_Controller {
 		$this->load->model("SettingsModel");
 		$this->load->model("LanguageModel");
 		$this->load->model("FriendsModel");
+		$this->load->model("PostModel");
     }
 
 	public function index()
@@ -18,15 +19,16 @@ class Profile extends CI_Controller {
 		$user = $this->UserControl->getUserByID($userID);
 
 		$user = array(
-			"avatar" => $this->UserControl->getUserAvatar($userID),
-			"userInformation" => $userInformation,
-			"flag"	=> $this->SettingsModel->getFlagUrl($userInformation["country"]),
-			"userName" => $user->userName,
-			"speaks" => $this->LanguageModel->getLanguages($userID, true),
-			"learning" => $this->LanguageModel->getLanguages($userID, false),
-			"webSites" => $this->SettingsModel->getWebSites($userID),
-			"friends" => $this->FriendsModel->getFriendsInformation($userID),
-			"aboutme" => $this->SettingsModel->getAboutMe($userID)
+			"avatar" 			=> $this->UserControl->getUserAvatar($userID),
+			"userInformation" 	=> $userInformation,
+			"flag"				=> $this->SettingsModel->getFlagUrl($userInformation["country"]),
+			"userName" 			=> $user->userName,
+			"speaks" 			=> $this->LanguageModel->getLanguages($userID, true),
+			"learning" 			=> $this->LanguageModel->getLanguages($userID, false),
+			"webSites" 			=> $this->SettingsModel->getWebSites($userID),
+			"friends" 			=> $this->FriendsModel->getFriendsInformation($userID),
+			"aboutme" 			=> $this->SettingsModel->getAboutMe($userID),
+			"posts"				=> $this->PostModel->getUserPosts($userID)
 		);
 
 		$data["user"] = $user;

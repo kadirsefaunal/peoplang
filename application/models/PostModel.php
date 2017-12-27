@@ -93,4 +93,23 @@ class PostModel extends CI_Model
             return strnatcmp($b[$key], $a[$key]);
         };
     }
+
+    public function getUserPosts($userID)
+    {
+        $posts = $this->getPosts($userID);
+        $postList = array();
+
+        foreach ($posts as $p) {
+            $post = array(
+                "postid"  => $p["ID"],
+                "content" => $p["content"],
+                "date"    => $p["date"]
+            );
+
+            array_push($postList, $post);
+        }
+
+        usort($postList, $this->build_sorter('date'));
+        return $postList;
+    }
 }
