@@ -348,6 +348,7 @@
 
 
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-sm table-striped">
@@ -366,39 +367,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($requests as $request) { ?>  
                             <tr>
-                                <th>Thank You! Please my sadsdlasd kajsda</th>
-                                <td>12/12/2017</td>
-                                <td>English</td>
-                                <td>Turkish</td>
+                                <th><?php echo $request["title"]; ?></th>
+                                <td><?php echo $request["date"]; ?></td>
+                                <td><?php echo $request["textLanguage"]; ?></td>
+                                <td><?php echo $request["languageToTranslation"]; ?></td>
                                 <td>
                                     <a class="btn-floating btn-sm red">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>
-                                    <a class="btn-floating btn-sm red">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>
-                                    <a class="btn-floating btn-sm red">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

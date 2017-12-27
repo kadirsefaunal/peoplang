@@ -11,9 +11,11 @@ class Translation extends CI_Controller {
 
 	public function index()
 	{
-        //$data["user"] = $user;
-		$data['content'] = "translationRequest/index";
-		$this->load->view('layouts/appLayout', $data);
+        $userID = get_cookie("User");
+        
+        $data['content'] = "translationRequest/index";
+        $data['requests'] = $this->TranslationModel->getTranslationRequests($userID);
+        $this->load->view('layouts/appLayout', $data);
     }
 
     public function addTranslationRequest()
@@ -31,4 +33,5 @@ class Translation extends CI_Controller {
         $this->TranslationModel->insertRequest($request);
 
     }
+
 }
