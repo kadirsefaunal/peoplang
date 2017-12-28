@@ -14,9 +14,14 @@ class FriendsModel extends CI_Model
         return $result->result_array();
     }
 
-    public function getFriendsInformation($userID)
+    public function getFriendsInformation($userID, $limit = null)
     {
-        $frie = $this->db->get_where("Friend", array("userID" => $userID), 4);
+        if ($limit != null) {
+            $frie = $this->db->get_where("Friend", array("userID" => $userID), $limit);    
+        } else {
+            $frie = $this->db->get_where("Friend", array("userID" => $userID));
+        }
+        
         $friends = $frie->result_array();
         $friendsList = array();
 

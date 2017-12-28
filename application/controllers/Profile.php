@@ -44,7 +44,7 @@ class Profile extends CI_Controller {
 			"speaks" 			=> $this->LanguageModel->getLanguages($userID, true),
 			"learning" 			=> $this->LanguageModel->getLanguages($userID, false),
 			"webSites" 			=> $this->SettingsModel->getWebSites($userID),
-			"friends" 			=> $this->FriendsModel->getFriendsInformation($userID),
+			"friends" 			=> $this->FriendsModel->getFriendsInformation($userID, 4),
 			"aboutme" 			=> $this->SettingsModel->getAboutMe($userID),
 			"posts"				=> $this->PostModel->getUserPosts($userID),
 			"images"			=> $this->UserControl->getImages($userID),

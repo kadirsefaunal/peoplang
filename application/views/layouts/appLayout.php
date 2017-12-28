@@ -99,6 +99,9 @@
             $data["heading"] = $heading;
             $data["message"] = $message;
             $this->load->view($content, $data);
+        } else if ($content == "friend/index") {
+            $data["friends"] = $friends;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);
