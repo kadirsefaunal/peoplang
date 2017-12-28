@@ -105,9 +105,6 @@
         }
     ?>
 
-    
-    <script type="text/javascript" src="<?php echo base_url("public/js/app.js"); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("public/js/settings.js"); ?>"></script>
     <script>
         $(document).ready(function () {
             $('.mdb-select').material_select();
