@@ -242,7 +242,7 @@
                                     <?php } else { ?>
                                         <i class="fa fa-venus" aria-hidden="true"></i>
                                     <?php } ?>
-                                    <a href="#" userID="<?php echo $friend["userID"]; ?>"><?php echo $friend["userName"]; ?></a> | 
+                                    <a href="<?php echo base_url("u/" . $friend["userName"]); ?>" userID="<?php echo $friend["userID"]; ?>"><?php echo $friend["userName"]; ?></a> | 
                                         <span class="app-age"> <?php echo $friend["age"]; ?></span>
                                     </div>
                                     <div class="text-center">
