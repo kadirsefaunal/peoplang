@@ -178,12 +178,16 @@
                                                         <div class="carousel-item">
                                                     <?php } ?> 
                                                     
+                                                    <?php if ($counter == 0 || $counter == 3 || $counter == 6) { ?>
                                                     <div class="col-md-4">
+                                                    <?php } else { ?>
+                                                    <div class="col-md-4 clearfix d-none d-md-block">
+                                                    <?php } ?>
                                                         <!--Card-->
                                                         <div class="card narrower">
                                                             <!--Card image-->
                                                             <div class="view overlay hm-white-slight">
-                                                                <img src="<?php echo $image["url"]; ?>" class="img-fluid" alt="">
+                                                                <img src="<?php echo $image["url"]; ?>" class="img-fluid" alt="" >
                                                                 <a><div class="mask"></div></a>
                                                             </div>
                                                             <!--Card image-->
