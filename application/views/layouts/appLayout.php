@@ -95,6 +95,10 @@
         } else if ($content == "translation/index") {
             $data["requests"] = $requests;
             $this->load->view($content, $data);
+        } else if ($content == "errors/cli/error_404") {
+            $data["heading"] = $heading;
+            $data["message"] = $message;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);

@@ -29,6 +29,10 @@ class Profile extends CI_Controller {
 			$userID = $u->ID;
 			$userInformation = $this->SettingsModel->getProfile($userID);
 			
+			if ($u == null) {
+				redirect("/404page");
+			}
+
 			$this->UserControl->setViewer($u->ID, get_cookie("User"));
 		}
 

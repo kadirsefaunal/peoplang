@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['u/(:any)'] = "profile/index/$1";
+$route['404page'] = "errors/user404";
