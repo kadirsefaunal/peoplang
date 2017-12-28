@@ -107,38 +107,41 @@
                         <?php }?>
                     </div>
                     <?php } ?>
-                    <hr>
-                    <div class="row mr-3">
-                        <div class="col-md-3 mt-1">
-                            <div class="text-center">
-                                <a class="btn-floating btn-lg success-color">
-                                    <i class="fa fa-user-plus"></i>
-                                </a>
+                    <?php if ($user != null && ($user["userID"] != get_cookie("User"))) {?>
+                        <hr>
+                        <div class="row mr-3">
+                            <div class="col-md-3 mt-1">
+                                <div class="text-center">
+                                    <a class="btn-floating btn-lg success-color">
+                                        <i class="fa fa-user-plus"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 mt-1">
-                            <div class="text-center">
-                                <a class="btn-floating btn-lg primary-color-dark">
-                                    <i class="fa fa-envelope-o"></i>
-                                </a>
+                            <div class="col-md-3 mt-1">
+                                <div class="text-center">
+                                    <a class="btn-floating btn-lg primary-color-dark">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 mt-1">
-                            <div class="text-center">
-                                <a class="btn-floating btn-lg amber">
-                                    <i class="fa fa-ban"></i>
-                                </a>
+                            <div class="col-md-3 mt-1">
+                                <div class="text-center">
+                                    <a class="btn-floating btn-lg amber">
+                                        <i class="fa fa-ban"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 mt-1">
-                            <div class="text-center">
-                                <a class="btn-floating btn-lg red">
-                                    <i class="fa fa-exclamation-triangle"></i>
-                                </a>
+                            <div class="col-md-3 mt-1">
+                                <div class="text-center">
+                                    <a class="btn-floating btn-lg red">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </a>
+                                </div>
                             </div>
+                            
                         </div>
-                        
-                    </div>
+                    <?php } ?>
+                    
                 </div>
             </div>
             <div class="col-md-8">
@@ -261,22 +264,22 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-justified indigo mt-3">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">
+                        <a class="nav-link active" data-toggle="tab" href="#about" role="tab">
                             <i class="fa fa-user"></i> About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">
                             <i class="fa fa-heart"></i> Favorites</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">
+                        <a class="nav-link" data-toggle="tab" href="#posts" role="tab">
                             <i class="fa fa-pencil"></i> Posts</a>
                     </li>
                 </ul>
                 <!-- Tab panels -->
                 <div class="tab-content card mb-3">
                     <!--Panel 1-->
-                    <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                    <div class="tab-pane fade in show active" id="about" role="tabpanel">
                         <?php if ($user != null && $user["aboutme"] == null) { ?>
                             <h3>There is nothing see in here!</h3>
                         <?php } else { 
@@ -306,7 +309,7 @@
                     </div>
                     <!--/.Panel 1-->
                     <!--Panel 2-->
-                    <div class="tab-pane fade" id="panel2" role="tabpanel">
+                    <div class="tab-pane fade" id="favorites" role="tabpanel">
                         <?php if ($user != null && $user["aboutme"] == null) { ?>
                             <h3>There is nothing see in here!</h3>
                         <?php } else { 
@@ -334,7 +337,7 @@
                     </div>
                     <!--/.Panel 2-->
                     <!--Panel 3-->
-                    <div class="tab-pane fade" id="panel3" role="tabpanel">
+                    <div class="tab-pane fade" id="posts" role="tabpanel">
                         <?php if ($user != null && $user["posts"] == null) { ?>
                             <h3>There is nothing see in here!</h3>
                         <?php } else { ?>
@@ -351,14 +354,17 @@
                                                 <!--Heading-->
                                                 <div class="pr-3 pl-3">
                                                     <div class="content align-middle">
-                                                        <div class="right-side-meta">
-                                                            <a postID="<?php if ($user != null) { echo $post["postid"]; } ?>" class="btn-floating btn-md red">
-                                                                <i class="fa fa-times"></i>
-                                                            </a></div>
+                                                        <?php if ($user != null && ($user["userID"] == get_cookie("User"))) {?>
+                                                            <div class="right-side-meta">
+                                                                <a postID="<?php if ($user != null) { echo $post["postid"]; } ?>" class="btn-floating btn-md red">
+                                                                    <i class="fa fa-times"></i>
+                                                                </a>
+                                                            </div>
+                                                        <?php } ?>
                                                         <div class="pt-4"><img src="<?php if ($user != null) { echo $user["avatar"]; } ?>" alt="example avatar" class="rounded-circle avatar-img z-depth-1-half"><?php if ($user != null) { echo $user["userInformation"]["name"]; } ?></div>
                                                     </div>
                                                 </div>
-                                                <div class="pl-3 pr-3">
+                                                <div class="pl-3 pr-3 pt-3">
                                                     <div class="social-meta">
                                                         <p><?php if ($user != null) { echo $post["content"]; } ?></p>
                                                     </div>
