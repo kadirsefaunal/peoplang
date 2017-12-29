@@ -26,4 +26,18 @@ $(document).ready(function () {
             $("#postList").append("</ul>");
         });
     };
+
+    $("#sendreport").click(function() {
+        
+        var user = {
+            userID : $("#sendreport").attr("userID"),
+            content: $("#reportText").val()
+        };
+        console.log(user);
+        
+        $.post("../profile/sendReport", { user: user }, function (result) {
+            console.log(result);    
+            
+        });
+    });
 });

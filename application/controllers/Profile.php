@@ -66,8 +66,19 @@ class Profile extends CI_Controller {
 		
 	}
 
-	public function deneme($userName)
+	public function sendReport()
 	{
-		echo $userName;
+		$user = $this->input->post("user");
+		$userID = get_cookie("User");
+		$dt = time();
+
+		$report = array(
+			"userID" => $userID,
+			"reportedID" => $user["userID"],
+			"content" => $user["content"],
+			"date" => $dt
+		);
+
+		echo json_encode($this->UserControl->report($report));
 	}
 }

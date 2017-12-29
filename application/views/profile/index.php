@@ -126,7 +126,7 @@
                             </div>
                             <div class="col-md-3 mt-1">
                                 <div class="text-center">
-                                    <a class="btn-floating btn-lg amber">
+                                    <a class="btn-floating btn-lg amber" data-toggle="modal" data-target="#report">
                                         <i class="fa fa-ban"></i>
                                     </a>
                                 </div>
@@ -391,6 +391,41 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="report" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Report</p>
+                </div>
+    
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fa fa-ban fa-4x mb-3 animated rotateIn"></i>
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix grey-text"></i>
+                            <textarea type="text" id="reportText" class="md-textarea" style="height: 100px"></textarea>
+                            <label for="reportText">Your message</label>
+                        </div>
+                    </div>
+                </div>
+    
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">No, thanks</a>
+                    <button id="sendreport" userID="<?php echo $user["userID"]; ?>" type="button" class="btn btn-primary-modal" data-dismiss="modal">Send <i class="fa fa-send" aria-hidden="true"></i></button>
+                    
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div> 
+
+
 
     <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("public/js/profile.js"); ?>"></script>

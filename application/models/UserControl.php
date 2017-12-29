@@ -97,4 +97,17 @@ class UserControl extends CI_Model
 			$this->db->insert("ViewedProfile", $viewDetail);
 		}
 	}
+
+	public function report($report)
+	{
+		$checkReport = $this->db->get_where("Reports", array("userID" => $report["userID"], "reportedID" => $report["reportedID"]));
+		$checkReport = $checkReport->first_row();
+
+		if ($checkReport == null) {
+			return $this->db->insert("Reports", $report);
+		} else {
+			return false;
+		}
+		
+	}
 }
