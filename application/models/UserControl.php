@@ -98,6 +98,7 @@ class UserControl extends CI_Model
 		}
 	}
 
+<<<<<<< HEAD
 	public function report($report)
 	{
 		$checkReport = $this->db->get_where("Reports", array("userID" => $report["userID"], "reportedID" => $report["reportedID"]));
@@ -110,4 +111,8 @@ class UserControl extends CI_Model
 		}
 		
 	}
+=======
+
+
+>>>>>>> kadir
 }
