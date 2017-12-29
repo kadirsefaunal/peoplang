@@ -6,14 +6,17 @@ class App extends CI_Controller {
 	function __construct() {
         parent::__construct();
 
-        $this->load->model("PostModel");
+		$this->load->model("PostModel");
+		$this->load->model("SettingsModel");
     }
 
     
 	public function index()
 	{
 		$userID = get_cookie("User");
+		$userInformation = $this->SettingsModel->getProfile($userID);
 
+		$data["name"] = $userInformation["name"];
 		$data['content'] = "app/index";
 		$data["posts"] = $this->PostModel->getAllPosts($userID);
 		$this->load->view('layouts/appLayout', $data);

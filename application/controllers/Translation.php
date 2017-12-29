@@ -7,12 +7,15 @@ class Translation extends CI_Controller {
         parent::__construct();
         $this->load->model("UserControl");
         $this->load->model("TranslationModel");
+        $this->load->model("SettingsModel");
     }
 
 	public function index()
 	{
         $userID = get_cookie("User");
-        
+        $userInformation = $this->SettingsModel->getProfile($userID);
+
+        $data["name"] = $userInformation["name"];
         $data['content'] = "translationRequest/index";
         $data['requests'] = $this->TranslationModel->getTranslationRequests($userID);
         $this->load->view('layouts/appLayout', $data);

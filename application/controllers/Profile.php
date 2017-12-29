@@ -51,6 +51,8 @@ class Profile extends CI_Controller {
 			"userID"			=> $u->ID
 		);
 
+		$ui = $this->SettingsModel->getProfile($userID);
+		$data["name"] = $ui["name"]; 
 		$data["user"] = $user;
 		$data['content'] = "profile/index";
 		$this->load->view('layouts/appLayout', $data);

@@ -28,6 +28,7 @@ class Settings extends CI_Controller {
 		}
 		$data["speaks"]    = $this->LanguageModel->getLanguages($userID, true);
 		$data["learn"]	   = $this->LanguageModel->getLanguages($userID, false);
+		$data["name"] 	   = $userInfo["name"];
 		$data['content']   = "settings/index";
 		
 		$this->load->view('layouts/appLayout', $data);
