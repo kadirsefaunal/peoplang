@@ -97,4 +97,7 @@ class UserControl extends CI_Model
 			$this->db->insert("ViewedProfile", $viewDetail);
 		}
 	}
+
+
+
 }

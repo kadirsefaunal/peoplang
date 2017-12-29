@@ -7,12 +7,14 @@ class Translation extends CI_Controller {
         parent::__construct();
         $this->load->model("UserControl");
         $this->load->model("TranslationModel");
+        $this->load->model("LanguageModel");
     }
 
 	public function index()
 	{
         $userID = get_cookie("User");
-        
+        //$veri = $this->LanguageModel->getUserLanguages($userID);
+        //var_dump($veri["language"]);
         $data['content'] = "translationRequest/index";
         $data['requests'] = $this->TranslationModel->getTranslationRequests($userID);
         $this->load->view('layouts/appLayout', $data);
@@ -32,6 +34,15 @@ class Translation extends CI_Controller {
 
         $this->TranslationModel->insertRequest($request);
 
+    }
+
+    public function deleteRequestByID()
+    {
+        $request = $this->input->post("request");
+		$userID = get_cookie("User");
+		if ($this->TranslationModel->deleteRequestByID($request["requestID"]) == true) {
+			echo json_encode($this->TranslationModel->getTranslationRequests($userID));	
+		}
     }
 
 }
