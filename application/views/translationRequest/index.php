@@ -366,7 +366,7 @@
                                 <th>Remove</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myRequest">
                         <?php foreach($requests as $request) { ?>  
                             <tr>
                                 <th><?php echo $request["title"]; ?></th>
@@ -374,7 +374,7 @@
                                 <td><?php echo $request["textLanguage"]; ?></td>
                                 <td><?php echo $request["languageToTranslation"]; ?></td>
                                 <td>
-                                    <a class="btn-floating btn-sm red">
+                                    <a requestID="<?php if ($request != null) echo $request["ID"]; ?>" class="btn-floating btn-sm red">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>

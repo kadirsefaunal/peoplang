@@ -6,6 +6,7 @@ class LanguageModel extends CI_Model
         parent::__construct();
 
         $this->load->model("UserControl");
+        $this->load->model("TranslationModel");
     }
 
     public function saveLanguage($language)
@@ -30,4 +31,12 @@ class LanguageModel extends CI_Model
         $result = $this->db->get_where("LanguageLevel", array("userID" => $userID, "learningOrSpeaking" => $status));
         return $result->result_array();
     }
+
+    public function getUserLanguages($userID)
+	{
+		$userLanguages = $this->db->get_where("LanguageLevel", array("userID" => $userID));
+		$userLanguagesList = $userLanguages->result_array();
+
+		return $userLanguagesList;
+	}
 }
