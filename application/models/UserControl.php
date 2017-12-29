@@ -110,4 +110,5 @@ class UserControl extends CI_Model
 		}
 		
 	}
+
 }
