@@ -6,6 +6,7 @@ class TranslationModel extends CI_Model
         parent::__construct();
 
         $this->load->model("UserControl");
+        $this->load->model("LanguageModel");
     }
 
     public function insertRequest($request)
@@ -24,45 +25,40 @@ class TranslationModel extends CI_Model
         return $this->db->delete("TranslationRequests", array("ID" => $requestID));
     }
 
-    public function getAllTranslationRequest()
+    public function getAllTranslationRequests($userID)
     {
+
+        $langs      = array();
+        $langs      = $this->LanguageModel->getUserLanguages($userID);
+
+        $newLang = array();
+        foreach ($langs as $l){
+            foreach($l as $k){
+                array_push($newLang, $k);
+            }
+        }
+
+        $this->db->where_in('textLanguage', $newLang);
+        $this->db->where_in('languageToTranslation', $newLang);
+        $results = $this->db->get("TranslationRequests");
+        $result = $results->result_array();
+
+        $translationRequests = array();
+        foreach ($result as $r) {
+            $userAvatar = $this->UserControl->getUserAvatar($r["userID"]);
+            $newTR = array(
+                "ID"                    => $r["ID"],
+                "userID"                => $r["userID"],
+                "textLanguage"          => $r["textLanguage"],
+                "languageToTranslation" => $r["languageToTranslation"],
+                "userAvatar"            => $userAvatar,
+                "title"                 => $r["title"],
+                "date"                  => $r["date"]
+            );
+            array_push($translationRequests, $newTR);
+        }
         
-        
-        
-        
-        
-        
-        //$allRequest = $this->db->get_where("TranslationRequests", array(""))
-        // $translationRequestList = array();
-
-
-        // $userLanguages           = $this->LanguageModel->getUserLanguages($userID);
-        
-
-        // $translationRequests    = $this->getTranslationRequests($userID);
-        // $user                   = $this->UserControl->getUserByID($userID);
-        // $userAvatar             = $this->UserControl->getUserAvatar($userID);
-        
-        // foreach ($translationRequests as $request){
-        //     $newRequest = array(
-        //         "userID"                => $user->ID,
-        //         "userAvatar"            => $userAvatar,
-        //         "title"                 => $request["title"],
-        //         "date"                  => $request["date"],
-        //         "textLanguage"          => $request["textLanguage"],
-        //         "languageToTraslation"  => $request["languageToTranslation"]   
-        //     );
-        //     array_push($translationRequestList, $newRequest);
-        // }
-
-
-
-
-
-
-        
-
-       
+        return $translationRequests;
 
     }
 }

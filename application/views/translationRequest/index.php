@@ -404,54 +404,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($allRequests as $r) { ?>
                         <tr>
                             <td>
-                                <img src="https://randomuser.me/api/portraits/women/50.jpg" class="rounded-circle avatar-img z-depth-1-half"
+                                <img src="<?php echo $r["userAvatar"]; ?>" class="rounded-circle avatar-img z-depth-1-half"
                                     width="40" height="40" />
                             </td>
                             <th>
-                                <a href="#">Thank You! Please my sadsdlasd kajsda</a>
+                                <a href="#"><?php echo $r["title"]; ?></a>
                             </th>
-                            <td>12/12/2017</td>
-                            <td>English</td>
-                            <td>Turkish</td>
+                            <td><?php echo $r["date"]; ?></td>
+                            <td><?php echo $r["textLanguage"]; ?></td>
+                            <td><?php echo $r["languageToTranslation"]; ?></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <img src="https://randomuser.me/api/portraits/women/50.jpg" class="rounded-circle avatar-img z-depth-1-half"
-                                    width="40" height="40" />
-                            </td>
-                            <th>
-                                <a href="#">Thank You! Please my sadsdlasd kajsda</a>
-                            </th>
-                            <td>12/12/2017</td>
-                            <td>English</td>
-                            <td>Turkish</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://randomuser.me/api/portraits/women/50.jpg" class="rounded-circle avatar-img z-depth-1-half"
-                                    width="40" height="40" />
-                            </td>
-                            <th>
-                                <a href="#">Thank You! Please my sadsdlasd kajsda</a>
-                            </th>
-                            <td>12/12/2017</td>
-                            <td>English</td>
-                            <td>Turkish</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="https://randomuser.me/api/portraits/women/50.jpg" class="rounded-circle avatar-img z-depth-1-half"
-                                    width="40" height="40" />
-                            </td>
-                            <th>
-                                <a href="#">Thank You! Please my sadsdlasd kajsda</a>
-                            </th>
-                            <td>12/12/2017</td>
-                            <td>English</td>
-                            <td>Turkish</td>
-                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

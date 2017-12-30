@@ -34,9 +34,12 @@ class LanguageModel extends CI_Model
 
     public function getUserLanguages($userID)
 	{
-		$userLanguages = $this->db->get_where("LanguageLevel", array("userID" => $userID));
-		$userLanguagesList = $userLanguages->result_array();
+		$this->db->select('language');
+        $this->db->from('LanguageLevel');
+        $this->db->where('userID', $userID);
+        $query = $this->db->get();
 
-		return $userLanguagesList;
-	}
+        return $query->result_array();
+    }
+    
 }

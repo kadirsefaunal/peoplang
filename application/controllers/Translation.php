@@ -21,6 +21,7 @@ class Translation extends CI_Controller {
         //var_dump($veri["language"]);
         $data['content'] = "translationRequest/index";
         $data['requests'] = $this->TranslationModel->getTranslationRequests($userID);
+        $data['allRequests'] = $this->TranslationModel->getAllTranslationRequests($userID);
         $this->load->view('layouts/appLayout', $data);
     }
 
