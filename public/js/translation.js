@@ -15,6 +15,12 @@ $(document).ready(function () {
         };
 
         $.post("translation/deleteRequestByID", { request: request }, function (result) {  
+            getRequest();
+        });
+    }
+
+    function getRequest() {
+        $.get("translation/getRequests", function (result) { 
             console.log(result);
             var obj = $.parseJSON(result);
             $("#myRequest").empty();
@@ -25,6 +31,7 @@ $(document).ready(function () {
             $("#postList").append("</ul>");
         });
     }
+
     $("#requestSend").click(function(){
         var dt = new Date();
 
@@ -41,9 +48,9 @@ $(document).ready(function () {
         if (request.textLanguage != "Text Language" && request.languageToTranslation != "Choose Level") {
             $.post("translation/addTranslationRequest", { request: request }, function (result) {
                 console.log(result);
-                $("#myRequest").prepend("<tr><th>" + request.title + "</th><td>" + dt.getMonth() + "/" + (dt.getDate() + 1) + "/" + dt.getFullYear() + "</td><td>" + request.textLanguage + "</td><td>" + request.languageToTranslation + "</td><td><a class='btn-floating btn-sm red'><i class='fa fa-trash'></i></a></td></tr>");
-                    
+                getRequest();    
             });
+            
         }
 
     });

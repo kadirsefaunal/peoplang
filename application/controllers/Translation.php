@@ -50,4 +50,10 @@ class Translation extends CI_Controller {
 		}
     }
 
+    public function getRequests()
+    {
+        $userID = get_cookie("User");
+        echo json_encode($this->TranslationModel->getTranslationRequests($userID));
+    }
+
 }
