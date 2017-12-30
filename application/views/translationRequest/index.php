@@ -407,8 +407,10 @@
                     <?php foreach($allRequests as $r) { ?>
                         <tr>
                             <td>
+                                <a href="<?php echo base_url("u/" . $r["userName"]); ?>">
                                 <img src="<?php echo $r["userAvatar"]; ?>" class="rounded-circle avatar-img z-depth-1-half"
                                     width="40" height="40" />
+                                </a>
                             </td>
                             <th>
                                 <a href="#"><?php echo $r["title"]; ?></a>

@@ -46,9 +46,11 @@ class TranslationModel extends CI_Model
         $translationRequests = array();
         foreach ($result as $r) {
             $userAvatar = $this->UserControl->getUserAvatar($r["userID"]);
+            $user       = $this->UserControl->getUserByID($r["userID"]);
             $newTR = array(
                 "ID"                    => $r["ID"],
                 "userID"                => $r["userID"],
+                "userName"              => $user->userName,
                 "textLanguage"          => $r["textLanguage"],
                 "languageToTranslation" => $r["languageToTranslation"],
                 "userAvatar"            => $userAvatar,

@@ -237,9 +237,9 @@
                         <div class="row">
                             <?php foreach ($user["friends"] as $friend) { ?>
                                 <div class="col-3">
-                                    
-                                    <img src="<?php echo $friend["avatar"]; ?>" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                    
+                                    <a href="<?php echo base_url("u/" . $friend["userName"]); ?>">
+                                        <img src="<?php echo $friend["avatar"]; ?>" width="80" height="80" alt="..." class="rounded-circle mx-auto d-block img-fluid">
+                                    </a>
                                     <div class="text-center app-username">
                                     <?php if ($friend["gender"] == "Male") { ?>
                                         <i class="fa fa-mars" aria-hidden="true"></i>
