@@ -14,8 +14,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center mt-3">
+                    <a href="<?php echo base_url("u/" . $friend["userName"]); ?>">
                         <img src="<?php echo $friend["avatar"]; ?>" class="rounded-circle img-fluid z-depth-1" alt="<?php echo $friend["avatar"]; ?>"
                             height="150px" width="150px">
+                    </a>
                     </div>
                 </div>
             </div>
