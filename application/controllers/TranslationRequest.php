@@ -45,5 +45,14 @@ class TranslationRequest extends CI_Controller {
         $this->TranslationModel->insertAnswer($newAnswer);
         echo "kayıt başarılı";
     }
+    
+    public function getAnswers()
+    {
+        $questionID = $this->input->post("questionID");
 
+        $answers = $this->TranslationModel->getAnswers($questionID["qID"]);
+
+        echo json_encode($answers);
+
+    }
 }

@@ -44,7 +44,8 @@ class Translation extends CI_Controller {
     public function deleteRequestByID()
     {
         $request = $this->input->post("request");
-		$userID = get_cookie("User");
+        $userID = get_cookie("User");
+        $this->TranslationModel->deleteAnswers($request["requestID"]);
 		if ($this->TranslationModel->deleteRequestByID($request["requestID"]) == true) {
 			echo json_encode($this->TranslationModel->getTranslationRequests($userID));	
 		}

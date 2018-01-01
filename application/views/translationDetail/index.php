@@ -65,6 +65,7 @@
                         <span class="badge blue">3</span>
                     </h3>
                 </div>
+                <div id="answers">
                 <?php foreach ($answers as $answer){ ?>
                 <!--First row-->
                 <div class="row">
@@ -92,6 +93,7 @@
                 </div>
                 <!--/.First row-->
                 <?php } ?>
+                </div>
             </div>
             <!--/.Answers row-->
 

@@ -64,6 +64,11 @@ class TranslationModel extends CI_Model
         return $this->db->delete("TranslationRequests", array("ID" => $requestID));
     }
 
+    public function deleteAnswers($questionID)
+    {
+        return $this->db->delete("Answers", array("questionID" => $questionID));
+    }
+    
     public function getAllTranslationRequests($userID)
     {
 
