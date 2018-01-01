@@ -28,7 +28,7 @@ $(document).ready(function () {
             console.log(obj);
             $("#onlineUsers").empty();
             $.each(obj, function (i, item) {  
-                $("#onlineUsers").append("<div class='col-3'><a href='u/'" + item.userName + "><img src='"+ item.avatar +"' width='80' height='80'alt='...' class='rounded-circle mx-auto d-block img-fluid'></a><div class='text-center app-username'><a href='u/" + item.userName + "'>"+ item.userName +"</a><span class='app-age'> | "+ item.age +"</span> </div><div class='text-center'><img src='"+ item.flag +"' width='28px' height='20px' /><span class='app-city'> "+ item.location +" </span> </div></div>")
+                $("#onlineUsers").append("<div class='col-3'><a href='u/" + item.userName + "'><img src='"+ item.avatar +"' width='80' height='80'alt='...' class='rounded-circle mx-auto d-block img-fluid'></a><div class='text-center app-username'><a href='u/" + item.userName + "'>"+ item.userName +"</a><span class='app-age'> | "+ item.age +"</span> </div><div class='text-center'><img src='"+ item.flag +"' width='28px' height='20px' /><span class='app-city'> "+ item.location +" </span> </div></div>")
             });
             
         });
