@@ -10,13 +10,19 @@ class TranslationRequest extends CI_Controller {
         $this->load->model("SettingsModel");
     }
 
-	public function index()
+	public function index($trID = null)
 	{
         $userID = get_cookie("User");
         $userInformation = $this->SettingsModel->getProfile($userID);
 
         $data["name"] = $userInformation["name"];
         $data['content'] = "translationDetail/index";
+        $data["translationRequest"] = $this->TranslationModel->getTR($trID);
+        //$tr = $data["translationRequest"];
+        $data["avatar"] = $this->UserControl->getUserAvatar($data["translationRequest"]->userID);
+        $data["visitorAvatar"] = $this->UserControl->getUserAvatar($userID);
+
         $this->load->view('layouts/appLayout', $data);
     }
+
 }

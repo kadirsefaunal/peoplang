@@ -4,15 +4,14 @@
             <!--Panel-->
             <div class="card card-body m-2 blue lighten-4">
                 <div class="media d-block d-md-flex">
-                    <img class="d-flex avatar-2 mb-md-0 mb-3 mx-auto rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                    <img class="d-flex avatar-2 mb-md-0 mb-3 mx-auto rounded-circle" src="<?php echo $avatar;?>"
                         alt="Generic placeholder image" width="175" height="175">
                     <div class="media-body text-center text-md-left ml-md-3 ml-0">
-                        <span class="badge badge-pill green">Turkish</span>
+                        <span class="badge badge-pill green"><?php echo $translationRequest->textLanguage; ?></span>
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span class="badge badge-pill light-blue mb-3">English</span>
-                        <h4>Title</h4>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia magni dolores
-                            eos qui ratione voluptatem sequi nesciunt.</p>
+                        <span class="badge badge-pill light-blue mb-3"><?php echo $translationRequest->languageToTranslation; ?></span>
+                        <h4><?php echo $translationRequest->title; ?></h4>
+                        <p><?php echo $translationRequest->text; ?></p>
                         <button type="button" class="btn btn-danger btn-md float-right">
                             <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                     </div>
@@ -31,7 +30,7 @@
                 <div class="row">
                     <!--Image column-->
                     <div class="col-sm-2 col-12">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Sample avatar image">
+                        <img src="<?php echo $avatar;?>" alt="Sample avatar image">
                     </div>
                     <!--/.Image column-->
 
@@ -153,3 +152,6 @@
 
         </div>
     </div>
+
+    <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("public/js/tr.js"); ?>"></script>

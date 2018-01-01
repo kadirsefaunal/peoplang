@@ -104,6 +104,11 @@
         } else if ($content == "friend/index") {
             $data["friends"] = $friends;
             $this->load->view($content, $data);
+        } else if ($content == "translationDetail/index") {
+            $data["translationRequest"] = $translationRequest;
+            $data["avatar"] = $avatar;
+            $data["visitorAvatar"] = $visitorAvatar;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);

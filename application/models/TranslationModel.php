@@ -14,6 +14,12 @@ class TranslationModel extends CI_Model
         $this->db->insert('TranslationRequests', $request);
     }
 
+    public function getTR($trID)
+    {
+        $tr = $this->db->get_where("TranslationRequests", array("ID" => $trID));
+        return $tr->first_row();
+    }
+
     public function getTranslationRequests($userID)
     {
         $request = $this->db->get_where("TranslationRequests", array("userID" => $userID));
@@ -59,8 +65,14 @@ class TranslationModel extends CI_Model
             );
             array_push($translationRequests, $newTR);
         }
-        
+        usort($translationRequests, $this->build_sorter('date'));
         return $translationRequests;
 
+    }
+
+    public function build_sorter($key) {
+        return function ($a, $b) use ($key) {
+            return strnatcmp($b[$key], $a[$key]);
+        };
     }
 }

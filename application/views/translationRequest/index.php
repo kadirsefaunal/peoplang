@@ -369,7 +369,7 @@
                         <tbody id="myRequest">
                         <?php foreach($requests as $request) { ?>  
                             <tr>
-                                <th><?php echo $request["title"]; ?></th>
+                                <th><a href="<?php echo base_url("tr/" . $request["ID"]); ?>"><?php echo $request["title"]; ?></a></th>
                                 <td><?php echo $request["date"]; ?></td>
                                 <td><?php echo $request["textLanguage"]; ?></td>
                                 <td><?php echo $request["languageToTranslation"]; ?></td>
@@ -413,7 +413,7 @@
                                 </a>
                             </td>
                             <th>
-                                <a href="#"><?php echo $r["title"]; ?></a>
+                                <a href="<?php echo base_url("tr/" . $r["ID"]); ?>"><?php echo $r["title"]; ?></a>
                             </th>
                             <td><?php echo $r["date"]; ?></td>
                             <td><?php echo $r["textLanguage"]; ?></td>
