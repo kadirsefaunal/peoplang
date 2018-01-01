@@ -48,9 +48,10 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md-6">
                 <div class="row">
+                    <?php if ($online4s != null) { ?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -75,34 +76,19 @@
                                 
                                 
                                 <div class="row">
+                                    <?php foreach ($online4s as $online) { ?>
                                     <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                        <a href="<?php echo base_url("u/". $online["userName"]); ?>"><img src="<?php echo $online["avatar"]; ?>" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid"></a>
+                                        <div class="text-center app-username"><a href="<?php echo base_url("u/". $online["userName"]); ?>"><?php echo $online["userName"]; ?></a><span class="app-age"> | <?php echo $online["age"]; ?></span> </div>
+                                        <div class="text-center"><img src="<?php echo $online["flag"]; ?>" width="28px" height="20px" /><span class="app-city"> <?php echo $online["location"]; ?></span> </div>
                                     </div>
-                                    <div class="col-3">
-                                        <img src="https://randomuser.me/api/portraits/women/50.jpg" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">camilaterry<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="US.png"/><span class="app-city"> New York</span> </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="row mt-1">
                     <div class="col-md-12">

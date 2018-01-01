@@ -89,6 +89,7 @@
             $this->load->view($content, $data);    
         } else if($content == "app/index"){
             $data["posts"] = $posts;
+            $data["online4s"] = $online4s;
             $this->load->view($content, $data);
         } else if ($content == "profile/index") {
             $data["user"] = $user;

@@ -8,6 +8,7 @@ class App extends CI_Controller {
 
 		$this->load->model("PostModel");
 		$this->load->model("SettingsModel");
+		$this->load->model("OnlineModel");
     }
 
     
@@ -19,6 +20,7 @@ class App extends CI_Controller {
 		$data["name"] = $userInformation["name"];
 		$data['content'] = "app/index";
 		$data["posts"] = $this->PostModel->getAllPosts($userID);
+		$data["online4s"] = $this->OnlineModel->onlineUsers(4);
 		$this->load->view('layouts/appLayout', $data);
     }
 
@@ -52,5 +54,10 @@ class App extends CI_Controller {
 	{
 		$userID = get_cookie("User");
 		echo json_encode($this->PostModel->getAllPosts($userID));
+	}
+
+	public function getOnline4()
+	{
+		
 	}
 }
