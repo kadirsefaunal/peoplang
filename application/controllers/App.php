@@ -58,6 +58,8 @@ class App extends CI_Controller {
 
 	public function getOnline4()
 	{
-		
+		$lang = $this->input->post("language");
+		$result = $this->OnlineModel->onlineUsersLanguage($lang["langName"]);
+		echo json_encode($result);
 	}
 }
