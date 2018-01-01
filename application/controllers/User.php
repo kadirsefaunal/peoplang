@@ -6,6 +6,7 @@ class User extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model("DBmodel");
+        $this->load->model("OnlineModel");
         $this->load->model("UserControl");
     }
     
@@ -34,6 +35,7 @@ class User extends CI_Controller {
         if ($result == "True") {
             if ($this->DBmodel->save("User", $newUser) == 1) {
                 set_cookie('User', $this->db->insert_id(), '3600');
+                $this->OnlineModel->beOnline($this->db->insert_id());
                 echo $result;
             } else {
                 echo "Veritabanı Hatası!";
@@ -66,6 +68,7 @@ class User extends CI_Controller {
         } else {
             if ($result->password == $user["password"]) {
                 set_cookie('User', $result->ID, '3600');
+                $this->OnlineModel->beOnline($result->ID);
                 echo "True";
             } else {
                 echo "Parola hatalı!";
@@ -76,6 +79,8 @@ class User extends CI_Controller {
     public function logout()
     {
         if (get_cookie("User") != null) {
+            $userID = get_cookie("User");
+            $this->OnlineModel->beOfline($userID);
             delete_cookie("User");
         }
 
