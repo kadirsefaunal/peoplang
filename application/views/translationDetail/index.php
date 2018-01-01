@@ -31,7 +31,7 @@
                 <div class="row">
                     <!--Image column-->
                     <div class="col-sm-2 col-12">
-                        <img src="<?php echo $avatar;?>" alt="Sample avatar image">
+                        <img src="<?php echo $visitorAvatar;?>" alt="Sample avatar image">
                     </div>
                     <!--/.Image column-->
 

@@ -25,12 +25,13 @@ $(document).ready(function () {
             var obj = $.parseJSON(result);
             $("#myRequest").empty();
             $.each(obj, function (i, item) {
-                $("#myRequest").append("<tr><th>" + item.title + "</th><td>" + item.date + "</td><td>" + item.textLanguage + "</td><td>" + item.languageToTranslation + "</td><td><a requestID='" + item.ID + "'class='btn-floating btn-sm red'><i class='fa fa-trash'></i></a></td></tr>");
+                $("#myRequest").append("<tr><th><a href='tr/" + item.ID +"'>" + item.title + "</a></th><td>" + item.date + "</td><td>" + item.textLanguage + "</td><td>" + item.languageToTranslation + "</td><td><a requestID='" + item.ID + "'class='btn-floating btn-sm red'><i class='fa fa-trash'></i></a></td></tr>");
                 console.log(item);
             });
             $("#postList").append("</ul>");
         });
     }
+
 
     $("#requestSend").click(function(){
         var dt = new Date();
@@ -56,3 +57,14 @@ $(document).ready(function () {
     });
 
 });
+
+setInterval(function () { 
+    $.get('translation/getAllRequests', function (result) {  
+        console.log(result);
+        var obj = $.parseJSON(result);
+        $("#allRequests").empty();
+        $.each(obj, function (i, item) {  
+            $("#allRequests").append("<tr><td><a href='u/" + item.userName + "'> <img src='" + item.userAvatar + "' class='rounded-circle avatar-img z-depth-1-half' width='40' height='40' /></a></td><th><a href='tr/" + item.ID + "'>" + item.title + "</a></th><td>" + item.date + "</td><td>" + item.textLanguage + "</td><td>" + item.languageToTranslation + "</td></tr>");
+        });
+    });
+}, 3000);

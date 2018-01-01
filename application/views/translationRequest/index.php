@@ -403,7 +403,7 @@
                             <th>Translate</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="allRequests">
                     <?php foreach($allRequests as $r) { ?>
                         <tr>
                             <td>

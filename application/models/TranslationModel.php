@@ -28,7 +28,9 @@ class TranslationModel extends CI_Model
     public function getTranslationRequests($userID)
     {
         $request = $this->db->get_where("TranslationRequests", array("userID" => $userID));
-        return $request->result_array();
+        $requests = $request->result_array();
+        usort($requests, $this->build_sorter('date'));
+        return $requests;
     }
 
     public function deleteRequestByID($requestID)
