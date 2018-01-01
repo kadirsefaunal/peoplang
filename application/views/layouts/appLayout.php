@@ -112,6 +112,7 @@
             $data["avatar"] = $avatar;
             $data["visitorAvatar"] = $visitorAvatar;
             $data["answers"] = $answers;
+            $data["counterAnswers"] = $counterAnswers;
             $this->load->view($content, $data);
         }
         else {

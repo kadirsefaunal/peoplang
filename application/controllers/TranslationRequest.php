@@ -21,6 +21,7 @@ class TranslationRequest extends CI_Controller {
         $data["answers"] = $this->TranslationModel->getAnswers($trID);
         $data["avatar"] = $this->UserControl->getUserAvatar($data["translationRequest"]->userID);
         $data["visitorAvatar"] = $this->UserControl->getUserAvatar($userID);
+        $data["counterAnswers"] = count($data["answers"]);
 
         $this->load->view('layouts/appLayout', $data);
     }

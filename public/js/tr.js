@@ -26,5 +26,7 @@ function getAnswers(questionID){
         $.each(obj, function (i, item) {  
             $("#answers").append("<div class='row'><div class='col-sm-2 col-12'><a href='u/" + item.userName + "'><img src='" + item.userAvatar + "' alt='Material Design for Bootstrap - example photo'></a></div><div class='col-sm-10 col-12'><a href='u/" + item.userName + "'><h3 class='user-name'>" + item.name + "</h3></a><div class='card-data'><ul class='list-unstyled'><li class='comment-date'><i class='fa fa-clock-o'></i> " + item.date + "</li></ul></div><p class='comment-text'>" + item.text + "</p></div></div>");
         });
+        $("#answersCounter").text("");
+        $("#answersCounter").text(obj.length);
     });
 }

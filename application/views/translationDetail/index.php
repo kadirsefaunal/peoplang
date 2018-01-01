@@ -62,7 +62,7 @@
             <div class="comments-list text-left">
                 <div class="section-heading mb-3">
                     <h3>Answers
-                        <span class="badge blue">3</span>
+                        <span id="answersCounter" class="badge blue"><?php echo $counterAnswers ?></span>
                     </h3>
                 </div>
                 <div id="answers">
