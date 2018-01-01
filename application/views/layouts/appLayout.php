@@ -109,6 +109,7 @@
             $data["translationRequest"] = $translationRequest;
             $data["avatar"] = $avatar;
             $data["visitorAvatar"] = $visitorAvatar;
+            $data["answers"] = $answers;
             $this->load->view($content, $data);
         }
         else {

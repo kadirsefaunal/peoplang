@@ -19,6 +19,32 @@ class TranslationModel extends CI_Model
         $this->db->insert('Answers', $answer);
     }
 
+    public function getAnswers($questionID)
+    {
+        $result = $this->db->get_where("Answers", array("questionID" => $questionID));
+        $results = $result->result_array();
+        
+        $answers = array();
+        foreach ($results as $r) {
+            $userAvatar = $this->UserControl->getUserAvatar($r["userID"]);
+            $user       = $this->UserControl->getUserByID($r["userID"]);
+            $userInformation = $this->UserControl->getUserInformation($user->userInformationID);
+            $answer = array(
+                "ID"                    => $r["ID"],
+                "userID"                => $r["userID"],
+                "questionID"            => $r["questionID"],
+                "text"                  => $r["text"],
+                "name"                  => $userInformation->name,
+                "userName"              => $user->userName,
+                "userAvatar"            => $userAvatar,
+                "date"                  => $r["date"]
+            );
+            array_push($answers, $answer);
+        }
+        usort($answers, $this->build_sorter('date'));
+        return $answers;
+    }
+
     public function getTR($trID)
     {
         $tr = $this->db->get_where("TranslationRequests", array("ID" => $trID));

@@ -1,6 +1,5 @@
 <div class="container">
         <div class="row">
-
             <!--Panel-->
             <div class="card card-body m-2 blue lighten-4">
                 <div class="media d-block d-md-flex">
@@ -61,87 +60,38 @@
         <div class="row mr-2 ml-2">
             <!--Answers-->
             <div class="comments-list text-left">
-                <div class="section-heading">
+                <div class="section-heading mb-3">
                     <h3>Answers
                         <span class="badge blue">3</span>
                     </h3>
                 </div>
+                <?php foreach ($answers as $answer){ ?>
                 <!--First row-->
                 <div class="row">
                     <!--Image column-->
                     <div class="col-sm-2 col-12">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" alt="Material Design for Bootstrap - example photo">
+                    <a href="<?php echo base_url("u/" . $answer["userName"]); ?>">
+                        <img src="<?php echo $answer["userAvatar"]; ?>" alt="Material Design for Bootstrap - example photo">
+                    </a>
                     </div>
                     <!--/.Image column-->
                     <!--Content column-->
                     <div class="col-sm-10 col-12">
-                        <a>
-                            <h3 class="user-name">John Doe</h3>
+                        <a href="<?php echo base_url("u/" . $answer["userName"]); ?>">
+                            <h3 class="user-name"><?php echo $answer["name"]; ?></h3>
                         </a>
                         <div class="card-data">
                             <ul class="list-unstyled">
                                 <li class="comment-date">
-                                    <i class="fa fa-clock-o"></i> 05/10/2015</li>
+                                    <i class="fa fa-clock-o"></i> <?php echo $answer["date"]; ?></li>
                             </ul>
                         </div>
-                        <p class="comment-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                            nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                        <p class="comment-text"><?php echo $answer["text"]; ?></p>
                     </div>
                     <!--/.Content column-->
                 </div>
                 <!--/.First row-->
-                <!--Second row-->
-                <div class="row">
-                    <!--Image column-->
-                    <div class="col-sm-2 col-12">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="Material Design for Bootstrap - example photo">
-                    </div>
-                    <!--/.Image column-->
-                    <!--Content column-->
-                    <div class="col-sm-10 col-12">
-                        <a>
-                            <h3 class="user-name">Marta Tev</h3>
-                        </a>
-                        <div class="card-data">
-                            <ul class="list-unstyled">
-                                <li class="comment-date">
-                                    <i class="fa fa-clock-o"></i> 08/10/2015</li>
-                            </ul>
-                        </div>
-                        <p class="comment-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
-                    </div>
-                    <!--/.Content column-->
-                </div>
-                <!--/.Second row-->
-                <!--Third row-->
-                <div class="row">
-                    <!--Image column-->
-                    <div class="col-sm-2 col-12">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" alt="Material Design for Bootstrap - example photo">
-                    </div>
-                    <!--/.Image column-->
-                    <!--Content column-->
-                    <div class="col-sm-10 col-12">
-                        <a>
-                            <h3 class="user-name">Anna Maria</h3>
-                        </a>
-                        <div class="card-data">
-                            <ul class="list-unstyled">
-                                <li class="comment-date">
-                                    <i class="fa fa-clock-o"></i> 17/10/2015</li>
-                            </ul>
-                        </div>
-                        <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                            deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
-                            provident, similique sunt in culpa qui officia.
-                        </p>
-                    </div>
-                    <!--/.Content column-->
-                </div>
-                <!--/.Third row-->
+                <?php } ?>
             </div>
             <!--/.Answers row-->
 

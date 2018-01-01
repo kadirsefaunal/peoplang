@@ -18,7 +18,7 @@ class TranslationRequest extends CI_Controller {
         $data["name"] = $userInformation["name"];
         $data['content'] = "translationDetail/index";
         $data["translationRequest"] = $this->TranslationModel->getTR($trID);
-        //$tr = $data["translationRequest"];
+        $data["answers"] = $this->TranslationModel->getAnswers($trID);
         $data["avatar"] = $this->UserControl->getUserAvatar($data["translationRequest"]->userID);
         $data["visitorAvatar"] = $this->UserControl->getUserAvatar($userID);
 
