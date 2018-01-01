@@ -2,6 +2,12 @@
 
 class UserControl extends CI_Model
 {
+
+	function __construct() {
+        parent::__construct();
+        $this->load->model("FriendsModel");
+    }
+
     public function userNameMailControl($userName, $mail)
 	{
 		$queryUserName 	= $this->db->get_where('User', array('userName' => $userName));
@@ -159,5 +165,38 @@ class UserControl extends CI_Model
         return function ($a, $b) use ($key) {
             return strnatcmp($b[$key], $a[$key]);
         };
-    }
+	}
+	
+	public function getOnlineFriends($userID)
+	{
+		$friends = $this->FriendsModel->getFriendsInformation($userID);
+
+		$onlinefriends = array();
+		$i = 0;
+
+		foreach ($friends as $friend) {
+			if ($this->isOnline($friend["userID"]) == "true") {
+				array_push($onlinefriends, $friend);
+
+				$i++;
+			}
+
+			if ($i == 3) {
+				break;
+			}
+		}
+		return $onlinefriends;
+	}
+
+	public function isOnline($userID)
+	{
+		$u = $this->db->get_where("OnlineUsers", array("userID" => $userID));
+		$user = $u->first_row();
+
+		if ($user != null) {
+			return "true";
+		} else {
+			return "false";
+		}
+	}
 }

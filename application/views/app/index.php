@@ -51,7 +51,7 @@
             
             <div class="col-md-6">
                 <div class="row">
-                    <?php if ($online4s != null) { ?>
+                    
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -227,43 +227,65 @@
                                 
                                 
                                 <div class="row" id="onlineUsers">
+                                <?php if ($online4s != null) { ?>
                                     <?php foreach ($online4s as $online) { ?>
                                     <div class="col-3">
                                         <a href="<?php echo base_url("u/". $online["userName"]); ?>"><img src="<?php echo $online["avatar"]; ?>" width="80" height="80"
                                             alt="..." class="rounded-circle mx-auto d-block img-fluid"></a>
-                                        <div class="text-center app-username"><a href="<?php echo base_url("u/". $online["userName"]); ?>"><?php echo $online["userName"]; ?></a><span class="app-age"> | <?php echo $online["age"]; ?></span> </div>
+                                        <div class="text-center app-username">
+                                        <?php if ($online["gender"] == "Male") { ?>
+                                            <i class="fa fa-mars" aria-hidden="true"></i>
+                                        <?php } else { ?>
+                                            <i class="fa fa-venus" aria-hidden="true"></i>
+                                        <?php } ?>
+                                        <a href="<?php echo base_url("u/". $online["userName"]); ?>"><?php echo $online["userName"]; ?></a><span class="app-age"> | <?php echo $online["age"]; ?></span> </div>
                                         <div class="text-center"><img src="<?php echo $online["flag"]; ?>" width="28px" height="20px" /><span class="app-city"> <?php echo $online["location"]; ?></span> </div>
                                     </div>
                                     <?php } ?>
+                                <?php } else { ?>
+                                    <div class="col-md-12">
+                                        <p>There is no online user!</p>
+                                    </div>
+
+                                <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    
                 </div>
                 <div class="row mt-1">
-                    <?php if ($visitors != null) { ?>
+                    
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title"><span class="badge badge-pill red">Visitors</span></div>
                                 <div class="row">
-
+                                    <?php if ($visitors != null) { ?>
                                     <?php foreach ($visitors as $visitor) { ?>
                                     <div class="col-3">
                                         <a href="<?php echo base_url("u/". $visitor["userName"]); ?>"><img src="<?php echo $visitor["avatar"]; ?>" width="80" height="80"
                                             alt="..." class="rounded-circle mx-auto d-block img-fluid"></a>
-                                        <div class="text-center app-username"><a href="<?php echo base_url("u/". $visitor["userName"]); ?>"><?php echo $visitor["userName"]; ?></a><span class="app-age"> | <?php echo $visitor["age"]; ?></span> </div>
+                                        <div class="text-center app-username">
+                                        <?php if ($visitor["gender"] == "Male") { ?>
+                                            <i class="fa fa-mars" aria-hidden="true"></i>
+                                        <?php } else { ?>
+                                            <i class="fa fa-venus" aria-hidden="true"></i>
+                                        <?php } ?>
+                                        <a href="<?php echo base_url("u/". $visitor["userName"]); ?>"><?php echo $visitor["userName"]; ?></a><span class="app-age"> | <?php echo $visitor["age"]; ?></span> </div>
                                         <div class="text-center"><img src="<?php echo $visitor["flag"]; ?>" width="28px" height="20px" /><span class="app-city"> <?php echo $visitor["location"]; ?></span> </div>
                                     </div>
                                     <?php } ?>
-
-                                   
+                                    <?php } else { ?>
+                                        <div class="col-md-12">
+                                        <p>There is no visitors!</p>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    
                 </div>
                 <div class="row mt-1">
                     <div class="col-md-12">
@@ -271,30 +293,28 @@
                             <div class="card-body">
                                 <div class="card-title"><span class="badge badge-pill indigo">Online Friends</span></div>
                                 <div class="row">
+
+                                    <?php if ($onlineFriends != null) { ?>
+                                    <?php foreach ($onlineFriends as $onlinefriend) { ?>
                                     <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                        <a href="<?php echo base_url("u/". $onlinefriend["userName"]); ?>"><img src="<?php echo $onlinefriend["avatar"]; ?>" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid"></a>
+                                        <div class="text-center app-username">
+                                        <?php if ($onlinefriend["gender"] == "Male") { ?>
+                                            <i class="fa fa-mars" aria-hidden="true"></i>
+                                        <?php } else { ?>
+                                            <i class="fa fa-venus" aria-hidden="true"></i>
+                                        <?php } ?>
+                                        <a href="<?php echo base_url("u/". $onlinefriend["userName"]); ?>"><?php echo $onlinefriend["userName"]; ?></a><span class="app-age"> | <?php echo $onlinefriend["age"]; ?></span> </div>
+                                        <div class="text-center"><img src="<?php echo $onlinefriend["flag"]; ?>" width="28px" height="20px" /><span class="app-city"> <?php echo $onlinefriend["location"]; ?></span> </div>
                                     </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
+                                    <?php } ?>
+                                    <?php } else { ?>
+                                        <div class="col-md-12">
+                                        <p>There is no friend in here!</p>
+                                        </div>
+                                    <?php } ?>
+                                    
                                 </div>
                             </div>
                         </div>

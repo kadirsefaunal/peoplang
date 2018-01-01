@@ -91,6 +91,7 @@
             $data["posts"] = $posts;
             $data["online4s"] = $online4s;
             $data["visitors"] = $visitors;
+            $data["onlineFriends"] = $onlineFriends;
             $this->load->view($content, $data);
         } else if ($content == "profile/index") {
             $data["user"] = $user;
