@@ -33,7 +33,8 @@
                                                     </a>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h4><?php echo $post["name"]; ?></h4>
+                                                        <h4><a href="<?php echo base_url("u/". $post["userName"]) ?>"><?php echo $post["name"]; ?></a></h4>
+                                                        <p><?php echo $post["date"]; ?></p>
                                                         <p><?php echo $post["content"]; ?></p>
                                                     </div>
                                                 </div>

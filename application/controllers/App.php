@@ -50,7 +50,7 @@ class App extends CI_Controller {
 
 	public function getPosts()
 	{
-		$data["posts"] = $this->PostModel->getPosts();
-		$this->load->view("partialPosts", $data);
+		$userID = get_cookie("User");
+		echo json_encode($this->PostModel->getAllPosts($userID));
 	}
 }
