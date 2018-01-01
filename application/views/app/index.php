@@ -242,39 +242,28 @@
                     <?php } ?>
                 </div>
                 <div class="row mt-1">
+                    <?php if ($visitors != null) { ?>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-title"><span class="badge badge-pill red">Visitors</span></div>
                                 <div class="row">
+
+                                    <?php foreach ($visitors as $visitor) { ?>
                                     <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
+                                        <a href="<?php echo base_url("u/". $visitor["userName"]); ?>"><img src="<?php echo $visitor["avatar"]; ?>" width="80" height="80"
+                                            alt="..." class="rounded-circle mx-auto d-block img-fluid"></a>
+                                        <div class="text-center app-username"><a href="<?php echo base_url("u/". $visitor["userName"]); ?>"><?php echo $visitor["userName"]; ?></a><span class="app-age"> | <?php echo $visitor["age"]; ?></span> </div>
+                                        <div class="text-center"><img src="<?php echo $visitor["flag"]; ?>" width="28px" height="20px" /><span class="app-city"> <?php echo $visitor["location"]; ?></span> </div>
                                     </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <img src="http://mfbyazilim.com/wp-content/uploads/avatar-2.png" width="80" height="80"
-                                            alt="..." class="rounded-circle mx-auto d-block img-fluid">
-                                        <div class="text-center app-username">kdrmutluu<span class="app-age"> 23</span> </div>
-                                        <div class="text-center"><img src="TR.png"/><span class="app-city"> Bursa</span> </div>
-                                    </div>
+                                    <?php } ?>
+
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="row mt-1">
                     <div class="col-md-12">

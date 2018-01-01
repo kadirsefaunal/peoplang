@@ -111,4 +111,53 @@ class UserControl extends CI_Model
 		
 	}
 
+	public function getVisitorsByID($userID)
+	{
+		$view = $this->db->get_where("ViewedProfile", array("userID" => $userID));
+		$view = $view->result_array();
+
+		$viewerList = array();
+		usort($view, $this->build_sorter('displayDate'));
+		$i = 0;
+		foreach ($view as $v) {
+			$user       = $this->UserControl->getUserByID($v["viewer"]);
+			$userInfo   = $this->UserControl->getUserInformation($user->userInformationID);
+
+			$datetime1  = date_create($userInfo->birthDate);
+			$datetime2  = date_create(date("Y-m-d"));
+			$interval   = date_diff($datetime1, $datetime2);
+			$age = $interval->format('%Y');
+
+			if ($userInfo->city != null) {
+				$countryCity = $userInfo->city;
+			} else {
+				$countryCity = $userInfo->country;
+			}
+
+			$userInfo = array(
+				"userID"   => $user->ID,
+				"userName" => $user->userName,
+				"gender"   => $userInfo->gender,
+				"age"      => $age,
+				"flag"     => $this->SettingsModel->getFlagUrl($userInfo->country),
+				"location" => $countryCity,
+				"avatar"   => $this->UserControl->getUserAvatar($user->ID),
+				"date"	   => $v["displayDate"],
+			);
+			array_push($viewerList, $userInfo);
+
+			$i++;
+			if ($i == 4) {
+				break;
+			}
+		}
+		return $viewerList;
+	}
+
+
+	public function build_sorter($key) {
+        return function ($a, $b) use ($key) {
+            return strnatcmp($b[$key], $a[$key]);
+        };
+    }
 }

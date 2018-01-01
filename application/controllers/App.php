@@ -9,9 +9,9 @@ class App extends CI_Controller {
 		$this->load->model("PostModel");
 		$this->load->model("SettingsModel");
 		$this->load->model("OnlineModel");
+		$this->load->model("UserControl");
     }
 
-    
 	public function index()
 	{
 		$userID = get_cookie("User");
@@ -21,6 +21,7 @@ class App extends CI_Controller {
 		$data['content'] = "app/index";
 		$data["posts"] = $this->PostModel->getAllPosts($userID);
 		$data["online4s"] = $this->OnlineModel->onlineUsers(4);
+		$data["visitors"] = $this->UserControl->getVisitorsByID($userID);
 		$this->load->view('layouts/appLayout', $data);
     }
 
@@ -62,4 +63,5 @@ class App extends CI_Controller {
 		$result = $this->OnlineModel->onlineUsersLanguage($lang["langName"]);
 		echo json_encode($result);
 	}
+
 }
