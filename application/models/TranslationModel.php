@@ -14,6 +14,11 @@ class TranslationModel extends CI_Model
         $this->db->insert('TranslationRequests', $request);
     }
 
+    public function insertAnswer($answer)
+    {
+        $this->db->insert('Answers', $answer);
+    }
+
     public function getTR($trID)
     {
         $tr = $this->db->get_where("TranslationRequests", array("ID" => $trID));

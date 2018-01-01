@@ -25,4 +25,25 @@ class TranslationRequest extends CI_Controller {
         $this->load->view('layouts/appLayout', $data);
     }
 
+    public function saveAnswer()
+    {
+        if ($this->input->post("answer") == null) {
+            echo "boş";
+        }
+        
+        $answer = $this->input->post("answer");
+        $dt = time();
+        $userID = get_Cookie("User");
+
+        $newAnswer = array(
+            "userID" 	 => $userID,
+            "date"       => $dt,
+            "text"       => $answer["answer"],
+            "questionID" => $answer["questionID"]
+        );
+        //var_dump($newAnswer);
+        $this->TranslationModel->insertAnswer($newAnswer);
+        echo "kayıt başarılı";
+    }
+
 }

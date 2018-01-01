@@ -10,6 +10,7 @@
                         <span class="badge badge-pill green"><?php echo $translationRequest->textLanguage; ?></span>
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         <span class="badge badge-pill light-blue mb-3"><?php echo $translationRequest->languageToTranslation; ?></span>
+                        <input type="hidden" id="trID" value="<?php echo $translationRequest->ID; ?>">
                         <h4><?php echo $translationRequest->title; ?></h4>
                         <p><?php echo $translationRequest->text; ?></p>
                         <button type="button" class="btn btn-danger btn-md float-right">
@@ -37,14 +38,14 @@
                     <!--Content column-->
                     <div class="col-sm-8 col-12">
                         <div class="md-form">
-                            <textarea type="text" id="form-mess" class="md-textarea"></textarea>
+                            <textarea type="text" id="answer" class="md-textarea"></textarea>
                             <label for="form-mess" class="">Your message</label>
                         </div>
 
                     </div>
 
                     <div class="col-sm-2 col-12 text-center">
-                        <button class="btn btn-primary btn-md waves-effect waves-light mt-5">Send</button>
+                        <button class="btn btn-primary btn-md waves-effect waves-light mt-5 answerSend">Send</button>
                     </div>
                     <!--/.Content column-->
 
