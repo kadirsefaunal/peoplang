@@ -116,6 +116,7 @@
             $this->load->view($content, $data);
         }else if ($content == "online/index") {
             $data["online"] = $online;
+            $data["Countries"] = $Countries;
             $this->load->view($content, $data);
         }
         else {
