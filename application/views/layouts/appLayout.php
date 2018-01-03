@@ -114,6 +114,9 @@
             $data["answers"] = $answers;
             $data["counterAnswers"] = $counterAnswers;
             $this->load->view($content, $data);
+        }else if ($content == "online/index") {
+            $data["online"] = $online;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);
