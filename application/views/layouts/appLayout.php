@@ -42,7 +42,7 @@
                     <a class="nav-link" href="<?php echo base_url("translation"); ?>">Translation Requests</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url("online"); ?>">Online</a>
+                    <a class="nav-link" href="<?php echo base_url("online"); ?>">Search</a>
                 </li>
 
             </ul>
@@ -116,7 +116,7 @@
             $data["counterAnswers"] = $counterAnswers;
             $this->load->view($content, $data);
         }else if ($content == "online/index") {
-            $data["online"] = $online;
+            $data["onlines"] = $onlines;
             $data["Countries"] = $Countries;
             $this->load->view($content, $data);
         }

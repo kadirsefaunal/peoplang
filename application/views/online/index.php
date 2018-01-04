@@ -262,14 +262,21 @@
     
         <!--Grid row-->
     
-        <div class="row">
+        <div class="row" id="onlineUsers">
+        <?php if ($onlines == null) { ?>
+        <h1>No online users.</h1>
+        <?php } else { 
+            foreach ($onlines as $online) {
+        ?>           
             <div class="col-md-3 mt-3">
                 <div class="card card-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center mt-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="rounded-circle img-responsive z-depth-1" alt="Responsive image"
+                                <a href="<?php echo base_url("u/" . $online["userName"]); ?>">
+                                <img src="<?php echo $online["avatar"]; ?>" class="rounded-circle img-responsive z-depth-1" alt="Responsive image"
                                     height="150px" width="150px">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -277,117 +284,18 @@
                         <div class="col-md-12">
                             <div class="text-center mt-3">
                                 <i class="fa fa-mars" aria-hidden="true"></i>
-                                <a href="#">username</a>
-                                <span>| 23</span>
+                                <a href="<?php echo base_url("u/" . $online["userName"]); ?>"><?php echo $online["userName"]; ?></a>
+                                <span>| <?php echo $online["age"]; ?></span>
                                 <br>
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Turkey | </span>
-                                <span>Istanbul</span>
+                                <img src="<?php echo $online["flag"]; ?>" width="24" height="24">
+                                <span><?php echo $online["location"]; ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mt-3">
-                <div class="card card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="rounded-circle img-responsive z-depth-1" alt="Responsive image"
-                                    height="150px" width="150px">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <i class="fa fa-mars" aria-hidden="true"></i>
-                                <a href="#">username</a>
-                                <span>| 23</span>
-                                <br>
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Turkey | </span>
-                                <span>Istanbul</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mt-3">
-                <div class="card card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg" class="rounded-circle img-responsive z-depth-1"
-                                    alt="Responsive image" height="150px" width="150px">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <i class="fa fa-mars" aria-hidden="true"></i>
-                                <a href="#">username</a>
-                                <span>| 23</span>
-                                <br>
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Turkey | </span>
-                                <span>Istanbul</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mt-3">
-                <div class="card card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="rounded-circle img-responsive z-depth-1" alt="Responsive image"
-                                    height="150px" width="150px">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <i class="fa fa-mars" aria-hidden="true"></i>
-                                <a href="#">username</a>
-                                <span>| 23</span>
-                                <br>
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Turkey | </span>
-                                <span>Istanbul</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mt-3">
-                <div class="card card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" class="rounded-circle img-responsive z-depth-1" alt="Responsive image"
-                                    height="150px" width="150px">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center mt-3">
-                                <i class="fa fa-mars" aria-hidden="true"></i>
-                                <a href="#">username</a>
-                                <span>| 23</span>
-                                <br>
-                                <img src="https://eu.ipstatic.net/images/flags/iso/24/TR.png" width="24" height="24">
-                                <span>Turkey | </span>
-                                <span>Istanbul</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php } } ?>
+            
         </div>
     </div>
     </div>
