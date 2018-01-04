@@ -86,6 +86,7 @@
             $data["learn"]      = $learn;
             $data["avatar"]     = $avatar;
             $data["mail"]       = $mail;
+            $data["Images"]     = $Images;
             $this->load->view($content, $data);    
         } else if($content == "app/index"){
             $data["posts"] = $posts;

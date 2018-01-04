@@ -3,11 +3,16 @@
         <div class="row">
 
             <div class="col-md-6 mt-3">
-                <div class="card card-body">
+                <div class="card card-body ">
                     <h4 class="card-title text-center">Profile</h4>
-                    <div class="text-center">
-                        <img src="<?php echo $avatar ?>" class="img-fluid rounded-circle img-responsive z-depth-1"
+                    <div class="view overlay hm-white-slight">
+                    
+                        <img src="<?php echo $avatar ?>" class="img-fluid rounded-circle img-responsive z-depth-1 mx-auto d-block"
                             alt="Responsive image" height="250px" width="250px">
+                        <a data-toggle="modal" data-target="#centralModalSm">
+                            <div class="mask"></div>
+                        </a>
+                        
                     </div>
                     <div class="md-form form-sm mt-5">
                         <input type="text" id="profileName" class="form-control" value="<?php if ($UserInfo != null) { echo $UserInfo["name"]; } ?>">
@@ -36,7 +41,6 @@
                         </select>
                         <label>Gender</label>
                     </div>
-
 
                 </div>
             </div>
@@ -550,3 +554,5 @@
         <button type="button" class="btn btn-primary float-right" id="saveProfile">Save</button>
     </div>
 </div>
+
+

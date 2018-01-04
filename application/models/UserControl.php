@@ -70,7 +70,8 @@ class UserControl extends CI_Model
 
 		foreach ($userImagesList as $image) {
 			$img = array(
-				"url" => base_url($image["url"])
+				"url" 	  => base_url($image["url"]),
+				"imageID" => $image["ID"]
 			);
 
 			array_push($imageList, $img);

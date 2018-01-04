@@ -189,4 +189,28 @@ $(document).ready(function () {
         });
         
     });
+
+
+    $("#imageInput").on('change', function(){
+        var data = new FormData();
+        $.each($("#imageInput")[0].files, function (i, file) {  
+            data.append("imageInput", file);
+        });
+        
+        $.ajax({
+            url: "settings/uploadImage",
+            type: "POST",
+            processData: false,
+            data: data,
+            contentType: false,
+            cache: false,
+            success: function (result) {  
+                console.log(result);
+                $("#imageeeee").attr("src",result);
+
+                // TODO: fotoğraf listesini yenile
+            }
+        });
+
+    });
 });

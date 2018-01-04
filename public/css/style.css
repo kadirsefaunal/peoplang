@@ -43,3 +43,7 @@
 .app-city{
     font-size: 12px;
 }
+
+input[type="file"] {
+    display: none;
+}

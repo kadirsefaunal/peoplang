@@ -9,6 +9,7 @@ class Settings extends CI_Controller {
 		$this->load->model("SettingsModel");
 		$this->load->model("LanguageModel");
 		$this->load->model("UserControl");
+		$this->load->model("ImageModel");
 	}
     
 	public function index()
@@ -29,6 +30,8 @@ class Settings extends CI_Controller {
 		$data["speaks"]    = $this->LanguageModel->getLanguages($userID, true);
 		$data["learn"]	   = $this->LanguageModel->getLanguages($userID, false);
 		$data["name"] 	   = $userInfo["name"];
+
+		$data["Images"]    = $this->UserControl->getImages($userID);
 		$data['content']   = "settings/index";
 		
 		$this->load->view('layouts/appLayout', $data);
@@ -164,5 +167,43 @@ class Settings extends CI_Controller {
 		}
 
 		
+	}
+
+	public function uploadImage()
+	{
+		$userID = get_cookie("User");
+		$folderName = "./public/img/". (string) $userID;
+		$this->db->where("userID", $userID);
+		$count = $this->db->count_all_results("Images");
+
+		$new_name = $userID . "_p" . ($count + 1);
+
+		if (!is_dir($folderName))
+		{
+			mkdir($folderName, 0777, true);
+		}
+
+		$config['upload_path']          = $folderName;
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['file_name'] 			= $new_name;
+
+		
+		
+
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('imageInput'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+				echo json_encode($error);
+		}
+		else
+		{
+				$data = $this->upload->data();
+				$url = "public/img/". (string) $userID . "/" . $data["file_name"];
+				$this->ImageModel->addPhoto($userID, $url);
+				echo json_encode($url);
+		}
+
 	}
 }
