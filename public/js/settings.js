@@ -191,7 +191,30 @@ $(document).ready(function () {
     });
 
 
-    $("#imageInput").on('change', function(){
+    // $("#imageInput").on('change', function(){
+    //     var data = new FormData();
+    //     $.each($("#imageInput")[0].files, function (i, file) {  
+    //         data.append("imageInput", file);
+    //     });
+        
+    //     $.ajax({
+    //         url: "settings/uploadImage",
+    //         type: "POST",
+    //         processData: false,
+    //         data: data,
+    //         contentType: false,
+    //         cache: false,
+    //         success: function (result) {  
+    //             console.log(result);
+    //             $("#imageeeee").attr("src",result);
+    //             GetPhotos();
+    //             // TODO: fotoğraf listesini yenile
+    //         }
+    //     });
+
+    // });
+
+    $(document.body).on('change', '#imageInput', function(){
         var data = new FormData();
         $.each($("#imageInput")[0].files, function (i, file) {  
             data.append("imageInput", file);
@@ -207,10 +230,25 @@ $(document).ready(function () {
             success: function (result) {  
                 console.log(result);
                 $("#imageeeee").attr("src",result);
-
+                GetPhotos();
                 // TODO: fotoğraf listesini yenile
             }
         });
 
     });
+
+    function GetPhotos() {  
+        $.get("settings/getImages", function (result) {  
+            var obj = $.parseJSON(result);
+            console.log(obj);
+            $("#imageList").empty();
+            $.each(obj, function (i, item) {  
+                $("#imageList").append("<div class='col-md-4 mt-3'><div class='view overlay hm-white-slight'><img src='" + item.url + "' class='img-fluid' alt='" + item.url + "'><a data-toggle='modal' data-target='#modalmodalmodal' imageID='" + item.imageID + "'> <div class='mask waves-effect waves-light'></div></a></div></div>");
+            });
+
+            if (obj.length < 9) {
+                $("#imageList").append("<div class='col-md-4 mt-3'><label class='custom-file-upload'><input type='file' id='imageInput' name='imageInput' /><a type='file'><i class='fa fa-plus' aria-hidden='true'></i></a></label></div> ");
+            }
+        });
+    };
 });

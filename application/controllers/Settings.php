@@ -194,16 +194,23 @@ class Settings extends CI_Controller {
 		
 		if ( ! $this->upload->do_upload('imageInput'))
 		{
-				$error = array('error' => $this->upload->display_errors());
-				echo json_encode($error);
+			$error = array('error' => $this->upload->display_errors());
+			echo json_encode($error);
 		}
 		else
 		{
-				$data = $this->upload->data();
-				$url = "public/img/". (string) $userID . "/" . $data["file_name"];
-				$this->ImageModel->addPhoto($userID, $url);
-				echo json_encode($url);
+			$data = $this->upload->data();
+			$url = "public/img/". (string) $userID . "/" . $data["file_name"];
+			$this->ImageModel->addPhoto($userID, $url);
+			echo json_encode($url);
 		}
 
+	}
+
+	public function getImages()
+	{
+		$userID = get_cookie("User");
+		$imageList = $this->UserControl->getImages($userID);
+		echo json_encode($imageList);
 	}
 }

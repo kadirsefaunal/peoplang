@@ -41,7 +41,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row" id="imageList">
                     <?php if ($Images != null) {
                         foreach ($Images as $Image) { ?>
                             <div class="col-md-4 mt-3">
