@@ -284,6 +284,7 @@
 
     <!-- SCRIPTS -->
     <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>
+    <script src="<?php echo base_url('node_modules/socket.io-client/dist/socket.io.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url("public/js/Landing.js"); ?>"></script>
 </body>
 

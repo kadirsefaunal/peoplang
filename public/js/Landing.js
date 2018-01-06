@@ -27,7 +27,8 @@ $(document).ready(function () {
 
         $.post('user/login', { user: user }, function (result) {
             console.log(result);
-            if (result == 'True') {
+            if (parseInt(result) > 0) {
+                var socket = io.connect('http://'+window.location.hostname+':3000', { query: parseInt(result) });
                 window.location = 'app';
             } else {
                 console.log(result);

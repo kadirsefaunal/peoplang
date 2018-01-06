@@ -64,14 +64,14 @@ class User extends CI_Controller {
         $result = $this->UserControl->loginControl($userForm);
         //echo json_encode($result);
         if (!isset($result)) {
-            echo "Kullanıcı bulunamadı!";
+            echo -1;
         } else {
             if ($result->password == $user["password"]) {
                 set_cookie('User', $result->ID, '3600');
                 $this->OnlineModel->beOnline($result->ID);
-                echo "True";
+                echo $result->ID;
             } else {
-                echo "Parola hatalı!";
+                echo 0;
             }
         }
     }

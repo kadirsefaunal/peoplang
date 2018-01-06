@@ -55,4 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['u/(:any)'] = "profile/index/$1";
 $route['tr/(:any)'] = "translationRequest/index/$1";
+$route['message/(:num)'] = "message/index/$1";
 $route['404page'] = "errors/user404";

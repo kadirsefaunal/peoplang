@@ -119,6 +119,9 @@
             $data["onlines"] = $onlines;
             $data["Countries"] = $Countries;
             $this->load->view($content, $data);
+        } else if ($content == "message/index") {
+            $data["receiver"] = $receiver;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);

@@ -119,7 +119,7 @@
                             </div>
                             <div class="col-md-3 mt-1">
                                 <div class="text-center">
-                                    <a class="btn-floating btn-lg primary-color-dark">
+                                    <a class="btn-floating btn-lg primary-color-dark" href="<?php echo base_url("message/".$user["userID"]); ?>">
                                         <i class="fa fa-envelope-o"></i>
                                     </a>
                                 </div>
