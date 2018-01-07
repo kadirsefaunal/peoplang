@@ -213,4 +213,17 @@ class Settings extends CI_Controller {
 		$imageList = $this->UserControl->getImages($userID);
 		echo json_encode($imageList);
 	}
+
+	public function deleteImages()
+	{
+		$img = $this->input->post("img");
+		$this->ImageModel->deleteImageByID($img["imgID"]);
+	}
+
+	public function setAvatar()
+	{
+		$img = $this->input->post("img");
+		$userID = get_cookie("User");
+		$this->ImageModel->setAvatarByID($userID, $img["imgID"]);
+	}
 }

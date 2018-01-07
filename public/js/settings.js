@@ -113,19 +113,52 @@ $(document).ready(function () {
         });
     };
 
+    var imageID = 0;
 
     $(document.body).on("click", "a", function () {
         var langID = $(this).attr("langID");
         var status = $(this).attr("id");
+        var imgID = $(this).attr("imageID");
 
         if (langID > 0 && status == "deleteLangLearning") {
             deleteLang(langID, false);
         } else if (langID > 0 && status == "deleteLangSpeaks") {
             deleteLang(langID, true);
+        } else if (imgID > 0) {
+            console.log(imgID);
+            imageID = imgID;
         } else {
             console.log("lang id yok");
         }
     });
+
+    $("#deleteImage").click(function () {  
+        deleteImage(imageID);
+    });
+
+    $("#setAvatar").click(function () {  
+        setAvatar(imageID);
+    });
+
+    function setAvatar(imgID) {
+        var img = {
+            imgID: imgID
+        };
+
+        $.post("settings/setAvatar", { img: img }, function () {  
+            location.reload(true);
+        });
+    }
+
+    function deleteImage (imgID) {  
+        var img = {
+            imgID: imgID
+        };
+
+        $.post("settings/deleteImages", { img: img }, function () {  
+            GetPhotos();
+        });
+    };
 
 
     $(".addLangLearn").click(function () {
