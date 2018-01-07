@@ -113,4 +113,17 @@ class MessageModel extends CI_Model {
 
         return $receiversInfo;
     }
+
+
+    public function checkBlock($userID, $receiverID)
+    {
+        $check = $this->db->get_where("Blocks", array("userID" => $receiverID, "blockID" => $userID));
+        $check = $check->first_row();
+
+        if ($check != null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

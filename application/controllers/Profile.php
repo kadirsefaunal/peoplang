@@ -83,4 +83,17 @@ class Profile extends CI_Controller {
 
 		echo json_encode($this->UserControl->report($report));
 	}
+
+	public function sendBlock()
+	{
+		$user = $this->input->post("user");
+		$userID = get_cookie("User");
+
+		$block = array(
+			"userID"  => $userID,
+			"blockID" => $user["userID"] 
+		);
+
+		echo json_encode($this->UserControl->block($block));
+	}
 }

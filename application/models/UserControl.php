@@ -118,6 +118,18 @@ class UserControl extends CI_Model
 		
 	}
 
+	public function block($block)
+	{
+		$checkReport = $this->db->get_where("Blocks", array("userID" => $block["userID"], "blockID" => $block["blockID"]));
+		$checkReport = $checkReport->first_row();
+
+		if ($checkReport == null) {
+			return $this->db->insert("Blocks", $block);
+		} else {
+			return false;
+		}
+	}
+
 	public function getVisitorsByID($userID)
 	{
 		$view = $this->db->get_where("ViewedProfile", array("userID" => $userID));

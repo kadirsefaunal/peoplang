@@ -40,4 +40,15 @@ $(document).ready(function () {
             
         });
     });
+
+    $("#sendblock").click(function () {
+       var user = {
+           userID : $("#sendblock").attr("userID")
+       };
+       console.log(user);
+       
+       $.post("../profile/sendBlock", { user:user }, function (result) {  
+            console.log(result);
+       });
+    });
 });

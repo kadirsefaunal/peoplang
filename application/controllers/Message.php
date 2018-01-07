@@ -16,6 +16,11 @@ class Message extends CI_Controller {
         $receivers = $this->MessageModel->getMessagesUsers($userID);
         
         if ($user != null) {
+            $checkBlock = $this->MessageModel->checkBlock($userID, $user);
+            if ($checkBlock == false) {
+                redirect("/app");
+            } 
+
             $data["messages"] = $this->MessageModel->getMessages($userID, $user);
             $data["status"] = true;
             $status = true;

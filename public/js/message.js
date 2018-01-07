@@ -24,6 +24,7 @@ $(document).ready(function () {
     });
 
     $("#send").click(function () {  
+
         var message= {
             "receiver": $("#rID").val(),
             "message": $("#message").val()

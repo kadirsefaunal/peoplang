@@ -126,14 +126,14 @@
                             </div>
                             <div class="col-md-3 mt-1">
                                 <div class="text-center">
-                                    <a class="btn-floating btn-lg amber" data-toggle="modal" data-target="#report">
+                                    <a class="btn-floating btn-lg red" data-toggle="modal" data-target="#block">
                                         <i class="fa fa-ban"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-md-3 mt-1">
                                 <div class="text-center">
-                                    <a class="btn-floating btn-lg red">
+                                    <a class="btn-floating btn-lg amber" data-toggle="modal" data-target="#report">
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </a>
                                 </div>
@@ -425,7 +425,37 @@
         </div>
     </div> 
 
-
+    <!--###### MODAL #######-->
+    <div class="modal fade" id="block" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Block!</p>
+    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+    
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+                        <p>Do you want to block this user?</p>
+                    </div>
+                </div>
+    
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-outline-secondary-modal waves-effect" data-dismiss="modal">No, thanks</a>
+                    <a id="sendblock" userID="<?php echo $user["userID"]; ?>" type="button" class="btn btn-primary-modal">Block!</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
 
     <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("public/js/profile.js"); ?>"></script>
