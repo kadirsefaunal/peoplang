@@ -95,6 +95,15 @@ class UserControl extends CI_Model
 			"displayDate" => $dt
 		);
 
+		$notif = array(
+            "userID" => $viewerID,
+            "nUserID" => $userID,
+            "notification" => " visit your profile.",
+            "read" => false
+        );
+
+        $this->db->insert("Notifications", $notif);
+
 		$control = $this->db->get_where("ViewedProfile", array("userID" => $userID, "viewer" => $viewerID));
 		$status = $control->first_row();
 

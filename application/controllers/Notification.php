@@ -57,5 +57,14 @@ class Notification extends CI_Controller {
         $this->db->insert("Friend", $u2);
 
         $this->db->delete("Notifications", array("userID" => $post["userID"], "nUserID" => $userID, "notification" => " sent a friend request."));
+
+        $notif = array(
+            "userID" => $userID,
+            "nUserID" => $post["userID"],
+            "notification" => " accept your friend request.",
+            "read" => false
+        );
+
+        $this->db->insert("Notifications", $notif);
     }
 }
