@@ -96,4 +96,19 @@ class Profile extends CI_Controller {
 
 		echo json_encode($this->UserControl->block($block));
 	}
+
+	public function addFriend()
+	{
+		$user = $this->input->post("user");
+		$userID = get_cookie("User");
+
+		$notification = array(
+			"userID" => $userID,
+			"nUserID" => $user["userID"],
+			"notification" => " sent a friend request.",
+			"read" => false
+		);
+
+		echo json_encode($this->UserControl->saveNotification($notification));
+	}
 }

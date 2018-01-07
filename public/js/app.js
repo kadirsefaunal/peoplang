@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-   
-
 
     $("#postSend").click(function(){
         
@@ -34,6 +32,22 @@ $(document).ready(function () {
             });
             
         });
+    });
+
+    $("#rejectFriendReq").click(function () {  
+        var user = {
+            userID: $("#rejectFriendReq").attr("uID")
+        };
+
+        $.post("notification/rejectFriendReq", { user: user });
+    });
+
+    $("#acceptFriendReq").click(function () {  
+        var user = {
+            userID: $("#rejectFriendReq").attr("uID")
+        };
+
+        $.post("notification/acceptFriendReq", { user: user });
     });
 
 });

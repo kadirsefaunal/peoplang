@@ -187,15 +187,18 @@ class UserControl extends CI_Model
 		$onlinefriends = array();
 		$i = 0;
 
-		foreach ($friends as $friend) {
-			if ($this->isOnline($friend["userID"]) == "true") {
-				array_push($onlinefriends, $friend);
-
-				$i++;
-			}
-
-			if ($i == 3) {
-				break;
+		if ($friends != null)
+		{
+			foreach ($friends as $friend) {
+				if ($this->isOnline($friend["userID"]) == "true") {
+					array_push($onlinefriends, $friend);
+	
+					$i++;
+				}
+	
+				if ($i == 3) {
+					break;
+				}
 			}
 		}
 		return $onlinefriends;
@@ -211,5 +214,19 @@ class UserControl extends CI_Model
 		} else {
 			return "false";
 		}
+	}
+
+	public function saveNotification($notification)
+	{
+		$checknotif = $this->db->get_where("Notifications", array("userID" => $notification["userID"], "nUserID" => $notification["nUserID"], "notification" => $notification["notification"]));
+		$checknotif = $checknotif->first_row();
+
+		if ($checknotif != null) {
+			return false;
+		} else {
+			$this->db->insert("Notifications", $notification);
+		}
+	
+		
 	}
 }

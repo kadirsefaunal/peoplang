@@ -112,7 +112,7 @@
                         <div class="row mr-3">
                             <div class="col-md-3 mt-1">
                                 <div class="text-center">
-                                    <a class="btn-floating btn-lg success-color">
+                                    <a id="addFriend" class="btn-floating btn-lg success-color" userID="<?php echo $user["userID"]; ?>">
                                         <i class="fa fa-user-plus"></i>
                                     </a>
                                 </div>

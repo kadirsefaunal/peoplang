@@ -51,4 +51,14 @@ $(document).ready(function () {
             console.log(result);
        });
     });
+
+    $("#addFriend").click(function () {  
+        var user = {
+            userID : $("#addFriend").attr("userID")
+        };
+
+        $.post("../profile/addFriend", { user:user }, function (result) {  
+            console.log(result);
+       });
+    });
 });

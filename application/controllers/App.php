@@ -66,4 +66,12 @@ class App extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	public function getNotificationCount()
+	{
+		$userID = get_cookie("User");
+		$notifs = $this->db->get_where("Notifications", array("nUserID" => $userID, "read" => false));
+		$notifs = $notifs->result_array();
+
+		echo json_encode(count($notifs));
+	}
 }

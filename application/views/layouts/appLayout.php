@@ -54,9 +54,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light">
-                        <i class="fa fa-bell-o"></i>
+                    <a id="notificationSee" class="nav-link waves-effect waves-light" href="<?php echo base_url("notification"); ?>">
+                        <i class="fa fa-bell-o"></i><span id="notificationCount" class="badge badge-danger"></span>
                     </a>
+                    
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
@@ -129,6 +130,9 @@
 
             $data["receiver"] = $receiver;
             $this->load->view($content, $data);
+        } else if ($content == "notification/index") {
+            $data["notifications"] = $notifications;
+            $this->load->view($content, $data);
         }
         else {
             $this->load->view($content);
@@ -139,6 +143,20 @@
         $(document).ready(function () {
             $('.mdb-select').material_select();
             $('.datepicker').pickadate();
+
+            
+            setInterval(function () { 
+                $.get('app/getNotificationCount', function (result) {  
+                    console.log(result);
+                    if (result != 0) {
+                        $("#notificationCount").text(result);
+                    }
+                });
+            }, 10000);
+
+            $("#notificationSee").click(function () {  
+                $.get('notification/notificationSetRead');
+            });
         });
         var socket = io('http://'+window.location.hostname+':3000');
         var id = $("#cookie").val();
