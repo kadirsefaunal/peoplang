@@ -17,7 +17,17 @@ io.on('connection', function(socket) {
       
       console.log(Object.keys(users));
       var receiver = String(data.receiver);
-      users[receiver].emit("take_message", data.message);
+      var status = false;
+      Object.keys(users).forEach(function (item, index) {  
+        if (item == receiver) {
+          status = true;
+        }
+      });
+
+      if (status == true) {
+        users[receiver].emit("take_message", data);
+      }
+      
       //io.sockets.emit("take_message", data.message);
       
    });

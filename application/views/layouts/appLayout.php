@@ -18,6 +18,7 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<input type="hidden" id="cookie" value="<?php echo get_cookie("User"); ?>">
     <div>
          <!--Navbar -->
     <nav class="mb-4 navbar sticky-top navbar-expand-lg navbar-dark indigo">
@@ -122,6 +123,10 @@
             $this->load->view($content, $data);
         } else if ($content == "message/index") {
             $data["userID"] = $userID;
+            $data["receivers"] = $receivers;
+            $data["messages"] = $messages;
+            $data["status"] = $status;
+
             $data["receiver"] = $receiver;
             $this->load->view($content, $data);
         }
@@ -134,6 +139,13 @@
         $(document).ready(function () {
             $('.mdb-select').material_select();
             $('.datepicker').pickadate();
+        });
+        var socket = io('http://'+window.location.hostname+':3000');
+        var id = $("#cookie").val();
+        socket.emit('setUser', id);
+
+        socket.on('take_message', function (msg) {
+            console.log(msg);
         });
     </script>
 

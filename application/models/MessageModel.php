@@ -1,6 +1,11 @@
 <?php
 
 class MessageModel extends CI_Model {
+
+    public function __construct() {
+        parent::__construct();
+        $this->load->model("UserControl");
+    }
 	
 	public function saveMessage($message, $userID)
 	{
@@ -15,5 +20,97 @@ class MessageModel extends CI_Model {
 
         $this->db->insert("messages", $newMessage);
         return $newMessage;
-	}
+    }
+    
+
+    public function getMessages($userID, $receiverID)
+    {
+        $this->db->where("userID", $userID);
+        $this->db->where("receiver", $receiverID);
+
+        $this->db->or_where("receiver", $userID);
+        $this->db->where("userID", $receiverID);
+
+        $this->db->from("messages");
+        $message = $this->db->get();
+        $messages = $message->result_array();
+
+        $mapMessage = array();
+        foreach ($messages as $m) {
+            $user = $this->UserControl->getUserByID($m["userID"]);
+            $userInfo = $this->UserControl->getUserInformation($user->userInformationID);
+
+            $mes = array(
+                "userID" => $m["userID"],
+                "receiver" => $m["receiver"],
+                "message" => $m["message"],
+                "avatar" => $this->UserControl->getUserAvatar($user->ID)
+            );
+
+            array_push($mapMessage, $mes);
+        }
+
+        return $mapMessage;
+    }
+
+    public function getMessagesUsers($userID)
+    {
+        $this->db->where("userID", $userID);
+        $this->db->distinct();
+        $this->db->select("receiver");
+        $this->db->from("messages");
+        
+        $query = $this->db->get();
+        $receivers = $query->result_array();
+
+        $receiversInfo = array();
+        foreach ($receivers as $r) {
+            $user       = $this->UserControl->getUserByID($r["receiver"]);
+            $userInfo   = $this->UserControl->getUserInformation($user->userInformationID);
+
+            $receiver = array(
+                "userID"   => $user->ID,
+                "userName" => $user->userName,
+                "name"     => $userInfo->name,
+                "avatar"   => $this->UserControl->getUserAvatar($user->ID)
+            );
+            array_push($receiversInfo, $receiver);
+        }
+
+
+        $this->db->where("receiver", $userID);
+        $this->db->distinct();
+        $this->db->select("userID");
+        $this->db->from("messages");
+        
+        $query = $this->db->get();
+        $receivers = $query->result_array();
+
+        if ($receivers != null) {
+            foreach ($receivers as $r) {
+                $status = true;
+                foreach ($receiversInfo as $ri) {
+                    if ($r["userID"] == $ri["userID"]) {
+                        $status = false;
+                        break;
+                    }
+                }
+                if ($status == true) {
+                    $user       = $this->UserControl->getUserByID($r["userID"]);
+                    $userInfo   = $this->UserControl->getUserInformation($user->userInformationID);
+    
+                    $receiver = array(
+                        "userID"   => $user->ID,
+                        "userName" => $user->userName,
+                        "name"     => $userInfo->name,
+                        "avatar"   => $this->UserControl->getUserAvatar($user->ID)
+                    );
+                    array_push($receiversInfo, $receiver);
+                }
+            }
+        }
+        
+
+        return $receiversInfo;
+    }
 }
