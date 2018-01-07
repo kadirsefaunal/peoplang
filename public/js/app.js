@@ -1,5 +1,10 @@
 $(document).ready(function () {
-    
+
+    /*var socket = io('http://'+window.location.hostname+':3000');
+    var id = $("#userID").val();
+    socket.emit('setUser', id);*/
+
+
     $("#postSend").click(function(){
         
         var post = {

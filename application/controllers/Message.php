@@ -17,7 +17,7 @@ class Message extends CI_Controller {
         $userID = get_cookie("User");
         $userInformation = $this->SettingsModel->getProfile($userID);
         $data["name"] = $userInformation["name"];
-
+        $data["userID"] = $userID;
         $data["receiver"] = $user;
         $data["content"] = "message/index";
         $this->load->view('layouts/appLayout', $data);

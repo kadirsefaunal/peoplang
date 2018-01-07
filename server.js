@@ -1,37 +1,37 @@
-var socket  = require( 'socket.io' );
-var express = require('express');
-var app     = express();
-var server  = require('http').createServer(app);
-var io      = socket.listen( server );
-var port    = process.env.PORT || 3000;
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-server.listen(port, function () {
-  console.log('Server listening at port %d', port);
+users = {};
+
+io.on('connection', function(socket) {
+   console.log('A user connected');
+   socket.on('setUser', function(data) {
+
+     users[data] = socket;
+      console.log(Object.keys(users));
+      
+   });
+
+   socket.on("new_message", function (data) {  
+      
+      console.log(Object.keys(users));
+      var receiver = String(data.receiver);
+      users[receiver].emit("take_message", data.message);
+      //io.sockets.emit("take_message", data.message);
+      
+   });
+
+   socket.on("disconnect", function (data) {  
+      if (!socket.nickname) return;
+      delete users[socket.nickname];
+      console.log(Object.keys(users));
+      console.log("disconnected " + socket.id);
+      
+   });
+
 });
 
-
-io.on('connection', function (socket) {
-
-  socket.on( 'new_count_message', function( data ) {
-    io.sockets.emit( 'new_count_message', { 
-    	new_count_message: data.new_count_message
-
-    });
-  });
-
-  socket.on( 'update_count_message', function( data ) {
-    io.sockets.emit( 'update_count_message', {
-    	update_count_message: data.update_count_message 
-    });
-  });
-
-  socket.on( 'new_message', function( data ) {
-      
-    socket.emit('new_message', data);
-    //io.sockets.emit( 'new_message', data);
-  });
-
-  io.use(function(socket, next){
-    console.log("Query: ", socket.handshake.query);
-  });
+http.listen(3000, function() {
+   console.log('listening on localhost:3000');
 });

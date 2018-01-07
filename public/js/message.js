@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    var id = $("#cookie").val();
+    var socket = io.connect( 'http://'+window.location.hostname+':3000' );
+    socket.emit("setUser", id);
+
+    socket.on('take_message', function (msg) {
+        console.log(msg);
+        
+    });
+
     $("#send").click(function () {  
         var message= {
             "receiver": $("#rID").val(),
@@ -8,9 +17,6 @@ $(document).ready(function () {
         console.log(message);
         
         $.post("saveMessage", { message: message }, function (result) {  
-
-            var socket = io.connect( 'http://'+window.location.hostname+':3000' );
-            
             // socket.emit('new_message', { 
             //     userID: result.userID,
             //     receiver: result.receiver,
@@ -18,16 +24,10 @@ $(document).ready(function () {
             //     date: result.date,
             //     readStatus: result.readStatus
             // });
-            socket.emit('new_message', result);
+            var obj = $.parseJSON(result);
+            socket.emit('new_message', obj);
 
-            socket.on('new_message', function (msg) {  
-                var obj = $.parseJSON(msg);
-                
-                if (obj.receiver == $("#cookie").val()) {
-                    console.log(obj);
-                }
             
-            });
         }); 
     });
 });

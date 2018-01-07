@@ -23,6 +23,7 @@ class App extends CI_Controller {
 		$data["online4s"] = $this->OnlineModel->onlineUsers(4);
 		$data["visitors"] = $this->UserControl->getVisitorsByID($userID);
 		$data["onlineFriends"] = $this->UserControl->getOnlineFriends($userID);
+		$data["userID"] = $userID;
 		$this->load->view('layouts/appLayout', $data);
     }
 

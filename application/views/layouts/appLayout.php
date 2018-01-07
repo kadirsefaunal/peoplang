@@ -93,6 +93,7 @@
             $data["online4s"] = $online4s;
             $data["visitors"] = $visitors;
             $data["onlineFriends"] = $onlineFriends;
+            $data["userID"] = $userID;
             $this->load->view($content, $data);
         } else if ($content == "profile/index") {
             $data["user"] = $user;
@@ -120,6 +121,7 @@
             $data["Countries"] = $Countries;
             $this->load->view($content, $data);
         } else if ($content == "message/index") {
+            $data["userID"] = $userID;
             $data["receiver"] = $receiver;
             $this->load->view($content, $data);
         }

@@ -1,3 +1,4 @@
+<input type="hidden" id="userID" value="<?php echo $userID; ?>">
 <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -326,4 +327,5 @@
     </div>
 
     <script type="text/javascript" src="<?php echo base_url("public/js/main.js"); ?>"></script>
+    <script src="<?php echo base_url('node_modules/socket.io-client/dist/socket.io.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url("public/js/app.js"); ?>"></script>
