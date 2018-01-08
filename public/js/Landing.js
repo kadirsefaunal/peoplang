@@ -26,12 +26,7 @@ $(document).ready(function () {
              $.post('user/register', { user: user }, function (result) {
                 if (result == 'True') {
                     $.get('app/checkRegisterStatus', function(param){
-                        if(param == true){
-                            window.location = 'app';
-                        }
-                        else{
-                            window.location = 'settings';
-                        }
+                        window.location = 'settings';
                     });
                 } else {
                     toastr.warning(result);
@@ -52,7 +47,9 @@ $(document).ready(function () {
             console.log(result);
             if (parseInt(result) > 0) {
                 $.get('app/checkRegisterStatus', function(param){
-                    if(param == true){
+                   console.log(param);
+                    if(param == "t"){
+
                         window.location = 'app';
                     }
                     else{

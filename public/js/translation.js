@@ -37,21 +37,32 @@ $(document).ready(function () {
         var dt = new Date();
 
         var request = {
-            title : $('#title').val(),
-            text : $('#content').val(),
+            title : $.trim($('#title').val()),
+            text : $.trim($('#content').val()),
             textLanguage : $('#textLang option:selected').text(),
             languageToTranslation : $("#translateLang option:selected").text(),
             date: 0,
             userID: 0
         }
-        console.log(request);
 
-        if (request.textLanguage != "Text Language" && request.languageToTranslation != "Choose Level") {
+        if(request.title == null || request.title == ""){
+            toastr.warning("Title can not be empty!");
+        }
+        else if(request.text == null || request.text == ""){
+            toastr.warning("Translation content can not be empty!");
+        }
+        else if (request.textLanguage == "Text Language") {
+            toastr.warning("Text Language can not be empty!");
+        }
+        else if(request.languageToTranslation != "Choose Level"){
+            toastr.warning("Translate can not be empty!");
+        }
+        else{
             $.post("translation/addTranslationRequest", { request: request }, function (result) {
                 console.log(result);
                 getRequest();    
             });
-            
+            toastr.success("Translation Request!");
         }
 
     });
