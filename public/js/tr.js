@@ -14,6 +14,7 @@ $(document).ready(function () {
                 getAnswers(answer.questionID);
                 toastr.success("The answer was sent!");
             });
+            $("#answer").val("");
         }
         
     });

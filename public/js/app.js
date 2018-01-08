@@ -12,6 +12,7 @@ $(document).ready(function () {
             toastr.error('Post can not be empty!');
         } else {
             $.post('app/savePost', { post: post });
+            toastr.success('Post was send!');
             $('#userPost').val("");
         }
     });

@@ -4,6 +4,7 @@ $(document).ready(function () {
 
         if (requestID > 0) {
             deleteRequest(requestID);
+            toastr.success("Translation Request deleted!");
         } else {
             console.log("request id yok");
         }
@@ -63,6 +64,8 @@ $(document).ready(function () {
                 getRequest();    
             });
             toastr.success("Translation Request Sent!");
+            $('#title').val("");
+            $('#content').val("");
         }
 
     });
