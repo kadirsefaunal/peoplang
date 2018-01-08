@@ -78,7 +78,7 @@ $(document).ready(function () {
                 if (result > 0) {
                     $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangSpeaks\" langID=\"" + result + "\">-</a></div></div>");
                 } else {
-                    console.log(result);
+                    toastr.warning(result);
                 }
             });
         }
@@ -210,15 +210,28 @@ $(document).ready(function () {
 
     $("#saveProfile").click(function () {  
         var profile = {
-            name      : $("#profileName").val(),
-            birthDate : $("#date-picker").val(),
-            gender    : $("#gender option:selected").text(),
-            mail      : $("#profileMail").val(),
-            country   : $("#countries option:selected").text(),
-            city      : $("#states option:selected").text()
+            name      : $.trim($("#profileName").val()),
+            birthDate : $.trim($("#date-picker").val()),
+            gender    : $.trim($("#gender option:selected").text()),
+            mail      : $.trim($("#profileMail").val()),
+            country   : $.trim($("#countries option:selected").text()),
+            city      : $.trim($("#states option:selected").text())
         };
 
         console.log(profile);
+        // if(profile.name == null || profile.name == ""){
+        //     toastr.warning("Name can not be empty!");
+        // }
+        // else if(profile.birthDate == null || profile.birthDate == ""){
+        //     toastr.warning("Birthday can not be empty!");
+        // }
+        // else if(atpos<1 || dotpos<atpos+2 || dotpos+2>= user.mail.length){
+        //     toastr.warning("Please enter valid mail address");
+        // }
+        // else if(user.password == null || user.password == "" || user.password.length < 8){
+        //     toastr.warning("Password must be at least 8 characters!");
+        // }
+        // console.log(profile);
 
         $.post("settings/saveProfile", {profile: profile}, function (result) {  
             console.log(result);

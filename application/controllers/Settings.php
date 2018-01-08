@@ -89,7 +89,7 @@ class Settings extends CI_Controller {
 
 		$result = $this->LanguageModel->saveLanguage($languages);
 		if ($result == 0) {
-			echo json_encode("Eklemek istediğiniz dil zaten mevcut!");
+			echo json_encode("The language you want to add already exists!");
 		} else {
 			echo json_encode($result);
 		}

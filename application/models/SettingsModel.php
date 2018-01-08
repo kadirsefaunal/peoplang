@@ -85,7 +85,7 @@ class SettingsModel extends CI_Model
             $this->db->update("User", $user, array("ID" => $user->ID));
             return 1;
         } else {
-            return "Old password is incorrect!";
+            return 0;
         }
     }
 
