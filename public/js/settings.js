@@ -12,6 +12,7 @@ $(document).ready(function () {
             console.log(result);
             if (result == "True") {
                 window.location.reload(true);
+                toastr.success("Saved!");
             }
         });
     });
@@ -34,6 +35,7 @@ $(document).ready(function () {
         $.post("settings/saveAboutMe", { aboutme: aboutme }, function (result) {
             console.log(result);
             if (result == "True") {
+                toastr.success("Saved!");
                 window.location.reload(true);
             }
         });
@@ -123,7 +125,6 @@ $(document).ready(function () {
         } else if (langID > 0 && status == "deleteLangSpeaks") {
             deleteLang(langID, true);
         } else if (imgID > 0) {
-            console.log(imgID);
             imageID = imgID;
         } else {
 
@@ -144,7 +145,7 @@ $(document).ready(function () {
         };
 
         $.post("settings/setAvatar", { img: img }, function () {  
-            location.reload(true);
+            window.location.reload(true);
         });
     }
 
@@ -153,7 +154,8 @@ $(document).ready(function () {
             imgID: imgID
         };
 
-        $.post("settings/deleteImages", { img: img }, function () {  
+        $.post("settings/deleteImages", { img: img }, function () { 
+            toastr.success("Photo deleted!");
             GetPhotos();
         });
     };
@@ -194,9 +196,6 @@ $(document).ready(function () {
             $("#states").append("<option value=\"\" disabled selected>Choose State</option>");
             $.each(obj, function (i, item) {
                 $("#states").append("<option value=\"" + item.id + "\">" + item.name + "</option>");
-                //$("#states").append("<option value=\"1\">11111</option>");
-                console.log(item.name);
-                
             });
             $(".mdb-select").material_select();
         });
@@ -250,10 +249,7 @@ $(document).ready(function () {
             contentType: false,
             cache: false,
             success: function (result) {  
-                console.log(result);
-                $("#imageeeee").attr("src",result);
                 GetPhotos();
-                // TODO: fotoğraf listesini yenile
             }
         });
 
@@ -262,7 +258,6 @@ $(document).ready(function () {
     function GetPhotos() {  
         $.get("settings/getImages", function (result) {  
             var obj = $.parseJSON(result);
-            console.log(obj);
             $("#imageList").empty();
             $.each(obj, function (i, item) {  
                 $("#imageList").append("<div class='col-md-4 mt-3'><div class='view overlay hm-white-slight'><img src='" + item.url + "' class='img-fluid' alt='" + item.url + "'><a data-toggle='modal' data-target='#modalmodalmodal' imageID='" + item.imageID + "'> <div class='mask waves-effect waves-light'></div></a></div></div>");
