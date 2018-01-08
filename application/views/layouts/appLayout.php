@@ -148,7 +148,7 @@
             
             setInterval(function () { 
                 $.get('app/getNotificationCount', function (result) {  
-                    console.log(result);
+                    
                     if (result != 0) {
                         $("#notificationCount").text(result);
                     }
@@ -168,7 +168,6 @@
         socket.emit('setUser', id);
 
         socket.on('take_message', function (msg) {
-            console.log(msg);
             
             $.get("app/getMessageCount", function (result) {  
                 $("#messageCount").text(result);

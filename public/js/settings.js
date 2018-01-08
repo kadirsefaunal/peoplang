@@ -9,7 +9,7 @@ $(document).ready(function () {
         };
 
         $.post("settings/saveContact", { contact: contact }, function (result) {
-            console.log(result);
+            
             if (result == "True") {
                 window.location.reload(true);
                 toastr.success("Saved!");
@@ -30,10 +30,8 @@ $(document).ready(function () {
             quotes: $('#quotes').val()
         };
 
-        console.log(aboutme);
-
         $.post("settings/saveAboutMe", { aboutme: aboutme }, function (result) {
-            console.log(result);
+            
             if (result == "True") {
                 toastr.success("Saved!");
                 window.location.reload(true);
@@ -48,14 +46,15 @@ $(document).ready(function () {
             newPasswordConfirm: $.trim($('#newPasswordConfirm').val()),
             oldPassword: $.trim($('#oldPassword').val())
         };
+
         if(password.newPassword == null || password.newPassword == "" || password.newPassword.length < 8){
             toastr.warning("Password must be at least 8 characters!");
         }
         else if (password.newPassword == password.newPasswordConfirm) {
             $.post("settings/changePassword", { password: password }, function (result) {
-                if(result == 1){
+                if (result == 1){
                     toastr.success("The password has been changed!");
-                }else{
+                } else {
                     toastr.error("Old password is incorrect!");
                 }
             });
@@ -93,7 +92,7 @@ $(document).ready(function () {
         };
 
         $.post("settings/deletelanguage", { langid: langid }, function (result) {
-            console.log(result.length);
+            
             if (result != "error") {
                 var obj = $.parseJSON(result);
                 if (langid.status == true) {
