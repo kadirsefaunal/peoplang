@@ -18,6 +18,10 @@ class App extends CI_Controller {
 		$userID = get_cookie("User");
 		$userInformation = $this->SettingsModel->getProfile($userID);
 		
+		$user = $this->UserControl->getUserByID($userID);
+		if($user->registerStatus == "f"){
+			redirect("/settings");
+		}
 		$data["name"] = $userInformation["name"];
 
 		$data['content'] = "app/index";

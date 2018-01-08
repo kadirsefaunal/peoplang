@@ -47,14 +47,7 @@ $(document).ready(function () {
             console.log(result);
             if (parseInt(result) > 0) {
                 $.get('app/checkRegisterStatus', function(param){
-                   console.log(param);
-                    if(param == "t"){
-
-                        window.location = 'app';
-                    }
-                    else{
-                        window.location = 'settings';
-                    }
+                   window.location = 'app';
                 });
                 
             } else {

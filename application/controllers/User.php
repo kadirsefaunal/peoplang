@@ -35,7 +35,7 @@ class User extends CI_Controller {
 
         if ($result == "True") {
             if ($this->DBmodel->save("User", $newUser) == 1) {
-                set_cookie('User', $this->db->insert_id(), '3600');
+                set_cookie('User', $this->db->insert_id(), '28800');
                 $this->OnlineModel->beOnline($this->db->insert_id());
                 echo $result;
             } else {
@@ -68,7 +68,7 @@ class User extends CI_Controller {
             echo -1;
         } else {
             if (password_verify($user["password"], $result->password)) {
-                set_cookie('User', $result->ID, '3600');
+                set_cookie('User', $result->ID, '28800');
                 $this->OnlineModel->beOnline($result->ID);
                 echo $result->ID;
             } else {

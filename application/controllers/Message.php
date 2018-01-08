@@ -13,6 +13,10 @@ class Message extends CI_Controller {
     {
         $userID = get_cookie("User");
 
+        $user = $this->UserControl->getUserByID($userID);
+		if($user->registerStatus == "f"){
+			redirect("/settings");
+		}
         $receivers = $this->MessageModel->getMessagesUsers($userID);
         
         if ($user != null) {

@@ -15,6 +15,10 @@ class Online extends CI_Controller {
 	public function index()
     {
 		$userID = get_cookie("User");
+		$user = $this->UserControl->getUserByID($userID);
+		if($user->registerStatus == "f"){
+			redirect("/settings");
+		}
 		$userInformation = $this->SettingsModel->getProfile($userID);
         $data["name"] = $userInformation["name"];
 		$data["onlines"] = $this->OnlineModel->onlineUsers();
