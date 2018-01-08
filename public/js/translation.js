@@ -5,8 +5,6 @@ $(document).ready(function () {
         if (requestID > 0) {
             deleteRequest(requestID);
             toastr.success("Translation Request deleted!");
-        } else {
-            console.log("request id yok");
         }
     });
 
@@ -22,12 +20,10 @@ $(document).ready(function () {
 
     function getRequest() {
         $.get("translation/getRequests", function (result) { 
-            console.log(result);
             var obj = $.parseJSON(result);
             $("#myRequest").empty();
             $.each(obj, function (i, item) {
                 $("#myRequest").append("<tr><th><a href='tr/" + item.ID +"'>" + item.title + "</a></th><td>" + item.date + "</td><td>" + item.textLanguage + "</td><td>" + item.languageToTranslation + "</td><td><a requestID='" + item.ID + "'class='btn-floating btn-sm red'><i class='fa fa-trash'></i></a></td></tr>");
-                console.log(item);
             });
             $("#postList").append("</ul>");
         });
@@ -60,7 +56,6 @@ $(document).ready(function () {
         }
         else{
             $.post("translation/addTranslationRequest", { request: request }, function (result) {
-                console.log(result);
                 getRequest();    
             });
             toastr.success("Translation Request Sent!");
@@ -74,7 +69,6 @@ $(document).ready(function () {
 
 setInterval(function () { 
     $.get('translation/getAllRequests', function (result) {  
-        console.log(result);
         var obj = $.parseJSON(result);
         $("#allRequests").empty();
         $.each(obj, function (i, item) {  

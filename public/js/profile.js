@@ -4,8 +4,7 @@ $(document).ready(function () {
 
         if (postID > 0) {
             deletePost(postID);
-        } else {
-            console.log("post id yok");
+            toastr.success("Post deleted!");
         }
     });
 
@@ -21,7 +20,6 @@ $(document).ready(function () {
             $("#postList").append("<ul id=\"sortable\">");
             $.each(obj, function (i, item) {
                 $("#sortable").append("<li><div class=\"card news-card\"><div class=\"pr-3 pl-3\"><div class=\"content align-middle\"><div class=\"right-side-meta\"><a postID=\"" + item.postid + "\" class=\"btn-floating btn-md red\"><i class=\"fa fa-times\"></i></a></div><div class=\"pt-4\"><img src=\"" + item.avatar + "\" alt=\"example avatar\" class=\"rounded-circle avatar-img z-depth-1-half\">" + item.userName + "</div></div></div><div class=\"pl-3 pr-3\"><div class=\"social-meta\"><p>" + item.content + "</p></div></div></div></li>");
-                console.log(item);
             });
             $("#postList").append("</ul>");
         });
@@ -31,24 +29,28 @@ $(document).ready(function () {
         
         var user = {
             userID : $("#sendreport").attr("userID"),
-            content: $("#reportText").val()
+            content: $.trim($("#reportText").val())
         };
-        console.log(user);
+
+        if(user.content == null || user.content == ""){
+            toastr.error("Write the reason for the report!");
+        }
+        else{
+            $.post("../profile/sendReport", { user: user }, function (result) {
+                toastr.success("The report was sent.");    
+            });
+
+        }
         
-        $.post("../profile/sendReport", { user: user }, function (result) {
-            console.log(result);    
-            
-        });
     });
 
     $("#sendblock").click(function () {
        var user = {
            userID : $("#sendblock").attr("userID")
        };
-       console.log(user);
        
        $.post("../profile/sendBlock", { user:user }, function (result) {  
-            console.log(result);
+            toastr.success("User is Blocked!");  
        });
     });
 
@@ -58,7 +60,7 @@ $(document).ready(function () {
         };
 
         $.post("../profile/addFriend", { user:user }, function (result) {  
-            console.log(result);
+            toastr.success("A friend request was sent");
        });
     });
 
@@ -66,11 +68,9 @@ $(document).ready(function () {
         var user = {
             userID : $("#deleteFriend").attr("userID")
         };
-
-        console.log(user);
         
         $.post("../profile/deleteFriend", { user:user }, function (result) {  
-            console.log(result);
+            toastr.success("Friend deleted!");
        });
     });
 

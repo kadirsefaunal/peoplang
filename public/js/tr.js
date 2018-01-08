@@ -2,7 +2,7 @@ $(document).ready(function () {
     $(".answerSend").click(function(){
         
         var answer = {
-            answer: $('#answer').val(),
+            answer: $.trim($('#answer').val()),
             questionID: $('#trID').val()
         };
 
@@ -25,7 +25,6 @@ function getAnswers(questionID){
         qID : questionID
     };
     $.post('../translationRequest/getAnswers', {questionID: questionID}, function (result) {
-        console.log(result);
         var obj = $.parseJSON(result);
         $("#answers").empty();
         $.each(obj, function (i, item) {  
