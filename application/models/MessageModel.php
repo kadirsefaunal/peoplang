@@ -44,13 +44,20 @@ class MessageModel extends CI_Model {
                 "userID" => $m["userID"],
                 "receiver" => $m["receiver"],
                 "message" => $m["message"],
-                "avatar" => $this->UserControl->getUserAvatar($user->ID)
+                "avatar" => $this->UserControl->getUserAvatar($user->ID),
+                "date" => $m["date"]
             );
 
             array_push($mapMessage, $mes);
         }
-
+        usort($mapMessage, $this->build_sorter('date'));
         return $mapMessage;
+    }
+
+    public function build_sorter($key) {
+        return function ($a, $b) use ($key) {
+            return strnatcmp($a[$key], $b[$key]);
+        };
     }
 
     public function getMessagesUsers($userID)
@@ -109,7 +116,6 @@ class MessageModel extends CI_Model {
                 }
             }
         }
-        
 
         return $receiversInfo;
     }

@@ -74,4 +74,14 @@ class App extends CI_Controller {
 
 		echo json_encode(count($notifs));
 	}
+
+	public function getMessageCount()
+	{
+		$userID = get_cookie("User");
+
+		$messages = $this->db->get_where("messages", array("receiver" => $userID, "readStatus" => false));
+		$messages = $messages->result_array();
+
+		echo json_encode(count($messages));
+	}
 }

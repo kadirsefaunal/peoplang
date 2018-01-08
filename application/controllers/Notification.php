@@ -31,6 +31,15 @@ class Notification extends CI_Controller {
         $this->db->update('Notifications');
     }
 
+    public function messageSetRead()
+    {
+        $userID = get_cookie("User");
+
+        $this->db->set('readStatus', true);
+        $this->db->where('receiver', $userID);
+        $this->db->update('messages');
+    }
+
     public function rejectFriendReq()
     {
         $post = $this->input->post("user");

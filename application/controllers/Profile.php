@@ -19,7 +19,8 @@ class Profile extends CI_Controller {
 		if ($userName == $logUser->userName) {
 			redirect("/profile");
 		}
-
+		
+		$data["friendStatus"] = false;
 		if ($userName == null) {
 			$userID = get_cookie("User");
 			$userInformation = $this->SettingsModel->getProfile($userID);
@@ -34,6 +35,15 @@ class Profile extends CI_Controller {
 			}
 
 			$this->UserControl->setViewer($u->ID, get_cookie("User"));
+
+			$friend = $this->db->get_where("Friend", array("userID" => get_cookie("User"), "friendID" => $userID));
+			$friend = $friend->first_row();
+
+			if ($friend == null) {
+				$data["friendStatus"] = false;
+			} else {
+				$data["friendStatus"] = true;
+			}
 		}
 
 		$user = array(
@@ -110,5 +120,14 @@ class Profile extends CI_Controller {
 		);
 
 		echo json_encode($this->UserControl->saveNotification($notification));
+	}
+
+	public function deleteFriend()
+	{
+		$user = $this->input->post("user");
+		$userID = get_cookie("User");
+
+		$this->db->delete("Friend", array("userID" => $userID, "friendID" => $user["userID"]));
+		$this->db->delete("Friend", array("userID" => $user["userID"], "friendID" => $userID));
 	}
 }

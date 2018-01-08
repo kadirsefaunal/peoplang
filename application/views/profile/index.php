@@ -110,13 +110,24 @@
                     <?php if ($user != null && ($user["userID"] != get_cookie("User"))) {?>
                         <hr>
                         <div class="row mr-3">
-                            <div class="col-md-3 mt-1">
-                                <div class="text-center">
-                                    <a id="addFriend" class="btn-floating btn-lg success-color" userID="<?php echo $user["userID"]; ?>">
-                                        <i class="fa fa-user-plus"></i>
-                                    </a>
+                            <?php if ($friendStatus == false) { ?>
+                                <div class="col-md-3 mt-1">
+                                    <div class="text-center">
+                                        <a id="addFriend" class="btn-floating btn-lg success-color" userID="<?php echo $user["userID"]; ?>">
+                                            <i class="fa fa-user-plus"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php } else { ?>
+                                <div class="col-md-3 mt-1">
+                                    <div class="text-center">
+                                        <a id="deleteFriend" class="btn-floating btn-lg grey" userID="<?php echo $user["userID"]; ?>">
+                                            <i class="fa fa-user-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            
                             <div class="col-md-3 mt-1">
                                 <div class="text-center">
                                     <a class="btn-floating btn-lg primary-color-dark" href="<?php echo base_url("message/".$user["userID"]); ?>">
@@ -163,7 +174,8 @@
                                     </div>
                                     <div class="col-md-8">
 
-
+                                    <div id="mdb-lightbox-ui"></div>
+                                    
                                         <!--Slides-->
                                         <div class="carousel-inner" role="listbox">
 
@@ -188,7 +200,7 @@
                                                             <!--Card image-->
                                                             <div class="view overlay hm-white-slight">
                                                                 <img src="<?php echo $image["url"]; ?>" class="img-fluid" alt="" >
-                                                                <a><div class="mask"></div></a>
+                                                                <a id="show" imgUrl="<?php echo $image["url"]; ?>" data-toggle="modal" data-target="#image"><div class="mask"></div></a>
                                                             </div>
                                                             <!--Card image-->
                                                         </div>
@@ -454,6 +466,22 @@
                 </div>
             </div>
             <!--/.Content-->
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="image" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fluid" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid" id="showImage" src="" alt="" width="600" height="400">
+                </div>
+            </div>
         </div>
     </div>
 

@@ -49,8 +49,8 @@
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light">
-                        <i class="fa fa-envelope-o"></i>
+                    <a id="messageSee" class="nav-link waves-effect waves-light" href="<?php echo base_url("message"); ?>">
+                        <i class="fa fa-envelope-o"></i><span id="messageCount" class="badge badge-danger"></span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -98,6 +98,7 @@
             $data["userID"] = $userID;
             $this->load->view($content, $data);
         } else if ($content == "profile/index") {
+            $data["friendStatus"] = $friendStatus;
             $data["user"] = $user;
             $this->load->view($content, $data);
         } else if ($content == "translation/index") {
@@ -157,6 +158,10 @@
             $("#notificationSee").click(function () {  
                 $.get('notification/notificationSetRead');
             });
+
+            $("#messageSee").click(function () {  
+                $.get('notification/messageSetRead');
+            });
         });
         var socket = io('http://'+window.location.hostname+':3000');
         var id = $("#cookie").val();
@@ -164,6 +169,10 @@
 
         socket.on('take_message', function (msg) {
             console.log(msg);
+            
+            $.get("app/getMessageCount", function (result) {  
+                $("#messageCount").text(result);
+            });
         });
     </script>
 

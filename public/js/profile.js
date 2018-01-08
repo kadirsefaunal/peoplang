@@ -61,4 +61,21 @@ $(document).ready(function () {
             console.log(result);
        });
     });
+
+    $("#deleteFriend").click(function () {  
+        var user = {
+            userID : $("#deleteFriend").attr("userID")
+        };
+
+        console.log(user);
+        
+        $.post("../profile/deleteFriend", { user:user }, function (result) {  
+            console.log(result);
+       });
+    });
+
+    $(document.body).on("click", "#show", function () {
+        var img = $(this).attr("imgUrl");
+        $("#showImage").attr("src", img);
+    });
 });
