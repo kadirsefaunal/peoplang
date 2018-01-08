@@ -8,6 +8,7 @@ class User extends CI_Controller {
         $this->load->model("DBmodel");
         $this->load->model("OnlineModel");
         $this->load->model("UserControl");
+        $this->load->library("encryption");
     }
     
 	public function register()
@@ -23,7 +24,7 @@ class User extends CI_Controller {
         $newUser = new User();
         $newUser->userName       = $user['userName'];
         $newUser->mail           = $user['mail'];
-        $newUser->password       = $user['password'];
+        $newUser->password       = password_hash($user['password'], PASSWORD_BCRYPT);
         $newUser->registerDate   = $dt;
         $newUser->registerStatus = false;
         $newUser->lastLogin      = $dt;
@@ -66,7 +67,7 @@ class User extends CI_Controller {
         if (!isset($result)) {
             echo -1;
         } else {
-            if ($result->password == $user["password"]) {
+            if (password_verify($user["password"], $result->password)) {
                 set_cookie('User', $result->ID, '3600');
                 $this->OnlineModel->beOnline($result->ID);
                 echo $result->ID;

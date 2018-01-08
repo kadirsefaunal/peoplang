@@ -2,20 +2,36 @@ $(document).ready(function () {
 
     $(".register").click(function(){
         var user = {
-            userName: $('#sUpUserName').val(),
-            mail    : $('#sUpEMail').val(),
-            password: $('#sUpPassword').val()
+            userName: $.trim($('#sUpUserName').val()),
+            mail    : $.trim($('#sUpEMail').val()),
+            password: $.trim($('#sUpPassword').val())
         };
-        console.log(user);
+        
+        var atpos   = user.mail.indexOf("@");
+        var dotpos  = user.mail.lastIndexOf(".");
 
-        $.post('user/register', { user: user }, function (result) {
-            console.log(result);
-            if (result == 'True') {
-                window.location = 'app';
-            } else {
-                console.log(result);
-            }
-        });
+        if(user.userName == null || user.userName == "" || user.userName.length < 3){
+            toastr.warning("Username must be at least 3 characters!");
+        }
+        else if(user.mail == null ||user.mail == ""){
+            toastr.warning("Mail can not be empty!");
+        }
+        else if(atpos<1 || dotpos<atpos+2 || dotpos+2>= user.mail.length){
+            toastr.warning("Please enter valid mail address");
+        }
+        else if(user.password == null || user.password == "" || user.password.length < 8){
+            toastr.warning("Password must be at least 8 characters!");
+        }
+        else{
+             $.post('user/register', { user: user }, function (result) {
+                if (result == 'True') {
+                    window.location = 'app';
+                } else {
+                    toastr.warning(result);
+                }
+            });
+        }
+       
     });
 
     $('.login').click(function () {
@@ -30,7 +46,13 @@ $(document).ready(function () {
             if (parseInt(result) > 0) {
                 window.location = 'app';
             } else {
-                console.log(result);
+                if(result == 0){
+                    toastr.warning("Wrong Password!");
+                }
+                else{
+                    toastr.warning("User Not Found!");
+                }
+                
             }
         });
     });
