@@ -10,14 +10,16 @@ class App extends CI_Controller {
 		$this->load->model("SettingsModel");
 		$this->load->model("OnlineModel");
 		$this->load->model("UserControl");
+		
     }
 
 	public function index()
 	{
 		$userID = get_cookie("User");
 		$userInformation = $this->SettingsModel->getProfile($userID);
-
+		
 		$data["name"] = $userInformation["name"];
+
 		$data['content'] = "app/index";
 		$data["posts"] = $this->PostModel->getAllPosts($userID);
 		$data["online4s"] = $this->OnlineModel->onlineUsers(4);
@@ -27,6 +29,13 @@ class App extends CI_Controller {
 		$this->load->view('layouts/appLayout', $data);
     }
 
+	public function checkRegisterStatus()
+	{
+		$userID = get_cookie("User");
+		$user = $this->UserControl->getUserByID($userID);
+		echo $user->registerStatus;
+	}
+	
 	public function savePost()
 	{
 		if ($this->input->post("post") == null) {

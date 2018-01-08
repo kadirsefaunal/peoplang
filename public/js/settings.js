@@ -42,19 +42,23 @@ $(document).ready(function () {
 
     $(".changePwd").click(function () {
         var password = {
-            newPassword: $('#newPassword').val(),
-            newPasswordConfirm: $('#newPasswordConfirm').val(),
-            oldPassword: $('#oldPassword').val()
+            newPassword: $.trim($('#newPassword').val()),
+            newPasswordConfirm: $.trim($('#newPasswordConfirm').val()),
+            oldPassword: $.trim($('#oldPassword').val())
         };
-
-        if (password.newPassword == password.newPasswordConfirm) {
+        if(password.newPassword == null || password.newPassword == "" || password.newPassword.length < 8){
+            toastr.warning("Password must be at least 8 characters!");
+        }
+        else if (password.newPassword == password.newPasswordConfirm) {
             $.post("settings/changePassword", { password: password }, function (result) {
-                console.log(result);
-
+                if(result == 1){
+                    toastr.success("The password has been changed!");
+                }else{
+                    toastr.error("Old password is incorrect!");
+                }
             });
         } else {
-            console.log("parolalar uyuşmuyor!");
-
+            toastr.warning("Passwords not match");
         }
     });
 

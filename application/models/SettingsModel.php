@@ -79,12 +79,13 @@ class SettingsModel extends CI_Model
     public function changePwd($userID, $password)
     {
         $user= $this->UserControl->getUserByID($userID);
-        if ($user->password == $password["oldPassword"]) {
-            $user->password = $password["newPassword"];
+        
+        if (password_verify($password["oldPassword"], $user->password)) {
+            $user->password = password_hash($password["newPassword"], PASSWORD_BCRYPT);
             $this->db->update("User", $user, array("ID" => $user->ID));
-            return "Başarılı!";
+            return 1;
         } else {
-            return "Eski Parola Hatalı!";
+            return "Old password is incorrect!";
         }
     }
 

@@ -71,7 +71,6 @@ class Settings extends CI_Controller {
 			echo "boş";
 		}
 
-
 		$userID = get_cookie("User");
 		$password = $this->input->post("password");
 

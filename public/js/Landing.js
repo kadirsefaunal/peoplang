@@ -25,7 +25,14 @@ $(document).ready(function () {
         else{
              $.post('user/register', { user: user }, function (result) {
                 if (result == 'True') {
-                    window.location = 'app';
+                    $.get('app/checkRegisterStatus', function(param){
+                        if(param == true){
+                            window.location = 'app';
+                        }
+                        else{
+                            window.location = 'settings';
+                        }
+                    });
                 } else {
                     toastr.warning(result);
                 }
@@ -44,7 +51,15 @@ $(document).ready(function () {
         $.post('user/login', { user: user }, function (result) {
             console.log(result);
             if (parseInt(result) > 0) {
-                window.location = 'app';
+                $.get('app/checkRegisterStatus', function(param){
+                    if(param == true){
+                        window.location = 'app';
+                    }
+                    else{
+                        window.location = 'settings';
+                    }
+                });
+                
             } else {
                 if(result == 0){
                     toastr.warning("Wrong Password!");
