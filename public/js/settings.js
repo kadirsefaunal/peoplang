@@ -70,28 +70,25 @@ $(document).ready(function () {
             userID: 0
         };
 
-        console.log(lang);
-
         if (lang.language != "Choose Language" && lang.level != "Choose Level") {
             $.post("settings/addLangSpeaks", { lang: lang }, function (result) {
-                console.log(result);
                 if (result > 0) {
                     $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangSpeaks\" langID=\"" + result + "\">-</a></div></div>");
                 } else {
                     toastr.warning(result);
                 }
             });
+        } else {
+            toastr.warning("Language and level can not be empty!");
         }
     });
 
     function deleteLang(lID, trfl) {
-        console.log("silme fonk");
 
         var langid = {
             lid: lID,
             status: trfl
         };
-        console.log(langid);
 
         $.post("settings/deletelanguage", { langid: langid }, function (result) {
             console.log(result.length);
@@ -101,19 +98,16 @@ $(document).ready(function () {
                     $(".languagesSpeaks").empty();
                     $.each(obj, function (i, item) {
                         $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangSpeaks\" langID=\"" + item.ID + "\">-</a></div></div>");
-                        console.log(item);
-
                     });
                 } else {
                     $(".languagesLearn").empty();
                     $.each(obj, function (i, item) {
                         $(".languagesLearn").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangLearning\" langID=\"" + item.ID + "\">-</a></div></div>");
-                        console.log(item);
-                        
                     });
                 }
+            } else {
+                toastr.error("Error occurred during deletion!");
             }
-
         });
     };
 
@@ -132,7 +126,7 @@ $(document).ready(function () {
             console.log(imgID);
             imageID = imgID;
         } else {
-            console.log("lang id yok");
+
         }
     });
 
@@ -173,17 +167,17 @@ $(document).ready(function () {
             userID: 0
         };
 
-        console.log(lang);
 
         if (lang.language != "Choose Language" && lang.level != "Choose Level") {
             $.post("settings/addLangSpeaks", { lang: lang }, function (result) {
-                console.log(result);
                 if (result > 0) {
                     $(".languagesLearn").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangLearning\" langID=\"" + result + "\">-</a></div></div>");
                 } else {
-                    console.log(result);
+                    toastr.warning(result);
                 }
             });
+        } else {
+            toastr.warning("Language and level can not be empty!");
         }
     });
 
@@ -218,51 +212,29 @@ $(document).ready(function () {
             city      : $.trim($("#states option:selected").text())
         };
 
-        console.log(profile);
-        // if(profile.name == null || profile.name == ""){
-        //     toastr.warning("Name can not be empty!");
-        // }
-        // else if(profile.birthDate == null || profile.birthDate == ""){
-        //     toastr.warning("Birthday can not be empty!");
-        // }
-        // else if(atpos<1 || dotpos<atpos+2 || dotpos+2>= user.mail.length){
-        //     toastr.warning("Please enter valid mail address");
-        // }
-        // else if(user.password == null || user.password == "" || user.password.length < 8){
-        //     toastr.warning("Password must be at least 8 characters!");
-        // }
-        // console.log(profile);
+        var atpos   = profile.mail.indexOf("@");
+        var dotpos  = profile.mail.lastIndexOf(".");
 
-        $.post("settings/saveProfile", {profile: profile}, function (result) {  
-            console.log(result);
-            
-        });
-        
+        if (profile.name == null || profile.name == ""){
+            toastr.warning("Name can not be empty!");
+        } else if (profile.birthDate == null || profile.birthDate == ""){
+            toastr.warning("Birthday can not be empty!");
+        } else if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= profile.mail.length){
+            toastr.warning("Please enter valid mail address");
+        } else if (profile.gender == null || profile.gender == ""){
+            toastr.warning("Gender can not be empty!");
+        } else if (profile.country == null || profile.country == ""){
+            toastr.warning("Country can not be empty!");
+        } else {
+            $.post("settings/saveProfile", {profile: profile}, function (result) {  
+                if (result == "True") {
+                    window.location = "app";
+                } else {
+                    toastr.warning(result);
+                }
+            });
+        }
     });
-
-
-    // $("#imageInput").on('change', function(){
-    //     var data = new FormData();
-    //     $.each($("#imageInput")[0].files, function (i, file) {  
-    //         data.append("imageInput", file);
-    //     });
-        
-    //     $.ajax({
-    //         url: "settings/uploadImage",
-    //         type: "POST",
-    //         processData: false,
-    //         data: data,
-    //         contentType: false,
-    //         cache: false,
-    //         success: function (result) {  
-    //             console.log(result);
-    //             $("#imageeeee").attr("src",result);
-    //             GetPhotos();
-    //             // TODO: fotoğraf listesini yenile
-    //         }
-    //     });
-
-    // });
 
     $(document.body).on('change', '#imageInput', function(){
         var data = new FormData();

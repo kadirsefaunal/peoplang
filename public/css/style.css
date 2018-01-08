@@ -107,3 +107,8 @@
 .activeUser {
     background-color: #777777;
 }
+
+input[type="file"] {
+    display: none;
+}
+

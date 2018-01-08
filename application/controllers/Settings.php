@@ -162,7 +162,7 @@ class Settings extends CI_Controller {
 			$this->UserControl->updateUserStatusMail($userID, $profile["mail"]);
 			echo "True";
 		} else {
-			echo "Dilleri kontrol edin!";
+			echo "You can not skip languages you know and want to learn!";
 		}
 
 		
