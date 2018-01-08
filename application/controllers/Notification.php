@@ -12,6 +12,10 @@ class Notification extends CI_Controller {
     public function index()
     {
         $userID = get_cookie("User");
+        if ($userID == null) {
+			redirect("/landing");
+		}
+
         $ui = $this->SettingsModel->getProfile($userID);
 
         $data["notifications"] = $this->NotificationModel->getNotificationDetail($userID);

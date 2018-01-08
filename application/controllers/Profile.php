@@ -15,6 +15,10 @@ class Profile extends CI_Controller {
 	public function index($userName = null)
 	{
 		$userID = get_cookie("User");
+		if ($userID == null) {
+			redirect("/landing");
+		}
+
 		$logUser = $this->UserControl->getUserByID($userID);
 		if($logUser->registerStatus == "f"){
 			redirect("/settings");

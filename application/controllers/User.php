@@ -13,10 +13,6 @@ class User extends CI_Controller {
     
 	public function register()
 	{
-        if ($this->input->post("user") == null) {
-            echo "boş";
-        }
-
         $dt = time();
 
         $user = $this->input->post("user");
@@ -44,17 +40,10 @@ class User extends CI_Controller {
         } else {
             echo $result;
         }
-
-		// $data = array("content" => "Landing/index");
-		// $this->load->view('index', $data);
     }
 
     public function login()
     {
-        if ($this->input->post('user') == null) {
-            echo 'boş';
-        }
-
         $user = $this->input->post("user");
 
         $userForm = array(

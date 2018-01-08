@@ -36,16 +36,6 @@ class App extends CI_Controller {
 		$data["userID"] = $userID;
 		$this->load->view('layouts/appLayout', $data);
     }
-
-	public function checkRegisterStatus()
-	{
-		if (!$this->input->get()) {
-			redirect("/landing");
-		}
-		$userID = get_cookie("User");
-		$user = $this->UserControl->getUserByID($userID);
-		echo $user->registerStatus;
-	}
 	
 	public function savePost()
 	{
@@ -69,20 +59,12 @@ class App extends CI_Controller {
 
 	public function getPosts()
 	{
-		if (!$this->input->get()) {
-			redirect("/landing");
-		}
-
 		$userID = get_cookie("User");
 		echo json_encode($this->PostModel->getAllPosts($userID));
 	}
 
 	public function getOnline4()
 	{
-		if ($lang = $this->input->post("language") == null) {
-			redirect("/landing");
-		}
-
 		$lang = $this->input->post("language");
 		$result = $this->OnlineModel->onlineUsersLanguage($lang["langName"]);
 		echo json_encode($result);
@@ -90,10 +72,6 @@ class App extends CI_Controller {
 
 	public function getNotificationCount()
 	{
-		if (!$this->input->get()) {
-			redirect("/landing");
-		}
-
 		$userID = get_cookie("User");
 		$notifs = $this->db->get_where("Notifications", array("nUserID" => $userID, "read" => false));
 		$notifs = $notifs->result_array();
@@ -103,10 +81,6 @@ class App extends CI_Controller {
 
 	public function getMessageCount()
 	{
-		if (!$this->input->get()) {
-			redirect("/landing");
-		}
-
 		$userID = get_cookie("User");
 
 		$messages = $this->db->get_where("messages", array("receiver" => $userID, "readStatus" => false));

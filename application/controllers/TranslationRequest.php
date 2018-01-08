@@ -13,6 +13,10 @@ class TranslationRequest extends CI_Controller {
 	public function index($trID = null)
 	{
         $userID = get_cookie("User");
+        if ($userID == null) {
+			redirect("/landing");
+		}
+
         $user = $this->UserControl->getUserByID($userID);
 		if($user->registerStatus == "f"){
 			redirect("/settings");
@@ -31,11 +35,7 @@ class TranslationRequest extends CI_Controller {
     }
 
     public function saveAnswer()
-    {
-        if ($this->input->post("answer") == null) {
-            echo "boş";
-        }
-        
+    {        
         $answer = $this->input->post("answer");
         $dt = time();
         $userID = get_Cookie("User");
@@ -46,7 +46,7 @@ class TranslationRequest extends CI_Controller {
             "text"       => $answer["answer"],
             "questionID" => $answer["questionID"]
         );
-        //var_dump($newAnswer);
+
         $this->TranslationModel->insertAnswer($newAnswer);
 
         $question = $this->db->get_where("TranslationRequests", array("ID" => $answer["questionID"]));
@@ -63,8 +63,6 @@ class TranslationRequest extends CI_Controller {
     
             $this->db->insert("Notifications", $notif);
         }
-
-        echo "kayıt başarılı";
     }
     
     public function getAnswers()
@@ -74,6 +72,5 @@ class TranslationRequest extends CI_Controller {
         $answers = $this->TranslationModel->getAnswers($questionID["qID"]);
 
         echo json_encode($answers);
-
     }
 }

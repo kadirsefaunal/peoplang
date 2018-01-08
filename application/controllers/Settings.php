@@ -15,6 +15,10 @@ class Settings extends CI_Controller {
 	public function index()
 	{
 		$userID = get_cookie("User");
+		if ($userID == null) {
+			redirect("/landing");
+		}
+
 		$user = $this->UserControl->getUserByID($userID);
 		$userInfo = $this->SettingsModel->getProfile($userID);
 
@@ -39,9 +43,6 @@ class Settings extends CI_Controller {
 
 	public function saveContact()
 	{
-		if ($this->input->post("contact") == null) {
-            echo "boş";
-        }
 
 		$contact = $this->input->post("contact");
 		$userID  = get_cookie("User");
@@ -53,9 +54,6 @@ class Settings extends CI_Controller {
 
 	public function saveAboutMe()
 	{
-		if ($this->input->post("aboutme") == null) {
-			echo "boş";
-		}
 
 		$aboutMe = $this->input->post("aboutme");
 		$userID  = get_cookie("User");
@@ -67,9 +65,6 @@ class Settings extends CI_Controller {
 
 	public function changePassword()
 	{
-		if ($this->input->post("password") == null) {
-			echo "boş";
-		}
 
 		$userID = get_cookie("User");
 		$password = $this->input->post("password");
@@ -79,9 +74,6 @@ class Settings extends CI_Controller {
 
 	public function addLangSpeaks()
 	{
-		if ($this->input->post("lang") == null) {
-			echo "boş";
-		}
 
 		$languages = $this->input->post("lang");
 		$userID	   = get_cookie("User");
@@ -97,9 +89,6 @@ class Settings extends CI_Controller {
 
 	public function deletelanguage()
 	{
-		if ($this->input->post("langid") == null) {
-			echo "boş";
-		}
 
 		$userID = get_cookie("User");
 		$lid 	= $this->input->post("langid");
@@ -127,9 +116,6 @@ class Settings extends CI_Controller {
 
 	public function getstates()
 	{
-		if ($this->input->post("country") == null) {
-			echo "boş";
-		}
 
 		$country = $this->input->post("country");
 		$states = $this->SettingsModel->getStates($country["countryID"]);
@@ -139,9 +125,6 @@ class Settings extends CI_Controller {
 
 	public function saveProfile()
 	{
-		if ($this->input->post("profile") == null) {
-			echo "boş";
-		}
 
 		$userID  = get_cookie("User");
 		$profile = $this->input->post("profile");
@@ -163,9 +146,7 @@ class Settings extends CI_Controller {
 			echo "True";
 		} else {
 			echo "You can not skip languages you know and want to learn!";
-		}
-
-		
+		}		
 	}
 
 	public function uploadImage()
@@ -185,9 +166,6 @@ class Settings extends CI_Controller {
 		$config['upload_path']          = $folderName;
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['file_name'] 			= $new_name;
-
-		
-		
 
 		$this->load->library('upload', $config);
 		

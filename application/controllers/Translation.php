@@ -14,6 +14,10 @@ class Translation extends CI_Controller {
 	public function index()
 	{
         $userID = get_cookie("User");
+        if ($userID == null) {
+			redirect("/landing");
+		}
+
         $user = $this->UserControl->getUserByID($userID);
 		if($user->registerStatus == "f"){
 			redirect("/settings");
@@ -30,11 +34,7 @@ class Translation extends CI_Controller {
     }
 
     public function addTranslationRequest()
-    {
-        if ($this->input->post("request") == null) {
-            echo "boş";
-        }
-        
+    {        
         $request = $this->input->post("request");
 
         $userID  = get_cookie("User");
@@ -42,7 +42,6 @@ class Translation extends CI_Controller {
         $request['userID'] = $userID;
 
         $this->TranslationModel->insertRequest($request);
-
     }
 
     public function deleteRequestByID()

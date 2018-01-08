@@ -12,6 +12,10 @@ class Friend extends CI_Controller {
     public function index()
     {
         $userID = get_cookie("User");
+        if ($userID == null) {
+			redirect("/landing");
+		}
+
         $userInfo = $this->SettingsModel->getProfile($userID);
 
         $data["name"]    = $userInfo["name"];
