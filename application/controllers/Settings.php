@@ -62,7 +62,7 @@ class Settings extends CI_Controller {
 
 		$this->SettingsModel->insertAboutMe($userID, $aboutMe);
 
-		//echo "True";
+		echo "True";
 	}
 
 	public function changePassword()
