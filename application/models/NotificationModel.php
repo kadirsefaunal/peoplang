@@ -13,6 +13,8 @@ class NotificationModel extends CI_Model
         $notifications = $this->db->get_where("Notifications", array("nUserID" => $userID));
         $notifications = $notifications->result_array();
 
+        usort($notifications, $this->build_sorter('ID'));
+
         $mapNotifs = array();
         foreach ($notifications as $n) {
             $user       = $this->UserControl->getUserByID($n["userID"]);
@@ -30,5 +32,11 @@ class NotificationModel extends CI_Model
         }
 
         return $mapNotifs;
+    }
+
+    public function build_sorter($key) {
+        return function ($a, $b) use ($key) {
+            return strnatcmp($b[$key], $a[$key]);
+        };
     }
 }

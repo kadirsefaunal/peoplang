@@ -20,6 +20,8 @@ class Notification extends CI_Controller {
 		$this->load->view('layouts/appLayout', $data);
     }
 
+    
+
     public function notificationSetRead()
     {
         $userID = get_cookie("User");

@@ -44,6 +44,22 @@ class TranslationRequest extends CI_Controller {
         );
         //var_dump($newAnswer);
         $this->TranslationModel->insertAnswer($newAnswer);
+
+        $question = $this->db->get_where("TranslationRequests", array("ID" => $answer["questionID"]));
+        $question = $question->first_row();
+
+        if ($userID != $question->userID)
+        {
+            $notif = array(
+                "userID" => $userID,
+                "nUserID" => $question->userID,
+                "notification" => " responded to the request for translation.",
+                "read" => false
+            );
+    
+            $this->db->insert("Notifications", $notif);
+        }
+
         echo "kayıt başarılı";
     }
     
