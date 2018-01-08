@@ -12,8 +12,6 @@
                         <input type="hidden" id="trID" value="<?php echo $translationRequest->ID; ?>">
                         <h4><?php echo $translationRequest->title; ?></h4>
                         <p><?php echo $translationRequest->text; ?></p>
-                        <button type="button" class="btn btn-danger btn-md float-right">
-                            <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ $(document).ready(function () {
         else if (request.textLanguage == "Text Language") {
             toastr.warning("Text Language can not be empty!");
         }
-        else if(request.languageToTranslation != "Choose Level"){
+        else if(request.languageToTranslation == "Choose Level"){
             toastr.warning("Translate can not be empty!");
         }
         else{
@@ -62,7 +62,7 @@ $(document).ready(function () {
                 console.log(result);
                 getRequest();    
             });
-            toastr.success("Translation Request!");
+            toastr.success("Translation Request Sent!");
         }
 
     });

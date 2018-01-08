@@ -5,13 +5,17 @@ $(document).ready(function () {
             answer: $('#answer').val(),
             questionID: $('#trID').val()
         };
-        console.log(answer);
 
-        $.post('../translationRequest/saveAnswer', { answer: answer }, function (result) {
-            getAnswers(answer.questionID);
-            console.log(result);
-            
-        });
+        if(answer.answer == null || answer.answer == ""){
+            toastr.warning("Answer can not be empty!");
+        }
+        else{
+            $.post('../translationRequest/saveAnswer', { answer: answer }, function (result) {
+                getAnswers(answer.questionID);
+                toastr.success("The answer was sent!");
+            });
+        }
+        
     });
 });
 
