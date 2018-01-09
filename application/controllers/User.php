@@ -35,7 +35,7 @@ class User extends CI_Controller {
                 $this->OnlineModel->beOnline($this->db->insert_id());
                 echo $result;
             } else {
-                echo "Veritabanı Hatası!";
+                echo "Database Error!";
             }
         } else {
             echo $result;

@@ -45,7 +45,8 @@ class MessageModel extends CI_Model {
                 "receiver" => $m["receiver"],
                 "message" => $m["message"],
                 "avatar" => $this->UserControl->getUserAvatar($user->ID),
-                "date" => $m["date"]
+                "date" => $m["date"],
+                "readStatus" => $m["readStatus"]
             );
 
             array_push($mapMessage, $mes);
@@ -72,6 +73,14 @@ class MessageModel extends CI_Model {
 
         $receiversInfo = array();
         foreach ($receivers as $r) {
+            $this->db->where("userID", $userID);
+            $this->db->where("receiver", $r["receiver"]);
+            $this->db->from("messages");
+            $this->db->order_by("date", "DESC");
+
+            $query = $this->db->get();
+            $message = $query->first_row();
+
             $user       = $this->UserControl->getUserByID($r["receiver"]);
             $userInfo   = $this->UserControl->getUserInformation($user->userInformationID);
 
@@ -79,7 +88,9 @@ class MessageModel extends CI_Model {
                 "userID"   => $user->ID,
                 "userName" => $user->userName,
                 "name"     => $userInfo->name,
-                "avatar"   => $this->UserControl->getUserAvatar($user->ID)
+                "avatar"   => $this->UserControl->getUserAvatar($user->ID),
+                "message"  => $message->message,
+                "readStatus" => $message->readStatus
             );
             array_push($receiversInfo, $receiver);
         }
@@ -103,6 +114,14 @@ class MessageModel extends CI_Model {
                     }
                 }
                 if ($status == true) {
+                    $this->db->where("userID", $r["userID"]);
+                    $this->db->where("receiver", $userID);
+                    $this->db->from("messages");
+                    $this->db->order_by("date", "DESC");
+
+                    $query = $this->db->get();
+                    $message = $query->first_row();
+
                     $user       = $this->UserControl->getUserByID($r["userID"]);
                     $userInfo   = $this->UserControl->getUserInformation($user->userInformationID);
     
@@ -110,7 +129,9 @@ class MessageModel extends CI_Model {
                         "userID"   => $user->ID,
                         "userName" => $user->userName,
                         "name"     => $userInfo->name,
-                        "avatar"   => $this->UserControl->getUserAvatar($user->ID)
+                        "avatar"   => $this->UserControl->getUserAvatar($user->ID),
+                        "message"  => $message->message,
+                        "readStatus" => $message->readStatus
                     );
                     array_push($receiversInfo, $receiver);
                 }

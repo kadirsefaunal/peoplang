@@ -13,13 +13,13 @@ $(document).ready(function () {
                 "id": msg.userID
             };
             $.post("getMessageUser", { user: user }, function (result) {  
-                console.log(result);
                 var m = $.parseJSON(result);
                 $(".chat").append('<li class="left clearfix"><span class="chat-img pull-left"><img src="'+m.avatar+ '" alt="User Avatar" class="rounded-circle" width="50px" height="50px" /></span><div class="chat-body clearfix"><p>'+ msg.message +'</p></div></li>');
             });
             $(".forScroll").scrollTop(scrollY);
         } else {
-            alert("yeni mesajın var!");
+            var sp = $("[uID="+ msg.userID +"]");
+            sp.html('<i class="fa fa-envelope" aria-hidden="true"></i>');
         }
     });
 
@@ -41,7 +41,6 @@ $(document).ready(function () {
                 };
     
                 $.post("getMessageUser", { user: user }, function (result) {  
-                    console.log(result);
                     var m = $.parseJSON(result);
                     $(".chat").append('<li class="left clearfix"><span class="chat-img pull-left"><img src="'+m.avatar+ '" alt="User Avatar" class="rounded-circle" width="50px" height="50px" /></span><div class="chat-body clearfix"><p>'+ obj.message +'</p></div></li>')
                 });
@@ -49,5 +48,31 @@ $(document).ready(function () {
                 socket.emit('new_message', obj);
             }); 
         }
+    });
+
+    $(document.body).on("click", "#seeUserMessage", function () {  
+        var user = {
+            userID: $(this).attr("userID")
+        };
+
+        console.log(user);
+        
+        $.post('../notification/messageSetReadForUser', { user: user }, function (result) {  
+            //href="<?php echo base_url("message/".$r["userID"]); ?>"
+            window.location = "../message/" + user.userID;
+        });
+    });
+
+    $(document.body).on("click", "#seeUserMessage2", function () {  
+        var user = {
+            userID: $(this).attr("userID")
+        };
+
+        console.log(user);
+        
+        $.post('notification/messageSetReadForUser', { user: user }, function (result) {  
+            //href="<?php echo base_url("message/".$r["userID"]); ?>"
+            window.location = "message/" + user.userID;
+        });
     });
 });

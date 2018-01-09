@@ -13,10 +13,11 @@ class Message extends CI_Controller {
     {
         $userID = get_cookie("User");
 
-        $user = $this->UserControl->getUserByID($userID);
-		if($user->registerStatus == "f"){
+        $userreg = $this->UserControl->getUserByID($userID);
+		if($userreg->registerStatus == "f"){
 			redirect("/settings");
-		}
+        }
+        
         $receivers = $this->MessageModel->getMessagesUsers($userID);
         
         if ($user != null) {
@@ -26,7 +27,7 @@ class Message extends CI_Controller {
             } 
 
             $data["messages"] = $this->MessageModel->getMessages($userID, $user);
-            $data["status"] = true;
+
             $status = true;
             foreach ($receivers as $r) {
                 if ($r["userID"] == $user) {
@@ -36,7 +37,7 @@ class Message extends CI_Controller {
             }
 
             if ($status == true) {
-                $u       = $this->UserControl->getUserByID($user);
+                $u          = $this->UserControl->getUserByID($user);
                 $userInfo   = $this->UserControl->getUserInformation($u->userInformationID);
                 
                 $receiver = array(
@@ -48,10 +49,9 @@ class Message extends CI_Controller {
 
                 array_push($receivers, $receiver);
             }
-
+            $data["receiver"] = $user;
         } else {
-            $data["messages"] = $this->MessageModel->getMessages($userID, $receivers[0]["userID"]);
-            $data["status"] = false;
+            $data["receiver"] = null;
         }
 
         $data["receivers"] = $receivers;
@@ -59,8 +59,7 @@ class Message extends CI_Controller {
         $userID = get_cookie("User");
         $userInformation = $this->SettingsModel->getProfile($userID);
         $data["name"] = $userInformation["name"];
-        $data["userID"] = $userID;
-        $data["receiver"] = $user;
+        
         $data["content"] = "message/index";
         $this->load->view('layouts/appLayout', $data);
     }

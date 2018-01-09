@@ -124,10 +124,7 @@
             $data["Countries"] = $Countries;
             $this->load->view($content, $data);
         } else if ($content == "message/index") {
-            $data["userID"] = $userID;
             $data["receivers"] = $receivers;
-            $data["messages"] = $messages;
-            $data["status"] = $status;
 
             $data["receiver"] = $receiver;
             $this->load->view($content, $data);
@@ -145,7 +142,6 @@
             $('.mdb-select').material_select();
             $('.datepicker').pickadate();
 
-            
             setInterval(function () { 
                 $.get('app/getNotificationCount', function (result) {  
                     
@@ -153,16 +149,19 @@
                         $("#notificationCount").text(result);
                     }
                 });
-            }, 10000);
+            }, 1000);
 
             $("#notificationSee").click(function () {  
                 $.get('notification/notificationSetRead');
             });
 
-            $("#messageSee").click(function () {  
-                $.get('notification/messageSetRead');
+            $.get("app/getMessageCount", function (result) {  
+                if (result != 0) {
+                    $("#messageCount").text(result);
+                }
             });
         });
+        
         var socket = io('http://'+window.location.hostname+':3000');
         var id = $("#cookie").val();
         socket.emit('setUser', id);
