@@ -24,7 +24,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center mt-3">
-                        <i class="fa fa-mars" aria-hidden="true"></i>
+                        <?php if ($friend["gender"] == "Male") { ?>
+                            <i class="fa fa-mars" aria-hidden="true"></i>
+                        <?php } else { ?>
+                            <i class="fa fa-venus" aria-hidden="true"></i>
+                        <?php } ?>
                         <a href="<?php echo base_url("u/" . $friend["userName"]); ?>"><?php echo $friend["userName"]; ?></a>
                         <span>| <?php echo $friend["age"]; ?></span>
                         <br>

@@ -15,7 +15,13 @@ $(document).ready(function () {
 
             $("#onlineUsers").empty();
             $.each(obj, function (i, item) {  
-                $("#onlineUsers").append("<div class='col-md-3 mt-3'><div class='card card-body'><div class='row'><div class='col-md-12'><div class='text-center mt-3'><a href='u/" + item.userName + "'><img src='" + item.avatar + "' class='rounded-circle img-responsive z-depth-1' alt='Responsive image' height='150px' width='150px'></a></div></div></div><div class='row'><div class='col-md-12'><div class='text-center mt-3'><i class='fa fa-mars' aria-hidden='true'></i><a href='u/" + item.userName + "'>" + item.userName + "</a><span>| " + item.age + "</span><br><img src='" + item.flag + "' width='24' height='24'><span>" + item.location + "</span></div></div></div></div></div>")
+                var gender = "";
+                if(item.gender == "male"){
+                    gender = "<i class='fa fa-mars' aria-hidden='true'></i>"
+                }else{
+                    gender = "<i class='fa fa-venus' aria-hidden='true'></i>"
+                }
+                $("#onlineUsers").append("<div class='col-md-3 mt-3'><div class='card card-body'><div class='row'><div class='col-md-12'><div class='text-center mt-3'><a href='u/" + item.userName + "'><img src='" + item.avatar + "' class='rounded-circle img-responsive z-depth-1' alt='Responsive image' height='150px' width='150px'></a></div></div></div><div class='row'><div class='col-md-12'><div class='text-center mt-3'>"+ gender +"<a href='u/" + item.userName + "'>" + item.userName + "</a><span>| " + item.age + "</span><br><img src='" + item.flag + "' width='24' height='24'><span>" + item.location + "</span></div></div></div></div></div>")
             
 
             });
