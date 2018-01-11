@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    // var scrollHeight = $("#myScroll").prop("scrollHeight");
-    // $("#myScroll").scrollTop(scrollHeight);
-    // var scrollY = $("#myScroll").scrollTop();
-    $('#myScroll').scrollTop($('#myScroll')[0].scrollHeight);
+    var scrollHeight = $("#myScroll").prop("scrollHeight");
+    $("#myScroll").scrollTop(scrollHeight);
+    var scrollY = $("#myScroll").scrollTop();
+   
 
     var id = $("#cookie").val();
     var socket = io.connect( 'http://'+window.location.hostname+':3000' );
