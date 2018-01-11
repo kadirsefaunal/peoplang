@@ -38,7 +38,7 @@
         <div class="card card-body">
             <div class="panel-body forScroll">
                 <div class="row" style="min-height:550px; max-height:550px; ">
-                    <div class="col-md-3" style="overflow-y:auto;">
+                    <div class="col-md-3" style="overflow-y:auto; overflow-x:hidden;">
                         <?php foreach ($receivers as $r) { ?>
                             <div class="row">
                                 <a id="seeUserMessage" href="#" userID="<?php echo $r["userID"]; ?>" class="name" style="width:100%;">
