@@ -15,7 +15,13 @@
 .btn-default{background:#6B456A; color:#fff; border-radius:30px; border:none; font-size:16px;}
 
 
+a {
+    color: #FA605C;
+}
 
+a:hover{
+    color: #9B0703;
+}
 
 
 .hm-gradient {

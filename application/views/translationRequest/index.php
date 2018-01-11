@@ -339,7 +339,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="text-center">
-                        <button type="button" id="requestSend" class="btn blue-gradient btn-block btn-rounded z-depth-1a">
+                        <button type="button" id="requestSend" class="btn btn-block btn-rounded red darken-1">
                             <i class="fa fa-paper-plane"></i> Send</button>
                     </div>
                 </div>

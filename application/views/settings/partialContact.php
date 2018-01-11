@@ -43,6 +43,6 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-primary float-right saveContact">Save</button>
+        <button type="button" class="btn btn-primary float-right red lighten-1 saveContact">Save</button>
     </div>
 </div>

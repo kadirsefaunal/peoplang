@@ -251,7 +251,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary btn-sm float-right" id="search">
+                        <button type="button" class="btn red btn-sm float-right" id="search">
                             <i class="fa fa-search" aria-hidden="true"></i> Search</button>
                     </div>
                 </div>

@@ -74,7 +74,7 @@ $(document).ready(function () {
         if (lang.language != "Choose Language" && lang.level != "Choose Level") {
             $.post("settings/addLangSpeaks", { lang: lang }, function (result) {
                 if (result > 0) {
-                    $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangSpeaks\" langID=\"" + result + "\">-</a></div></div>");
+                    $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm red lighten-1\" id=\"deleteLangSpeaks\" langID=\"" + result + "\"><i class='fa fa-minus' aria-hidden='true'></i></a></div></div>");
                 } else {
                     toastr.warning(result);
                 }
@@ -98,12 +98,12 @@ $(document).ready(function () {
                 if (langid.status == true) {
                     $(".languagesSpeaks").empty();
                     $.each(obj, function (i, item) {
-                        $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangSpeaks\" langID=\"" + item.ID + "\">-</a></div></div>");
+                        $(".languagesSpeaks").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm red lighten-1\" id=\"deleteLangSpeaks\" langID=\"" + item.ID + "\"><i class='fa fa-minus' aria-hidden='true'></i></a></div></div>");
                     });
                 } else {
                     $(".languagesLearn").empty();
                     $.each(obj, function (i, item) {
-                        $(".languagesLearn").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangLearning\" langID=\"" + item.ID + "\">-</a></div></div>");
+                        $(".languagesLearn").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + item.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm red lighten-1\" id=\"deleteLangLearning\" langID=\"" + item.ID + "\"><i class='fa fa-minus' aria-hidden='true'></i></a></div></div>");
                     });
                 }
             } else {
@@ -172,7 +172,7 @@ $(document).ready(function () {
         if (lang.language != "Choose Language" && lang.level != "Choose Level") {
             $.post("settings/addLangSpeaks", { lang: lang }, function (result) {
                 if (result > 0) {
-                    $(".languagesLearn").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm\" id=\"deleteLangLearning\" langID=\"" + result + "\">-</a></div></div>");
+                    $(".languagesLearn").append("<div class=\"row lang\"><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.language + "</label></div></div><div class=\"col-md-5\"><div class=\"md-form form-sm\"><label>" + lang.level + "</label></div></div><div class=\"col-md-2\"><a class=\"btn-floating float-right btn-sm red lighten-1\" id=\"deleteLangLearning\" langID=\"" + result + "\"><i class='fa fa-minus' aria-hidden='true'></i></a></div></div>");
                 } else {
                     toastr.warning(result);
                 }
@@ -259,11 +259,11 @@ $(document).ready(function () {
             var obj = $.parseJSON(result);
             $("#imageList").empty();
             $.each(obj, function (i, item) {  
-                $("#imageList").append("<div class='col-md-4 mt-3'><div class='view overlay hm-white-slight'><img src='" + item.url + "' class='img-fluid' alt='" + item.url + "'><a data-toggle='modal' data-target='#modalmodalmodal' imageID='" + item.imageID + "'> <div class='mask waves-effect waves-light'></div></a></div></div>");
+                $("#imageList").append("<div class='col-md-4 mt-3'><div class='view overlay hm-white-slight'><img src='" + item.url + "' alt='" + item.url + "'  width='200' height='200'><a data-toggle='modal' data-target='#modalmodalmodal' imageID='" + item.imageID + "'> <div class='mask waves-effect waves-light'></div></a></div></div>");
             });
 
             if (obj.length < 9) {
-                $("#imageList").append("<div class='col-md-4 mt-3'><label class='custom-file-upload'><input type='file' id='imageInput' name='imageInput' /><a type='file'><i class='fa fa-plus' aria-hidden='true'></i></a></label></div> ");
+                $("#imageList").append("<div class='col-md-4 mt-3'><label class='custom-file-upload'><input type='file' id='imageInput' name='imageInput' /><a type='file' style='font-size:150px;'><i class='fa fa-plus' aria-hidden='true'></i></a></label></div> ");
             }
         });
     };

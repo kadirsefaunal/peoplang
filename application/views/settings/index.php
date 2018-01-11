@@ -1,5 +1,5 @@
 <div class="container">
-    <ul class="nav nav-tabs nav-justified mt-3">
+    <ul class="nav nav-tabs nav-justified mt-3 red lighten-1">
         <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
         </li>
@@ -46,7 +46,7 @@
                         foreach ($Images as $Image) { ?>
                             <div class="col-md-4 mt-3">
                                 <div class="view overlay hm-white-slight">
-                                    <img src="<?php echo $Image["url"]; ?>" class="img-fluid" alt="<?php echo $Image["url"]; ?>">
+                                    <img src="<?php echo $Image["url"]; ?>" alt="<?php echo $Image["url"]; ?>" width="200" height="200">
                                     <a data-toggle="modal" data-target="#modalmodalmodal" imageID="<?php echo $Image["imageID"]; ?>"> 
                                         <div class="mask waves-effect waves-light"></div>
                                     </a>

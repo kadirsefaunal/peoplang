@@ -12,7 +12,7 @@
 
 
                         <div class="text-center">
-                            <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a" id="postSend">Share</button>
+                            <button type="button" class="btn btn-block btn-rounded red darken-1" id="postSend">Share</button>
                         </div>
 
                     </div>

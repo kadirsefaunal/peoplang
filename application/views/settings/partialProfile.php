@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <a class="btn-floating float-right changePwd">
+                                    <a class="btn-floating float-right changePwd red lighten-1">
                                         <i class="fa fa-save" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -309,7 +309,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn-floating float-right btn-sm addLangSpeaks">
+                    <a class="btn-floating float-right btn-sm addLangSpeaks red lighten-1">
                         <i class="fa fa-save" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -329,7 +329,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn-floating float-right btn-sm" id="deleteLangSpeaks" langID="<?php echo $lang["ID"]; ?>">-</a>
+                            <a class="btn-floating float-right btn-sm red lighten-1" id="deleteLangSpeaks" langID="<?php echo $lang["ID"]; ?>"><i class="fa fa-minus" aria-hidden="true"></i></a>
                         </div>
                     </div>   
                     <?php }
@@ -518,7 +518,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn-floating float-right btn-sm addLangLearn">
+                    <a class="btn-floating float-right btn-sm addLangLearn red lighten-1">
                         <i class="fa fa-save" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -538,7 +538,7 @@
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <a class="btn-floating float-right btn-sm" id="deleteLangLearning" langID="<?php echo $lang["ID"]; ?>">-</a>
+                            <a class="btn-floating float-right btn-sm red lighten-1" id="deleteLangLearning" langID="<?php echo $lang["ID"]; ?>"><i class="fa fa-minus" aria-hidden="true"></i></a>
                         </div>
                     </div>   
                     <?php }
@@ -551,7 +551,7 @@
 <!--/.Panel 1-->
 <div class="row mt-3">
     <div class="col-md-12">
-        <button type="button" class="btn btn-primary float-right" id="saveProfile">Save</button>
+        <button type="button" class="btn btn-primary float-right red" id="saveProfile">Save</button>
     </div>
 </div>
 

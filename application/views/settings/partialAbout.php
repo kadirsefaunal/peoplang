@@ -87,6 +87,6 @@
 
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-primary float-right saveAboutMe">Save</button>
+        <button type="button" class="btn btn-primary float-right red lighten-1 saveAboutMe">Save</button>
     </div>
 </div>

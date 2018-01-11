@@ -43,7 +43,7 @@
                         </div>
                         <?php if ($user != null) { 
                             foreach ($user["speaks"] as $lang) { ?>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="text-center">
                                         <span> <?php echo $lang["language"]; ?> | </span>
                                         <span> <?php echo $lang["level"]; ?></span>
@@ -62,7 +62,7 @@
                         </div>
                         <?php if ($user != null) { 
                             foreach ($user["learning"] as $lang) { ?>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="text-center">
                                         <span> <?php echo $lang["language"]; ?> | </span>
                                         <span> <?php echo $lang["level"]; ?></span>
@@ -113,7 +113,7 @@
                             <?php if ($friendStatus == false) { ?>
                                 <div class="col-md-3 mt-1">
                                     <div class="text-center">
-                                        <a id="addFriend" class="btn-floating btn-lg success-color" userID="<?php echo $user["userID"]; ?>">
+                                        <a id="addFriend" class="btn-floating btn-lg success-color" userID="<?php echo $user["userID"]; ?>" style="font-size:150px;">
                                             <i class="fa fa-user-plus"></i>
                                         </a>
                                     </div>
@@ -278,7 +278,7 @@
 
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-justified indigo mt-3">
+                <ul class="nav nav-tabs nav-justified red lighten-1 mt-3">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#about" role="tab">
                             <i class="fa fa-user"></i> About</a>

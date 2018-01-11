@@ -17,11 +17,11 @@
     <meta name="author" content="Phalcon Team">
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="grey lighten-5">
 <input type="hidden" id="cookie" value="<?php echo get_cookie("User"); ?>">
     <div>
          <!--Navbar -->
-    <nav class="mb-4 navbar sticky-top navbar-expand-lg navbar-dark indigo">
+    <nav class="mb-4 navbar sticky-top navbar-expand-lg navbar-dark red darken-1">
         <a class="navbar-brand" href="#">
             <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
         </a>
