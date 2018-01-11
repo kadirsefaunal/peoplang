@@ -15,8 +15,12 @@
 
     <style>
         .intro-2 {
-            /*background: url("http://mdbootstrap.com/img/Photos/Others/forest1.jpg")no-repeat center center;*/
+            background: url("public/img/back.jpg")no-repeat center center;
             background-size: cover;
+        }
+
+        .maincolor{
+            background-color: #FF5656;
         }
 
         .top-nav-collapse {
@@ -40,7 +44,7 @@
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.7);
         }
 
         .md-form .prefix {
@@ -131,14 +135,13 @@
                                             <!--Grid row-->
                                             <div class="row pb-4">
                                                 <div class="col-2 col-lg-1">
-                                                    <i class="fa fa-bank indigo-text fa-lg"></i>
+                                                    <i class="fa fa-bank red-text darken-1 fa-lg"></i>
                                                 </div>
                                                 <div class="col-10">
                                                     <h4 class="feature-title">
-                                                        <strong>Safety</strong>
+                                                        <strong>Make new friends</strong>
                                                     </h4>
-                                                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-                                                        maiores nam, aperiam minima assumenda deleniti hic.</p>
+                                                    <p class="">Meet people from all over the world and make friends with them.</p>
                                                 </div>
                                             </div>
                                             <!--Grid row-->
@@ -146,14 +149,13 @@
                                             <!--Grid row-->
                                             <div class="row pb-4">
                                                 <div class="col-2 col-lg-1">
-                                                    <i class="fa fa-desktop deep-purple-text fa-lg"></i>
+                                                    <i class="fa fa-desktop red-text darken-1 fa-lg"></i>
                                                 </div>
                                                 <div class="col-10">
                                                     <h4 class="feature-title">
-                                                        <strong>Technology</strong>
+                                                        <strong>Learn a language</strong>
                                                     </h4>
-                                                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-                                                        maiores nam, aperiam minima assumenda deleniti hic.</p>
+                                                    <p class="">Practice language practice by talking to people and developing foreign language skills. Send a translation request and translate it.</p>
                                                 </div>
                                             </div>
                                             <!--Grid row-->
@@ -161,14 +163,13 @@
                                             <!--Grid row-->
                                             <div class="row pb-4">
                                                 <div class="col-2 col-lg-1">
-                                                    <i class="fa fa-money purple-text fa-lg"></i>
+                                                    <i class="fa fa-money red-text darken-1 fa-lg"></i>
                                                 </div>
                                                 <div class="col-10">
                                                     <h4 class="feature-title">
-                                                        <strong>Finance</strong>
+                                                        <strong>Discover the world</strong>
                                                     </h4>
-                                                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
-                                                        maiores nam, aperiam minima assumenda deleniti hic.</p>
+                                                    <p class="">Discover people from different countries and discover their culture.</p>
                                                 </div>
                                             </div>
                                             <!--Grid row-->
@@ -179,18 +180,39 @@
                                         <!--Grid column-->
                                         <div class="col-md-5">
                                             <!-- Nav tabs -->
-                                            <ul class="nav nav-tabs nav-justified indigo">
+                                            <ul class="nav nav-tabs nav-justified red darken-1">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Register</a>
+                                                    <a class="nav-link active" data-toggle="tab" href="#panel2" role="tab">Log in</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Log in</a>
+                                                    <a class="nav-link" data-toggle="tab" href="#panel1" role="tab">Register</a>
                                                 </li>
                                             </ul>
                                             <!-- Tab panels -->
                                             <div class="tab-content card">
                                                 <!--Panel 1-->
-                                                <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                                                <div class="tab-pane fade in show active" id="panel2" role="tabpanel">
+                                                    <br>
+                                                    <!--Login-->
+                                                    <div class="md-form">
+                                                        <i class="fa fa-user prefix"></i>
+                                                        <input type="text" id="sInUserName" class="form-control" required>
+                                                        <label for="sInUserName">Username</label>
+                                                    </div>
+                                                    <div class="md-form">
+                                                        <i class="fa fa-lock prefix"></i>
+                                                        <input type="password" id="sInPassword" class="form-control" required>
+                                                        <label for="sInPassword">Password</label>
+                                                    </div>
+
+                                                    <div class="text-center">
+                                                        <button class="btn btn-indigo btn-rounded mt-5 login red darken-1">Sign in</button>
+                                                    </div>
+                                                </div>
+                                                <!--/.Panel 2-->
+                                                <!--/.Panel 1-->
+                                                <!--Panel 2-->
+                                                <div class="tab-pane fade" id="panel1" role="tabpanel">
                                                     <br>
                                                     <!--Register-->
                                                     <div class="md-form">
@@ -211,30 +233,9 @@
                                                     </div>
 
                                                     <div class="text-center">
-                                                        <button class="btn btn-indigo btn-rounded mt-5 register">Sign up</button>
+                                                        <button class="btn btn-indigo btn-rounded mt-5 register red darken-1">Sign up</button>
                                                     </div>
                                                 </div>
-                                                <!--/.Panel 1-->
-                                                <!--Panel 2-->
-                                                <div class="tab-pane fade" id="panel2" role="tabpanel">
-                                                    <br>
-                                                    <!--Login-->
-                                                    <div class="md-form">
-                                                        <i class="fa fa-user prefix"></i>
-                                                        <input type="text" id="sInUserName" class="form-control" required>
-                                                        <label for="sInUserName">Username</label>
-                                                    </div>
-                                                    <div class="md-form">
-                                                        <i class="fa fa-lock prefix"></i>
-                                                        <input type="password" id="sInPassword" class="form-control" required>
-                                                        <label for="sInPassword">Password</label>
-                                                    </div>
-
-                                                    <div class="text-center">
-                                                        <button class="btn btn-indigo btn-rounded mt-5 login">Sign in</button>
-                                                    </div>
-                                                </div>
-                                                <!--/.Panel 2-->
                                             </div>
 
 
