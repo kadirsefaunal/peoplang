@@ -23,7 +23,13 @@ $(document).ready(function () {
             var obj = $.parseJSON(result);
             $("#myRequest").empty();
             $.each(obj, function (i, item) {
-                $("#myRequest").append("<tr><th><a href='tr/" + item.ID +"'>" + item.title + "</a></th><td>" + item.date + "</td><td>" + item.textLanguage + "</td><td>" + item.languageToTranslation + "</td><td><a requestID='" + item.ID + "'class='btn-floating btn-sm red'><i class='fa fa-trash'></i></a></td></tr>");
+                var miliscUnixTime = item.date * 1000;
+                var date = new Date(miliscUnixTime);
+                var day = (date.getDate() < 10 ? '0' : '') + date.getDate();
+                var month = (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1);
+                var year = date.getFullYear();
+                var shortDate = day + "/" + month + "/" + year;
+                $("#myRequest").append("<tr><th><a href='tr/" + item.ID +"'>" + item.title + "</a></th><td>" + shortDate + "</td><td>" + item.textLanguage + "</td><td>" + item.languageToTranslation + "</td><td><a requestID='" + item.ID + "'class='btn-floating btn-sm red'><i class='fa fa-trash'></i></a></td></tr>");
             });
             $("#postList").append("</ul>");
         });

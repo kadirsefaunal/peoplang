@@ -37,7 +37,7 @@ class TranslationModel extends CI_Model
                 "name"                  => $userInformation->name,
                 "userName"              => $user->userName,
                 "userAvatar"            => $userAvatar,
-                "date"                  => $r["date"]
+                "date"                  => gmdate("d/m/Y", $r["date"])
             );
             array_push($answers, $answer);
         }
@@ -99,7 +99,7 @@ class TranslationModel extends CI_Model
                 "languageToTranslation" => $r["languageToTranslation"],
                 "userAvatar"            => $userAvatar,
                 "title"                 => $r["title"],
-                "date"                  => $r["date"]
+                "date"                  => gmdate("d/m/Y", $r["date"])
             );
             array_push($translationRequests, $newTR);
         }

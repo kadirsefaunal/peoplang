@@ -370,7 +370,7 @@
                         <?php foreach($requests as $request) { ?>  
                             <tr>
                                 <th><a href="<?php echo base_url("tr/" . $request["ID"]); ?>"><?php echo $request["title"]; ?></a></th>
-                                <td><?php echo $request["date"]; ?></td>
+                                <td><?php echo gmdate("d/m/Y", $request["date"]); ?></td>
                                 <td><?php echo $request["textLanguage"]; ?></td>
                                 <td><?php echo $request["languageToTranslation"]; ?></td>
                                 <td>

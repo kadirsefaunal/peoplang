@@ -48,7 +48,7 @@ class PostModel extends CI_Model
                 "userAvatar" => $userAvatar,
                 "postID"     => $p["ID"],
                 "content"    => $p["content"],
-                "date"       => $p["date"]
+                "date"       => gmdate("d/m/Y", $p["date"]) 
             );
             array_push($postList, $newPost);
         }
@@ -67,7 +67,7 @@ class PostModel extends CI_Model
                     "userAvatar" => $userAvatar,
                     "postID"     => $p["ID"],
                     "content"    => $p["content"],
-                    "date"       => $p["date"]
+                    "date"       => gmdate("d/m/Y", $p["date"]) 
                 );
                 array_push($postList, $newPost);
             }
