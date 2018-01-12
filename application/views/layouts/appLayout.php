@@ -23,7 +23,7 @@
          <!--Navbar -->
     <nav class="mb-4 navbar sticky-top navbar-expand-lg navbar-dark red darken-1">
         <a class="navbar-brand" href="#">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
+            <i class="fa fa-globe" aria-hidden="true"></i> PEOPLANG
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3"
             aria-expanded="false" aria-label="Toggle navigation">

@@ -121,7 +121,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="feature-title text-center mb-1 mt-1 font-bold">
-                                        <strong>PEOPLANG</strong>
+                                        <strong><i class="fa fa-globe" aria-hidden="true"></i> PEOPLANG</strong>
                                     </h2>
                                     <hr>
 
