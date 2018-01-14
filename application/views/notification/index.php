@@ -10,8 +10,8 @@
                             <?php echo $n["notification"]; ?>
                             <?php if ($n["notification"] == " sent a friend request.") { ?>
                                 <div class="float-right">
-                                    <button class="btn" uID="<?php echo $n["userID"]; ?>" id="acceptFriendReq">Accept</button>
-                                    <button class="btn" uID="<?php echo $n["userID"]; ?>" id="rejectFriendReq">Reject</button>
+                                    <button class="btn btn-success" uID="<?php echo $n["userID"]; ?>" id="acceptFriendReq">Accept</button>
+                                    <button class="btn btn-danger" uID="<?php echo $n["userID"]; ?>" id="rejectFriendReq">Reject</button>
                                 </div>
                             <?php } ?>
 

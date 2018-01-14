@@ -68,7 +68,7 @@ class Profile extends CI_Controller {
 			"userID"			=> $u->ID
 		);
 
-		$ui = $this->SettingsModel->getProfile($userID);
+		$ui = $this->SettingsModel->getProfile(get_cookie("User"));
 		$data["name"] = $ui["name"]; 
 		$data["user"] = $user;
 		$data['content'] = "profile/index";
